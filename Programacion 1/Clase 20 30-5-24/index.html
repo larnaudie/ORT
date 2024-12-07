@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="js/clases.js"></script>
+        <script src="js/sistema.js"></script>
+        <script src="js/codigo.js"></script>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+
+      <div id="contenedor">
+        <header>
+          <img id="logo" src="https://p1.develotion.com/cart.jpg" alt="logo" />
+          <nav>
+            <ul id="navPrincipal">
+              <li id="btnSeccionAgregar" class="btnSeccion user admin">
+                <a>Agregar</a>
+              </li>
+              <li id="btnSeccionListar" class="btnSeccion user">
+                <a>Listar</a>
+              </li>
+              <li id="btnSeccionBuscar" class="btnSeccion admin user">
+                <a>Buscar</a>
+              </li>
+              <li id="btnSeccionX" class="btnSeccion admin user">
+                <a>X</a>
+              </li>
+              <li id="menuSalir">
+                <a>Salir</a>
+              </li>
+            </ul>
+            <div id="aux">
+              <p id="nombreUsuarioLogeado"></p>
+            </div>
+          </nav>
+
+        </header>
+        <!-- FIN CABEZAL -->
+        <main>
+
+          <section id="seccionLogin" class="seccion">
+            <h2>Login</h2>
+
+            <label for="txtUsuario">Ingrese Usuario</label>
+            <input type="text" id="txtUsuario"><br>
+
+            <label for="txtClave">Ingrese Clave</label>
+            <input type="password" id="txtClave"><br>
+
+            <input type="button" value="Login" id="btnLogin"><br>
+            
+          </section>
+
+
+          <section id="seccionRegistro" class="seccion">
+            <h2>Registro</h2>
+
+            <label for="txtUsuarioRegistro">Ingrese Usuario</label>
+            <input type="text" id="txtUsuarioRegistro"><br>
+
+            <label for="txtClaveRegistro">Ingrese Clave</label>
+            <input type="password" id="txtClaveRegistro"><br>
+
+            <label for="txtNombreCompletoRegistro">Ingrese Nombre Completo</label>
+            <input type="text" id="txtNombreCompletoRegistro"><br>
+
+            <input type="button" value="Registrar" id="btnRegistrar"><br>
+
+          </section>
+
+
+
+          <section id="seccionAgregar" class="seccion">
+            <label for="txtNombre">Nombre</label>
+            <input type="text" id="txtNombre"><br>
+      
+            <label for="txtAnio">Anio</label>
+            <input type="text" id="txtAnio"><br>
+      
+            <label for="fileFoto">Foto</label>
+            <input type="file" id="fileFoto"><br>
+      
+            <label for="slcGenero">Genero</label>
+            <select id="slcGenero"></select><br>
+      
+            <label for="txtVotantes">Votantes</label>
+            <input type="text" id="txtVotantes"><br>
+      
+            <label for="txtVotos">Votos</label>
+            <input type="text" id="txtVotos"><br>
+      
+            <input type="button" value="Agregar" id="btnAgregar"><br>
+
+          </section>
+
+          <section id="seccionListar" class="seccion">
+            <input type="button" value="Mostrar" id="btnMostrar"><br>
+            
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Anio</th>
+                        <th>Promedio</th>
+                    </tr>
+                </thead>
+                <tbody id="tblPeliculas"></tbody>
+            </table>
+          </section>
+
+          <section id="seccionBuscar" class="seccion">
+            <label for="txtBusqueda">Busqueda:</label>
+            <input type="text" id="txtBusqueda"><br>
+        
+            <input type="button" value="Buscar" id="btnBuscar">
+        
+            <p id="pResultado"></p>
+          </section>
+
+          <section id="seccionX" class="seccion">
+            <p id="pResultado">X</p>
+          </section>
+
+
+        </main>
+        <!-- FIN CONTENIDO -->
+        <footer>
+          <a href="https://www.ort.edu.uy">Footer</a>
+        </footer>
+        <!-- FIN PIE -->
+      </div>
+      <!-- FIN CONTENEDOR -->
+
+
+    </body>
+</html>

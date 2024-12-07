@@ -1,0 +1,108 @@
+/* no es necesario * margin 0 padding... / no hacer reset */
+@font-face {
+    font-family: 'bitcheese';
+    src: url('../fonts/bitcheese-webfont.woff2') format('woff2'),
+        url('../fonts/bitcheese-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'universe';
+    src: url('../fonts/universltstd-light-webfont.woff2') format('woff2'),
+        url('../fonts/universltstd-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+:root {
+    --naranjaoscuro: #D95204;
+    --naranjaclaro: #F29A2E;
+    --grisoscuro: #65736F;
+    --grisclaro: #D2D9D8;
+}
+
+h1,h2, nav{
+    font-family: 'bitcheese';
+}
+
+p{
+    font-family: 'universe';
+}
+
+
+/* borrar */
+header{
+    background-color:white;
+}
+
+nav{
+    background-color: var(--grisoscuro);
+}
+
+.btn.btn-primary{
+    background-color: var(--naranjaclaro);
+    border: none;
+    color:black;
+}
+
+.btn.btn-primary:hover{
+    background-color:  #c87713;
+    border: none;
+    color:black;
+}
+
+nav a.btn.btn-primary{
+    background-color: var(--grisoscuro);
+    border-color: var(--grisoscuro);
+    color: var(--grisclaro);
+    font-size: 1.2rem;
+}
+
+nav a.btn.btn-primary:hover{
+    background-color: var(--grisoscuro);
+    border-color: var(--grisoscuro);
+    color: var(--grisclaro);
+    font-size: 1.2rem;
+    color:#f8f8f8;
+}
+
+#hero{
+    background: url(../img/hero.jpg) no-repeat top center fixed;
+    background-size: cover ;
+    min-height: 50vh;
+    color: var(--naranjaoscuro);
+}
+
+#hero h1{
+    font-size: 3rem;
+}
+
+section{
+    font-family: 'universe';
+}
+
+section h1{
+    color: var(--naranjaclaro);
+}
+
+#ingredientes{
+    background-color: var(--naranjaoscuro);
+    color: white;
+}
+
+#ingredientes h2{
+    background-color: var(--naranjaoscuro);
+    color: var(--naranjaclaro);
+}
+
+#consultas h2{
+    color: var(--naranjaclaro);
+}
+
+footer{
+    background-color: var(--naranjaclaro);
+}

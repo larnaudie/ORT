@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Layout</h1>
+
+    <h2>Display block</h2>
+    <p>Se muestran como bloques independientes, causan un salto de linea antes y despues de su declaración</p>
+    <p>Por defecto ocupan el 100% del ancho del elemento que los contiene</p>
+
+    <p><small>div header footer main section article aside p blockquote h1-h6 fieldset form ol ul</small></p>
+
+    <h2>Display inline</h2>
+    <p>Se muestran siguiendo la linea en la que se encuentra, y no empiezan en una linea nueva</p>
+    <p>Ocupan solamente el espacio ocupado por su contenido</p>
+    <p><small>span em a img label input strong small </small></p>
+    <!-- <a href="#">Esto es un link inline</a> -->
+
+    <h2>Display inline-block</h2>
+    <p>Tendrá un comportamiento mezcla entre los dos anteriores</p>
+    <p>Estos elementos fluyen con el texto y demas elmentos como si fueran elementos en linea pero, ademas respetan el ancho, alto y margenes verticales asignados</p>
+
+
+    <h2>Display none</h2>
+    <p>Hace que el elemento no genere ninguna caja</p>
+    <div id="no-mostrar">
+        <h2>Elemento display:none;</h2>
+    </div>
+    <p>Este elemento desaparece por completo de la página y no ocupa sitio. Por lo que los elementos adyacentes ocupan su lugar</p>
+
+    <h2>display list-item</h2>
+    <p>Genera una caja principal, y otra adicional para los bullets (Viñetas) o caracteres alfanumericos</p>
+    <ul>
+        <li>Elemento de lista</li>
+        <li>Elemento de lista</li>
+        <li>Elemento de lista</li>
+        <li>Elemento de lista</li>
+        <li>Elemento de lista</li>
+    </ul>
+
+    <h2>Display table | table-row | table-cell</h2>
+    <p>Estos elementos se comportaran como una tabla.</p>
+
+    <table>
+        <tr>
+            <th>Cabezal de columna</th>
+            <th>Cabezal de columna</th>
+            <th>Cabezal de columna</th>
+            <th>Cabezal de columna</th>
+        </tr>
+        <tr>
+            <td>Celda de datos</td>
+            <td>Celda de datos</td>
+            <td>Celda de datos</td>
+            <td>Celda de datos</td>
+        </tr>
+        <tr>
+            <td>Celda de datos</td>
+            <td>Celda de datos</td>
+            <td>Celda de datos</td>
+            <td>Celda de datos</td>
+        </tr>
+        <tr>
+            <td>Celda de datos</td>
+            <td>Celda de datos</td>
+            <td>Celda de datos</td>
+            <td>Celda de datos</td>
+        </tr>
+    </table>
+
+</body>
+</html>

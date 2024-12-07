@@ -1,0 +1,158 @@
+https://aulas.ort.edu.uy/mod/page/view.php?id=501427
+
+FUNCIONES
+
+
+⭐Implementar una función que dados dos parámetros formales numéricos, n1 y n2, retorne cuántos números pares hay entre esos dos valores (inclusive).
+Prestar atención al planteo que pide trabajar con parámetros y retorno.
+
+
+⭐Implementar una función esBisiesto que reciba como parámetro un año y retorne true si ese año es bisiesto o false en caso contrario. Un año es bisiesto cuando siendo múltiplo de 4, no es múltiplo de 100 (a menos que sea múltiplo de 400).
+Ejemplos:
+1. 1999 no es bisiesto.
+2. 1900 y 2100 no son bisiestos (a pesar de ser múltiplos de 4).
+3. 1600 y 2000 sí fueron bisiestos, y 2400 lo será (a pesar de ser múltiplos de 100 son bisiestos ya que son múltiplos de 400).
+
+
+⭐Crear una función calcularAreaTriangulo, que reciba como parámetro base y altura y devuelva el área del triángulo.
+Se recomienda invocar posteriormente a esta función para verificar su correcto funcionamiento.
+Se debe validar que ambos valores sean numéricos positivos, en caso contrario devolver -1.
+
+
+⭐⭐Crear una función que reciba como parámetro un valor de temperatura y convierta ese valor (en Celsius) a Fahrenheit.
+
+
+
+
+⭐⭐Crear una función que reciba como parámetro un valor de temperatura (en Fahrenheit) y una unidad de medida y convierta esa temperatura a la unidad correspondiente.
+
+
+
+De la tabla solo se utilizarán las conversiones de fahrenheit a la unidad que corresponda.
+
+CLASE 15
+⭐⭐Crear una función calcular potencia que reciba como parámetro base y exponente y devuelva el resultado.
+Se llama potencia a una expresión de la forma an, donde a es la base y n es el exponente.
+
+
+
+Cuando el exponente es un número natural n, este indica las veces que aparece a mutiplicado por sí mismo, siendo a un número cualquiera
+
+⭐⭐Crear una función que reciba como parámetro un texto y lo devuelva invertido.
+
+Obligatorio ^^^^
+--------------------------------------------------------
+⭐⭐ Desarrollar una aplicación que permita calcular el sueldo líquido de una persona sin contemplar el irpf.
+Del sueldo nominal se descontará:
+- BPS un 15%
+- FRL 0,1 %
+También se descontará Fonasa que dependerá si tiene hijos o no. Fonasa con hijos 6%  sin hijos 4,5%.
+
+La persona deberá ingresar su sueldo nominal, seleccionar de un combo si tiene o no hijos y al presionar un botón se le mostrará el sueldo líquido a cobrar.
+
+Para un sueldo de 10.000 pesos el sueldo líquido sin hijos es de 8040 y con hijos de 7890.
+
+⭐⭐⭐ Desarrollar una aplicación que permita a una persona calcular el pago de IRPF .
+La persona deberá ingresar su sueldo nominal y presionar un botón.
+El cálculo de irpf consiste en sumar los porcentajes de las distintas franjas que comprenda el sueldo nominal.
+De 0 a 39.620  corresponde un 0 % o sea no paga irpf
+De 39.621 a 56.600 corresponde un 10 %
+De 56.601 a 84.900 corresponde un 15 %
+De 84.901 a 169.800 corresponde un 24 %
+De 169.801 a 283.000 corresponde un 25 %
+De 283.001 a 424.500 corresponde un 27 %
+De 424.501 a 650.900 corresponde un 31 %
+Mas de 650.901 corresponde un 36 %
+
+Para un sueldo nominal de 150.000 pesos el irpf correspondiente es la suma de:
+1ra franja 0 + 2da franja completa (16979) 1697,9 + 3ra franja completa (28299) 4244,85 + 4ta franja parcial (65099) 15623,76 con un total de: 21566,51
+
+
+⭐⭐⭐Desarrollar una aplicación que se encargará de armar presupuestos de un electricista, para que éste los pueda entregar a los clientes. El electricista cobra un valor fijo de $U 200 (doscientos pesos) por hora. Si utiliza un asistente, este asistente cobra $U 150 (ciento cincuenta pesos) por hora y trabaja la misma cantidad de horas y días que el electricista en caso de ser parte del proyecto. Al costo que haya de compra de materiales, el electricista le agrega un 10% (diez por ciento) por concepto de compra y traslado de los materiales hasta el lugar de la obra.
+
+Crear una función que reciba como parámetro un valor numérico y verifique que sea número y positivo y devuelva verdadero o falso. Esta función se puede utilizar para validar ingresos de horas y de cantidad de días.
+Crear una función que reciba como parámetro el tipo de usuario (electricista o asistente), la cantidad de horas y la cantidad de días calcule el costo total de salario de esa persona para el proyecto y lo devuelva. 
+Crear una función que reciba el costo de materiales, calcule el costo total final de los materiales incluidos los traslados y devuelva el total final.
+
+La aplicación se deberá encargar de pedir el ingreso de cantidad de días que el electricista va a trabajar, la cantidad de horas por día que va a trabajar, si va a utilizar un asistente o no, y el costo de materiales en la obra. En base a esos ingresos y las funciones creadas se debe imprimir en pantalla el total final del presupuesto.
+
+⭐⭐⭐⭐⭐Ingresar una cédula de identidad uruguaya en un campo de texto con formato 1.111.111-1.
+Utilizando el algoritmo de cálculo del dígito verificador (el posterior a la barra), verificar si la ingresada es una cédula válida.
+
+Se toman los primeros siete números y se multiplican cada uno (respetando el lugar, es decir: primero x primero, segundo por segundo) por 2987634
+
+Si la cédula es 1.234.567 la cuenta quedaría así:
+1x2+2x9+3x8+4x7+5x6+6x3+7x4 = 148.
+
+Se toma el resultado y se le busca el número mayor que termina en 0 y se le resta. Ej: 150-148=2.
+El número 2 es el dígito verificador para la cédula 1234567
+
+Casos de prueba de cédulas válidas:
+394.281-3 | 3.966.136-4 | 3.225.140-7 | 5.069.005-9 | 4.946.342-9 | 600.346-2
+⭐⭐⭐⭐⭐Crear un campo de texto para ingresar un valor y verificar si valida con el algoritmo de Luhn
+
+El algoritmo de Luhn o fórmula de Luhn, también conocida como "algoritmo de módulo 10", es una fórmula de suma de verificación, utilizada para validar una diversidad de números de identificación; como números de tarjetas de crédito, números IMEI, etc.
+La fórmula verifica un número contra su dígito de chequeo incluido, el cual es usualmente agregado a un número de cuenta parcial para generar el número de cuenta completo. Este número de cuenta debe pasar la siguiente prueba:
+1. A partir del dígito de chequeo incluido, el cual esté a la derecha de todo el número, ir de derecha a izquierda duplicando cada segundo dígito.
+2. Sumar los dígitos del resultado: (ejemplo: 1 + O 1, 1 +4 5) juntos con los dígitos sin duplicar el número original.
+3. Si el total del módulo 10 es igual a O (si el total termina en cero), entonces el número es válido de acuerdo con la fórmula Luhn, de lo contrario no es válido.
+
+Supongamos un ejemplo de un número de cuenta "7992739871", que contará con un dígito de control adicional, por lo que es de la forma 7992739871x:
+
+
+
+
+El dígito de chequeo (x) se obtiene entonces de (67 * 9 mod 10). En términos sencillos:
+1. Calcular la suma de los dígitos (67).
+2. Multiplicar por 9 (603).
+3. Tomar el último dígito (3).
+4. El resultado es el dígito de chequeo.
+
+Casos de prueba
+
+Visa
+
+Mastercard
+
+Discover
+
+American Express
+
+4485746493384014
+
+4539371567070872
+
+4539625308478250
+
+4916103567334187
+
+5223450370829605
+
+5506255981334939
+
+5183026692100376
+
+5508191347495098
+
+5243130311850979
+
+6011644263302639
+
+6011518345624527
+
+6011319554023976
+
+6011573093875086
+
+6011956548219903
+
+340335960322765
+
+378182614820157
+
+342437599153724
+
+346840561012917
+
+378344449580014
+

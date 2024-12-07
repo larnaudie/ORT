@@ -1,0 +1,68 @@
+ *{
+    
+ }
+
+
+ table {
+    border-spacing: 10px;
+    /* border-collapse: separate; */
+    border-collapse: collapse;
+    margin: 50px auto;
+ }
+ 
+ tr:hover {
+    background-color: rgb(167, 211, 247);
+ }
+
+ thead tr:hover {
+    background-color: white;
+ }
+
+
+ #tabla-simple tr:nth-child(even) {
+    background-color: antiquewhite;
+ }
+
+ #tabla-simple tr:nth-child(odd) {
+    background-color: rgb(203, 175, 140);
+ }
+
+ #tabla-simple tr:hover {
+    background-color: rgb(167, 211, 247);
+ }
+
+
+ th,td {
+    padding: 10px;
+ }
+
+
+
+ table, th,td {
+    border: 1px solid black;
+ }
+
+
+ /* Tabla de bordes redondeados */
+.tabla-redondeada{
+    border: 1px solid black;
+    border-spacing: 0;
+    border-collapse: separate; 
+    border-radius: 20px;
+ }
+
+.tabla-redondeada tr:first-child th:first-child {
+    border-radius: 19px 0 0 0 ;
+ }
+
+.tabla-redondeada tr:first-child th:last-child {
+    border-radius: 0 19px 0 0 ;
+ }
+
+.tabla-redondeada tr:last-child td:last-child {
+    border-radius: 0 0 19px 0;
+ }
+
+.tabla-redondeada tr:last-child td:first-child {
+    border-radius: 0 0  0 19px;
+ }

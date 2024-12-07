@@ -1,0 +1,36 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.displayInline{
+    background-color: grey;
+}
+
+.displayInlineP{
+    background-color: blue;
+    color:black;
+    display: inline;
+    margin: 50px;
+    border: black solid
+}
+
+.ulNav{
+    background-color: black;
+}
+
+.ulNav2{
+    background-color: black;
+}
+
+.liNav{
+    display: inline;
+    padding: 20px;
+    background-color: white;
+}
+
+.liNav2{
+    display: inline-block;
+    padding: 20px;
+    background-color: white;
+}

@@ -1,0 +1,7 @@
+img[src $="png"]{
+    width: 300px;
+}
+
+ul strong{
+    color: red;
+}

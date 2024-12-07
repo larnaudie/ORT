@@ -1,0 +1,13 @@
+Real travel
+
+Contenedor
+Ancho maximo 1280px
+
+Colores
+#ffffff
+#CD5C5C
+#365693
+#d4d4d4
+
+Font
+Google fonts - Roboto

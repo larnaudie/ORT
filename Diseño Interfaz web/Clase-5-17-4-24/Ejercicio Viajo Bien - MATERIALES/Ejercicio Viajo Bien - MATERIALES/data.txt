@@ -1,0 +1,9 @@
+FUENTE
+Poppins de Google Fonts
+
+COLORES
+rojo red
+cyan #10FAEF
+
+ANCHOS
+la página va de lado a lado, pero los contenidos de texto ocupan un 80%, máximo 1200px

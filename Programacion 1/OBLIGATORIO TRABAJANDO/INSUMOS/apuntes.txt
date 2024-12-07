@@ -1,0 +1,54 @@
+estuve leyendo las sugerencias y tomando unos apuntes: NO OLVIDAR:
+
+-botones que modifican cosas siempre van en la ultima columna.
+- Cuidado que para ingresar a la aplicación solamente se necesita el nombre de usuario y la contraseña el nombre de completo de la persona no es necesario.
+- Agregar filtro a seccion compras. (aprobadas, canceladas, pendientes y todas).
+- A la tabla administrar productos, agregar columna condición, estado (para visualizar las modificaciones).
+
+yo si queres le meto a la sección mis compras y lo que falta corregir (agregar filtros, y botones solo en pendientes),
+además podría arrancar la seccion informes de ganancia que es un toque.
+
+Vos si queres podes seguir metiendo mano a la seccion administrar, que le falta: A la tabla administrar productos,
+agregar columna condición, estado (para visualizar las modificaciones).
+
+y no se si alguna cuestion de logica.
+
+
+----------------------------
+De aca se saca el id cliente
+- cuando creamos la compra precesiamoos el id cliente, que lo sacamos del objeto logueado usuariologueado. 
+
+- la lista de admin tiene que verse las tres listas al mismo tiempo (pendiente cancelada aprobado).
+Cuando apreto el unic boton de aprobar si cumple con todo pasa aprobada.
+Si alguna no se cumple cuando se aprieta el boton pasa a cancelada.
+El admin no puede cancelar directamente, es en base a variaciones.
+
+Solo comprador puede cancelar. 
+-la misma funcionalidad de la compra pero mostraando las compras del usuario.
+-la tabla ofertas muestra productos unicamente en oferta y se puede comprar ahi mismo. 
+
+
+
+Atributos DATA: peliculas - queryAll. 
+al boton darle una clase que sera relacionada al queryAll
+cada boton tendira que tener en algun lado una referencia de a que producto pertenezco yo. 
+
+Asignarle clase a cada elemnto
+una vez la clase modificaada hacer queryAll y llamar a la funcon modifiarProducto. 
+195 - sacar ID producto que se va a modificar. 
+En HTML inventar un atributo DATA. 
+
+
+- SIMPRE VOLVER A LA LETRA. 
+
+
+
+En MIS COMPRAS: solo lleva boton los pendientes. 
+
+PLATA: propiedad saldo de los usuarios compradores. Cada vez que un admin aprueba una compra a ese usuario se le resta la compra. 
+
+BOTON CANCELAR SOLO PARA LAS PENDIENTES. FILTRO CON APROBADA, CANCELADA, PENDIENTE Y TODAS.
+
+
+
+redundante: METODOS BUSCAR ELEMENTO Y OBTENER OBJETO (LINEA 38 Y 52) SUGERENCIA SANTIAGO.

@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+}
+
+
+.box{
+width: 600px;
+height: 600px;
+margin: 10px;
+/*
+background-image: url("https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074_1280.jpg");
+background-size: 100px;
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;*/
+background: url("https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074_1280.jpg") top / cover fixed;
+}
+
+.box1-1{
+    height: 100%;
+    width: 100%;
+    background-color: #0008
+}

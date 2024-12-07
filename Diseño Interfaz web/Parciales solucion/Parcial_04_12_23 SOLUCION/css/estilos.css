@@ -1,0 +1,117 @@
+@font-face {
+    font-family: 'Neutra';
+    src: url('../fonts/neutradisplaytitling-webfont.woff2') format('woff2'),
+        url('../fonts/neutradisplaytitling-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-medium-webfont.woff2') format('woff2'),
+        url('../fonts/montserrat-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --primary: #EDA27B;
+    --secondary: #4f99a1;
+    --terciary: #2a5287;
+    --bg-light: #F2F2F2;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Montserrat';
+    color: var(--terciary);
+}
+/* ------------ */
+h1 {
+    font-size: 3rem;
+    font-family: 'Neutra';
+}
+h2 {
+    color: var(--primary);
+    border-radius: .5rem;
+}
+ul {
+    list-style-position: inside;
+}
+p small {
+    border: 1px solid var(--terciary);
+    color: var(var(--terciary));
+    font-size: .8rem;
+    display: inline-block;
+    padding: .25rem .5rem;
+}
+.btn-danger {
+    --bs-btn-bg: var(--primary);
+    --bs-btn-border-color: var(--primary);
+    --bs-btn-hover-bg: var(--primary);
+    --bs-btn-hover-border-color: var(--primary);
+    --bs-btn-active-color: var(--primary);
+    --bs-btn-active-bg: var(--primary);
+    --bs-btn-active-border-color: var(--primary);
+    --bs-btn-disabled-bg: var(--primary);
+    --bs-btn-disabled-border-color: var(--primary);
+}
+.btn-success {
+    --bs-btn-bg: var(--secondary);
+    --bs-btn-border-color: var(--secondary);
+    --bs-btn-hover-bg: var(--secondary);
+    --bs-btn-hover-border-color: var(--secondary);
+    --bs-btn-active-bg: var(--secondary);
+    --bs-btn-active-border-color: var(--secondary);
+    --bs-btn-disabled-bg: var(--secondary);
+    --bs-btn-disabled-border-color: var(--secondary);
+}
+textarea {
+    resize: none;
+}
+/* ------------ */
+.logo {
+    max-width: 150px;
+    width: 100%;
+}
+
+#hero {
+    background: #EDA27B url(../img/bg.jpg) no-repeat center center;
+    background-size: cover;
+    color: white;
+}
+
+#hero>.row {
+    min-height: 50vh;
+}
+
+#ofertas {
+    background-color: var(--bg-light);
+}
+
+#novedades figure {
+    height: 30vh;
+}
+
+#novedades img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+
+    #consultas {
+        background: url(../img/bg5.jpg) no-repeat right top;
+    }
+
+}
+
+footer {
+    background-color: var(--terciary);
+    padding: 1rem 0 .25rem 0;
+    text-align: center;
+    color: white;
+}

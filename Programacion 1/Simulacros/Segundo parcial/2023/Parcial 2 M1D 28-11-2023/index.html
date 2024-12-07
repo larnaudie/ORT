@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/clases.js"></script>
+    <script src="js/sistema.js"></script>
+    <script src="js/codigo.js"></script>
+</head>
+
+<body>
+    <label for="txtDestino">Destino</label>
+    <input type="text" id="txtDestino"></input><br>
+
+    <label for="txtCosto">Costo</label>
+    <input type="text" id="txtCosto"></input><br>
+
+    <label for="slcViajero">Viajero</label>
+    <select id="slcViajero"></select><br>
+
+    <label for="txtFecha">Fecha</label>
+    <input type="date" id="txtFecha"><br>
+
+    <label for="slcTipo">Tipo de viaje</label>
+    <select id="slcTipo">
+        <option value="Premium">Premium</option>
+        <option value="Estandar">Estandar</option>
+        <option value="Casual">Casual</option>
+    </select><br>
+
+    <label for="slcTipoTbl">Tipo de viaje</label>
+    <select id="slcTipoTbl">
+        <!-- me olvide de colocarle estos option -->
+        <option value="Premium">Premium</option>
+        <option value="Estandar">Estandar</option>
+        <option value="Casual">Casual</option>
+    </select><br>
+    
+    <!-- boton para cargar tabla -->
+    <input type="button" id="btnTabla" value="cargar tabla"><br>
+    
+    <table border="1" id="tblViajes"></table><br>
+
+    <p id="pPromedio"></p>
+    <p id="pMayor"></p>
+
+    <input type="button" id="btnRegistrar" value="Registrar"><br>
+
+    <p id="errores"></p>
+
+</body>
+
+</html>

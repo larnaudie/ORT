@@ -1,0 +1,86 @@
+
+
+.borde {
+    border: 5px solid red;
+}
+
+nav {
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+}
+
+nav ul a {
+
+    text-decoration: none;
+    background-color: red;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+#banner-principal {
+    height: 700px;
+    background-image: url(../img/fondo.jpg);
+    background-size: cover;
+}
+
+#banner-principal article {
+    background-color: white;
+}
+#banner-principal article h1{
+    color: red;
+    font-weight: bold;
+    font-size: 3.5em;
+}
+
+h2,
+h3 {
+    color: red;
+}
+
+h3 {
+    border-bottom:  2px solid red;
+}
+
+#banner-cafe{
+    height: 600px;
+    background-image: url(../img/tacita.jpeg);
+    background-size: cover;
+    border-radius: 15px;
+    border: 3px solid red;
+}
+
+input:not([type=submit]){
+    display: block;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: red;
+    color: white;
+}
+
+
+/* Botones primarios editados */
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: red;
+    --bs-btn-border-color: red;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: rgb(180, 1, 1);
+    --bs-btn-hover-border-color: rgb(180, 1, 1);
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: rgb(180, 1, 1);
+    --bs-btn-active-border-color: rgb(180, 1, 1);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: gray;
+    --bs-btn-disabled-border-color: gray;
+}
