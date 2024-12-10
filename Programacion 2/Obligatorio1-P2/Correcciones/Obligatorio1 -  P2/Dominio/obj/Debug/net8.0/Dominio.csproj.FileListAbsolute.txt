@@ -1,0 +1,47 @@
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\obj\Debug\net8.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfoInputs.cache
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfo.cs
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\obj\Debug\net8.0\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\bin\Debug\net8.0\Dominio.deps.json
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\bin\Debug\net8.0\Dominio.dll
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\bin\Debug\net8.0\Dominio.pdb
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\obj\Debug\net8.0\Dominio.dll
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\obj\Debug\net8.0\refint\Dominio.dll
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\obj\Debug\net8.0\Dominio.pdb
+C:\Users\Dell\Desktop\ORT\PROGRAMACIÓN 2\Obligatorio\Dominio\obj\Debug\net8.0\ref\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\bin\Debug\net8.0\Dominio.deps.json
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\bin\Debug\net8.0\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\bin\Debug\net8.0\Dominio.pdb
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfoInputs.cache
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfo.cs
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.sourcelink.json
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\refint\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.pdb
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT-P2-Obl-MicrosfotRepo\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\ref\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\bin\Debug\net8.0\Dominio.deps.json
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\bin\Debug\net8.0\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\bin\Debug\net8.0\Dominio.pdb
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfoInputs.cache
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfo.cs
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.sourcelink.json
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\refint\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.pdb
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\ref\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfoInputs.cache
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfo.cs
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.sourcelink.json
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\refint\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\Dominio.pdb
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\bin\Debug\net8.0\Dominio.deps.json
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\bin\Debug\net8.0\Dominio.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\bin\Debug\net8.0\Dominio.pdb
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Obligatorio1-P2\Correcciones\Obligatorio1 -  P2\Dominio\obj\Debug\net8.0\ref\Dominio.dll

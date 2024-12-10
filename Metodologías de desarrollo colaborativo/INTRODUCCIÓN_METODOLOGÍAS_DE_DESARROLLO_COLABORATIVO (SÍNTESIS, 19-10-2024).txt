@@ -1,0 +1,89 @@
+*TEMARIO CORRESPONDIENTE AL CURSO*
+
+-Introducción a las METODOLOGÍAS DE DESARROLLO COLABORATIVO y a la INGENIERÍA DE SOFTWARE.
+
+-INGENEIRÍA DE REQUERIMIENTOS.
+
+-PROCESOS Y CICLOS DE VIDA DEL SOFTWARE.
+
+-GESTIÓN DE PROYECTOS.
+
+-CONCEPTOS DE ASEGURAMIENTO DE LA CALIDAD EN SOFTWARE. 
+''''''''''''''''''''''''''''''''''''''''''''''
+*CONCEPTO DE INGENIERÍA DE SOFTWARE*
+
+-Es una rama de la ingeniería que realiza especial énfasis en el desarrolo, diseño, implementación y mantenimiento
+de los SISTEMAS de SOFTWARE. 
+
+-OBJETIVO: Gestar SOFTWARE DE CALIDAD, cumpliendo con los requisitos provistos por el cliente y a la vez siendo confiable, eficiente
+y escalable. 
+
+-La INGENIERÍA DEL SOFTWARE comprende todas las etapas del ciclo de vida de construcción de SOFTWARE, como requerimientos,
+análisis, diseño, implementación, pruebas y puestas en práctica.
+
+-Se enfoca primordialmente en generar soluciones de SOFTWARE EFECTIVAS y de SUMA CALIDAD. 
+''''''''''''''''''''''''''''''''''''''''''''''
+*CONCEPTO DE GESTIÓN DE PROYECTOS*
+
+-Organiza y coordina las actividades del proyecto. 
+
+-Proyecto: Es un emprendimiento temporal con la finalidad de crear un producto, servicio o un resultado particular. 
+
+-ALGUNOS PUNTOS CLAVES DE LA GESTIÓN DE PROYECTOS: 
+	1) TIEMPO: Planificación y seguimiento del cronograma del proyecto.
+	2) COSTO: Cálculo y control de los recursos financieros con los que contamos. 
+	3) ALCANCE: Definición y gestión de los objetos y entregables del proyecto.
+	4) RIESGOS: Gestión de la incertidumbre que puede malograr la ejecución del proyecto. 
+	5) INTERESADOS: Personas o grupos de personas que pueden verse afectados o impactados por el proyecto. 
+''''''''''''''''''''''''''''''''''''''''''''''
+*INGENIERÍA DE REQUERIMIENTOS*
+
+-Es una rama de la ingeniería encargada de definir, documentar y conservar los requerimientos previos para un producto de SOFTWARE.
+
+-Nos facilita a determinar la viabilidad del software y garantiza que se cumplan las expectativas. 
+''''''''''''''''''''''''''''''''''''''''''''''
+*METODOLOGÍAS DE DESARROLLO*
+
+-Estipulan cómo se organiza un proyecto de desarrollo y el orden de las actividades a llevar a cabo. 
+
+-EJEMPLOS DE ALGUNAS METODOLOGÍAS: CASCADA, INCREMENTAL, SCRUM, ESPIRAL.
+''''''''''''''''''''''''''''''''''''''''''''''
+*ASEGURAMIENTO DE LA CALIDAD DE SOFTWARE*
+
+-Aplica normas de calidad desde la INGENIERÍA DE REQUERIMIENTOS hasta la entrega y mantenimiento, para garantizar
+la producción de un producto que cumpla con los estándares de calidad. 
+
+-Contribuye al éxito y la buena calidad del producto final. 
+''''''''''''''''''''''''''''''''''''''''''''''
+*HABILIDADES BLANDAS (SOFT-SKILLS)*
+
+-Son las aptitudes y cualidades vinculadas con los comportamientos sociales, las destrezas comunicativas
+y el manejo de la inteligencia EMOCIONAL.
+-ALGUNOS EJEMPLOS DE HABILIDADES BLANDAS: 
+	1) AUTOGESTIÓN: Capacidad para organizarse y mantener el foco. 
+	2) CREATIVIDAD: Gestación de ideas innovadoras.
+	3) RESOLUCIÓN DE PROBLEMAS: Habilidad para encontrar soluciones eficientes.
+	4) TRABAJO EN EQUIPO: Trabajo conjunto con otros profesionales.
+	5) COMUNICACIÓN ASERTIVA: Expresión límpida y respetuosa de ideas. 
+	6) LIDERAZGO: Habilidad para guiar e incentivar a otros. 
+	7) ADAPTABILIDAD: Flexibilidad ante cambios y desafíos. 
+	8) NEGOCIACIÓN: Habilidad que otorga la posibilidad a dos o más partes llegar a un compromiso o acuerdo
+	que resulte lógico y favorable para ambas partes. 
+	9) RESOLUCIÓN DE CONFLICTOS: Capacidad para la gestión y resolución efectiva de las diferencias 
+	y conflictos que puedan surgir entre profesionales. 
+''''''''''''''''''''''''''''''''''''''''''''''
+*¿QUÉ VÍNCULO EXISTE ENTRE ESTA MATERIA Y LA CARRERA? ¿POR QUÉ LA VEMOS HOY EN DÍA?*
+
+-Nos brinda una mayor claridez a la hora de identificar los REQUERIMIENTOS en los trabajos OBLIGATORIOS.
+
+-Otorga una mayor capacidad a la hora de estipular tiempos, manejar estrategias y metodologías que nos permitan abordar
+proyectos más complejos y colaborativos en cursos avanzados. 
+
+-Procesar y aplicar habilidad BLANDAS para gestionar mejor el trabajo, instigar la comunicación, contribuir de mejor
+manera en equipo y atisbar técnicas para dilucidar problemas desded una etapa prematura en la carrera. 
+
+
+
+
+
+
