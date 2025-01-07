@@ -1,0 +1,196 @@
+EN LineaFactura
+
+public decimal SubTotal()
+{
+	return elProducto.Precio * Cantidad;
+}
+
+EN Factura
+
+public decimal TotalFactura()
+{
+	decimal total = 0;
+	foreach(LineaFactura unaL in lineas)
+	{
+		total += unaL.SubTotal();
+	}
+	total = total * elCliente.Desc( FormaPago, CalcularDiasVencidos() );
+	return total;
+}
+
+public int CalcularDiasVencidos()
+{
+	return ( fecha - vencimiento ).Days ;
+}
+
+public int CompareTo(Object obj)
+{
+	Factura otraF = obj as Factura;
+	return this.Numero.CompareTo(otraF.Numero);
+}
+
+EN CLIENTE
+
+public virtual decimal Desc(TipoPago formaPago, int diasVencidos)
+{
+	decimal valor = 1;
+	if( formaPago == TipoPago.CREDITO && diasVencidos > 30 )
+	{
+		valor = 1.10; //( 10% de recargo )
+	}
+	return valor;
+}
+
+EN EMPRESARIAL
+
+public override decimal Desc(TipoPago formaPago, int diasVencidos)
+{
+	decimal valor = base.Desc(formaPago,diasVencidos);
+	if( formaPago == TipoPago.CONTADO )
+	{
+		valor = valor - descuentoCdo;
+	}
+	return valor;
+}
+
+EN OCASIONAL
+
+public override decimal Desc(TipoPago formaPago, int diasVencidos)
+{
+	decimal valor = base.Desc(formaPago,diasVencidos);
+	if( formaPago == TipoPago.CREDITO )
+	{
+		valor = valor - descuentoCred;
+	}
+	return valor;
+}
+
+EN SISTEMA
+
+public List<Factura> FacturasDeCliente(Cliente unCli)
+{
+	List<Factura> aux = new List<Factura>();
+	foreach(Factura unaF in facturas)
+	{
+		if(unaF.ElCliente.Equals(unCli) )
+		{
+			aux.Add(unaF);
+		}
+	}
+	aux.Sort();
+	return aux;
+}
+
+public void AgregarVendedor(Vendedor unV)
+{
+	try
+	{
+		unV.Validar();
+		vendedores.Add(unV);
+	}
+	catch(Exception ex)
+	{
+		throw ex;
+	}
+}
+
+public Cliente? DevolverCliente(int id)
+{
+	foreach(Cliente unC in clientes)
+	{
+		if(unC.Id == id ) return unC;
+	}
+	return null;
+}
+
+EN VENDEDOR
+
+public void Validar()
+{
+	ValidarNombre();
+}
+
+private void ValidarNombre()
+{
+	if(nombre.IsNullOrEmpty() ) throw new Exception("Nombre obligatorio");
+}
+
+CONTROLADOR VENTAS
+
+public IActionResult MostrarFacturasDeCliente(int id)
+{
+	try
+	{
+		Sistema unS = Sistema.Instancia;
+		Cliente unC = unS.DevolverCliente(id);
+		List<Factura> facturasDeCli = unS.FacturasDeCliente(unC);
+		return View(facturasDeCli);
+	}
+	catch(Exception ex)
+	{
+		ViewBag.Error = ex.Message;
+		return View();
+	}
+}
+
+public IActionResult AgregarVendedor()
+{
+	return View();
+} 
+
+[HttpPost]
+
+public IActionResult AgregarVendedor(Vendedor unV)
+{
+	try
+	{
+		Sistema unS = Sistema.Instancia;
+		unS.AgregarVendedor(unV);
+		ViewBag.Mensaje = "Vendedor Agregado con exito";
+	}
+	catch(Exception ex)
+	{
+		ViewBag.Error = ex.Message;
+	}
+	return View();
+}
+
+VISTA AgregarVendedor
+
+@using Dominio;
+@if(ViewBag.Mensaje != null)
+{
+	<div>@ViewBag.Mensaje</div>
+}
+
+@if(ViewBag.Error != null)
+{
+	<div>@ViewBag.Error</div>
+}
+<form method="post">
+	<input type="text" name="nombre">
+	<input type="text" name="apellido">
+	<input type="text" name="email">
+	<button type="submit">Alta de Vendedor</button>
+</form>
+
+
+VISTA MostrarFacturasDeCliente
+
+@using Dominio;
+@model List<Factura>
+
+@if(ViewBag.Error != null)
+{
+	<div>@ViewBag.Error</div>
+}
+@if(Model != null)
+{
+	<ul>
+	@foreach(Factura unaF in Model)
+	{
+		<li>@unaF.Numero  -  @unaF.TotalFactura()</li> 
+	}
+	</ul>
+}
+
