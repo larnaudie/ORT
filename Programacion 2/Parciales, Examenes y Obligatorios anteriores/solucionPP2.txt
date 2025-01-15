@@ -1,11 +1,11 @@
-EN LineaFactura
+///////////////////------------EN LineaFactura
 
 public decimal SubTotal()
 {
 	return elProducto.Precio * Cantidad;
 }
 
-EN Factura
+///////////////////------------EN Factura
 
 public decimal TotalFactura()
 {
@@ -29,7 +29,7 @@ public int CompareTo(Object obj)
 	return this.Numero.CompareTo(otraF.Numero);
 }
 
-EN CLIENTE
+///////////////////------------EN CLIENTE
 
 public virtual decimal Desc(TipoPago formaPago, int diasVencidos)
 {
@@ -41,7 +41,7 @@ public virtual decimal Desc(TipoPago formaPago, int diasVencidos)
 	return valor;
 }
 
-EN EMPRESARIAL
+///////////////////------------EN EMPRESARIAL
 
 public override decimal Desc(TipoPago formaPago, int diasVencidos)
 {
@@ -53,7 +53,7 @@ public override decimal Desc(TipoPago formaPago, int diasVencidos)
 	return valor;
 }
 
-EN OCASIONAL
+///////////////////------------EN OCASIONAL
 
 public override decimal Desc(TipoPago formaPago, int diasVencidos)
 {
@@ -65,7 +65,7 @@ public override decimal Desc(TipoPago formaPago, int diasVencidos)
 	return valor;
 }
 
-EN SISTEMA
+///////////////////------------EN SISTEMA
 
 public List<Factura> FacturasDeCliente(Cliente unCli)
 {
@@ -103,7 +103,7 @@ public Cliente? DevolverCliente(int id)
 	return null;
 }
 
-EN VENDEDOR
+///////////////////------------EN VENDEDOR
 
 public void Validar()
 {
@@ -115,7 +115,7 @@ private void ValidarNombre()
 	if(nombre.IsNullOrEmpty() ) throw new Exception("Nombre obligatorio");
 }
 
-CONTROLADOR VENTAS
+///////////////////------------CONTROLADOR VENTAS
 
 public IActionResult MostrarFacturasDeCliente(int id)
 {
@@ -155,7 +155,7 @@ public IActionResult AgregarVendedor(Vendedor unV)
 	return View();
 }
 
-VISTA AgregarVendedor
+///////////////////------------VISTA AgregarVendedor
 
 @using Dominio;
 @if(ViewBag.Mensaje != null)
@@ -175,7 +175,7 @@ VISTA AgregarVendedor
 </form>
 
 
-VISTA MostrarFacturasDeCliente
+///////////////////------------VISTA MostrarFacturasDeCliente
 
 @using Dominio;
 @model List<Factura>
