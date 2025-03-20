@@ -1,0 +1,33 @@
+section {
+    background-color: royalblue;
+}
+
+.borde {
+    border: 5px solid blue;
+}
+
+#alineacion-vertical .row {
+    background-color: thistle;
+    height: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 576px) {
+    .borde{
+        border-color: red;
+    }
+}
+
+

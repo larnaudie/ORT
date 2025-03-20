@@ -1,0 +1,10 @@
+div{
+    background: red;
+    width: 200px;
+    margin: auto;
+
+    border-top: 10px solid black;
+    border-radius: 50px;
+    border-style: dotted;
+
+}

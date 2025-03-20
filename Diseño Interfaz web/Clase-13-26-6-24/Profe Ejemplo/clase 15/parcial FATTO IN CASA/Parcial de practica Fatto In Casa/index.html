@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcial fatto in casa - practica</title>
+
+    <!-- Enlaces a CSS -->
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <!-- MI propio CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="shortcut icon" href="img/logo_fic.svg" type="image/x-icon">
+    <!-- Enlaces a JS -->
+    <!-- JS de Bootstrap -->
+    <script src="js/bootstrap.bundle.js"></script>
+    <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+
+</head>
+
+<body>
+    <header class="container-fluid">
+        <div class="row justify-content-center justify-content-md-between align-items-center p-md-4">
+            <figure class="col-3 col-md-2 text-center m-0">
+                <img class="py-3 p-1" src="img/logo_fic.svg" alt="Logo de Fatoo in casa">
+            </figure>
+            <nav class="col-12 col-md-8">
+                <ul class="row list-unstyled py-0 p-3 h-100 align-items-center mb-0">
+                    <li class="col-6 col-xl-3 p-0"><a class="text-decoration-none d-block text-center p-2 " href="#">INICIO</a></li>
+                    <li class="col-6 col-xl-3 p-0"><a class="text-decoration-none d-block text-center p-2" href="#recomendados-semana">RECOMENDADOS</a></li>
+                    <li class="col-6 col-xl-3 p-0"><a class="text-decoration-none d-block text-center p-2" href="#las-clasicas">LAS CLASICAS</a></li>
+                    <li class="col-6 col-xl-3 p-0"><a class="text-decoration-none d-block text-center p-2" href="#contacto">CONTACTO</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container-fluid d-flex justify-content-center align-items-center" id="banner-principal">
+            <div class="text-center">
+                <h2>BOUTIQUE DE PASTAS</h2>
+                <h1 class="p-3">LA MEJOR PASTA CASERA EN TU HOGAR</h1>
+                <a class="btn btn-primary" href="#">Ver nuestras especialidades</a>
+            </div>
+        </section>
+
+        <section class="container py-xl-4" id="recomendados-semana">
+            <div class="row  text-center justify-content-md-center">
+                <div class="col-12 col-xl-3 align-self-xl-center ">
+                    <h2 class="py-3 p-5">RECOMENDADOS DE LA SEMANA</h2>
+                </div>
+                <article class="col-12 col-md-6 col-xl-3 py-2">
+                    <img class="img-fluid rounded" src="img/01.jpg" alt="Spaghetti de Morrón y Sésamo">
+                    <h3 class="pt-3">Spaghetti</h3>
+                    <p class="m-0 mb-2">Morrón y Sésamo</p>
+                    <a class="btn btn-primary" href="#">Pedir!</a>
+                </article>
+                <article class="col-12 col-md-6 col-xl-3 py-2">
+                    <img class="img-fluid rounded" src="img/02.jpg" alt="Spaghetti con Ajo y Oliva">
+                    <h3 class="pt-3">Spaghetti</h3>
+                    <p class="m-0 mb-2">Ajo y Oliva</p>
+                    <a class="btn btn-primary" href="#">Pedir!</a>
+                </article>
+                <article class="col-12 col-md-6 col-xl-3 py-2">
+                    <img class="img-fluid rounded" src="img/03.jpg" alt="Cintas con Kale y Hongos">
+                    <h3 class="pt-3">Cintas</h3>
+                    <p class="m-0 mb-2">Kale y Hongos</p>
+                    <a class="btn btn-primary" href="#">Pedir!</a>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="container-fluid" id="las-clasicas">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2>LAS CLÁSICAS</h2>
+                    </div>
+                    <article class="col-12 col-md-6">
+                        <div class="row h-100"">
+                            <figure class="col-12 col-md-6 order-md-2" >
+                                <img class="img-fluid rounded object-fit-md-cover h-100" src="img/pesto.jpg" alt="Tortelines con pesto">
+                            </figure>
+                            <div class="col-12 col-md-6 order-md-1">
+                                <h3><strong>Tortelines</strong> con pesto</h3>
+                                <p>A estos tortellini con salsa de pesto les puedes añadir unos tomates cherries, o alguna otra hortaliza fresca para darle un toque más primaveral.</p>
+                                <ul>
+                                    <li>225 gr. de tortellini.</li>
+                                    <li>100 gr. de parmesano rallado.</li>
+                                    <li>50 gr. de piñones.</li>
+                                    <li>Dos dientes de ajo.</li>
+                                    <li>Aceite de oliva.</li>
+                                    <li>Unas hojas de albahaca fresca.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-12 col-md-6">
+                        <div class="row h-100">
+                            <figure class="col-12 col-md-6">
+                                <img class="img-fluid rounded object-fit-md-cover h-100" src="img/bolognesa.jpg" alt="Tortelines a la bolognesa">
+                            </figure>
+                            <div class="col-12 col-md-6">
+                                <h3><strong>Tortelines</strong> a la bolognesa</h3>
+                                <p>Pues es un plato de pasta con tomate y carne picada ecantará a los más pequeños como a los más mayores y además se prepara en 30 minutos.</p>
+                                <ul>
+                                    <li>450 gr. de tortellini.</li>
+                                    <li>600 gr. de carne picada.</li>
+                                    <li>1 cebolla.</li>
+                                    <li>1 bote de salsa de tomate.</li>
+                                    <li>Aceite de oliva.</li>
+                                    <li>150 gr. de parmesano.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container-fluid" id="contacto">
+        <div class="container p-3">
+            <div class="row align-items-xl-center">
+                <article class="col-12 col-md-6 col-xl-4 py-3">
+                    <h2 class="h3">Recibir promos semanales</h2>
+                    <form action="archivo.php" method="post">
+                        <div class="mb-3">
+                            <label class="form-label" for="nombre-completo">Nombre y apellido</label>
+                            <input class="form-control" type="text" name="Nombre completo" id="nombre-completo" placeholder="Agregar nombre completo" required> 
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="email">Email</label>
+                            <input class="form-control" type="email" name="email" id="email" placeholder="Agregar email" required> 
+                        </div>
+                        <div class="mb-3 ">
+                            <label class="form-label" for="tel">Telefono</label>
+                            <input class="form-control" type="tel" name="Telefono" id="tel" placeholder="Agregar telefono" required> 
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="Quiero spam! :P">
+                    </form>
+                </article>
+                <article class="col-12 col-md-6 col-xl-4 py-3 align-self-start">
+                    <h2 class="h3">Sucursales</h2>
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th>Dirección</th>
+                                <th>Horario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nuestra Señora de la Encina 1578</td>
+                                <td>Lunes a Jueves - 10 a 18 hs</td>
+                            </tr>
+                            <tr>
+                                <td>Pantaleón Artigas 1555	</td>
+                                <td>Domingo a Viernes - 10 a 13 hs</td>
+                            </tr>
+                            <tr>
+                                <td>Juan Ramón Jiménez 3789	</td>
+                                <td>Jueves a Domingo - 10 a 18 hs</td>
+                            </tr>    
+                        </tbody> 
+                    </table>
+                </article>
+                <article class="d-none col-xl-4 d-xl-block py-3 align-self-center">
+                    <q>No hay mejor plato que el preparado al instante especialmente para ti. Esa es la especialidad de Fatto In Casa. </q>
+                </article>
+            </div>
+
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+     background-color: #365693;
+     padding: 40px 0;
+     text-align: center;
+}
+
+nav{
+    margin-top: 20px;
+}
+
+.banner{
+background-image: url(../img/mapa.jpg);
+background-attachment: fixed;
+background-size: cover;
+background-repeat: no-repeat;
+background-position-x: center;
+text-align: center;
+padding: 150px;
+color: white;
+font-weight: 900;
+font-size: 40px;
+}
+
+.banner h2{
+    background-color: indianred;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 0 20px 0 20px;
+    border-bottom: white solid 5px;
+}
+
+.logo{
+    height: 50px;
+}
+
+header ul{
+    list-style: none;
+}
+
+header ul li{
+    display: inline;
+}
+a{
+    text-decoration: none;
+}
+
+nav a{
+    color: white;
+    margin:0 10px;
+}
+nav a:hover{
+    text-decoration: underline;
+}
+
+a.active{
+    color: indianred;
+}
+
+.contenedor{
+    width: 1280px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+img{
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+section{
+    color: white;
+}
+
+section article{
+    padding: 60px 40px;
+}
+section a{
+    color: white;
+}
+
+p a{
+    text-decoration: underline;
+}
+
+section a.button{
+    border:1px solid white;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+section a.button:hover{
+    opacity: 0.5;
+}
+
+section.blue a.button{
+    color: #365693;
+}
+
+section.orange a.button{
+    color: indianred;
+}
+
+article ul{
+    list-style: none;
+    list-style-image: url(../img/listicon.svg);
+    list-style-position: inside;
+}
+.blue{
+    background-color: #365693;
+}
+.orange{
+    background-color: indianred;
+}
+
+section h2, section p{
+    margin-bottom: 15px;
+}
+
+footer{
+    background-color: #D4D4D4;
+    padding: 40px;
+    text-align: right;
+}
+
+footer a{
+    text-decoration: none;
+    color: indianred;
+    display: block;
+    margin-top: 10px;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}

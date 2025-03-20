@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'dm_serif_displayregular';
+    src: url('../fonts/dmserifdisplay-regular-webfont.woff2') format('woff2'),
+         url('../fonts/dmserifdisplay-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'manropeextralight';
+    src: url('../fonts/manrope-variablefont_wght-webfont.woff2') format('woff2'),
+         url('../fonts/manrope-variablefont_wght-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}

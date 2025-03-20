@@ -1,0 +1,97 @@
+/* eNE STE PARCIAL VI QUE NO HAY FUENTES */
+
+:root{
+    --blanco :#fff;
+    --rojo: #e52828;
+    --negro: #000;    
+}
+
+h1{
+    color: var(--rojo);
+    font-weight: 900;
+}
+
+h2{
+    color: var(--rojo);
+    font-weight: 900;
+    border-bottom: 2px solid;
+}
+
+h3{
+    color: var(--rojo);
+    font-weight: 900;
+}
+
+section{
+    padding: 20px 0 20px 0;
+}
+
+header h1{
+    font-size: 60px;
+}
+
+header p{
+    font-size: 20px;
+}
+
+header{
+    background-image: url(../img/fondo.jpg);
+    color: var(--blanco);
+    min-height: 70vh;
+    font-size: 60px;
+    padding: 20px 0 20px 0;
+}
+
+header nav{
+    font-weight: 900;
+}
+
+header img{
+    background-size: 30px ;
+}
+
+.btn.btn-primary{
+    background-color: var(--rojo);
+    border-radius: 20px;
+    border: var(--rojo) 2px solid ;
+    font-weight: 900;
+}
+
+.btn.btn-primary:hover{
+    background-color: transparent;
+    border-radius: 20px;
+    border: var(--rojo) 2px solid ;
+    color: var(--rojo);
+    font-weight: 900;
+}
+
+#regalos{
+    background-color: var(--rojo);
+    padding: 100px 0;
+}
+#regalos h1{
+    font-size: 60px;
+    color: var(--negro);
+}
+#regalos h3{
+    color: var(--negro);
+}
+
+.btn.btn-secondary{
+    background-color: var(--negro);
+    border-radius: 20px;
+    border: var(--rojo) 2px solid ;
+    font-weight: 900;
+}
+.btn.btn-secondary:hover{
+    background-color: transparent;
+    color: var(--negro);
+    border-radius: 20px;
+    border: var(--negro) 2px solid ;
+    font-weight: 900;
+}
+
+footer{
+    background-color: var(--negro);
+    color: var(--blanco);
+}

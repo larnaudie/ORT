@@ -1,0 +1,60 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    color: red;
+}
+
+#soyUnDiv {
+    width: 1020px;
+    height: 600px;
+    background-color: grey;
+
+    justify-content:end; /*Controla las columnas, las divide en 3: End, es a la derecha, Start, es a la izquiera, Center */
+    align-items: end; /*Controla las filas, las 3 posibilidades: End, es abajo, Start, es arriba, Center*/
+
+    /*Ajusta el texto dentro de cada caja, */
+    /*si aca esta centrado, y las cajas no tienen text-align entonces sus cajas tendran el texto centrado, les hereda la posicion*/
+    text-align: center;
+ 
+    display: flex;
+    border: 5px solid black;
+}
+
+#soyOtroDiv{
+    width: 50px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+p{
+    text-align: end;
+}
+
+#div1{
+    width: 400px;
+    height: 200px;
+    background-color: rgb(100, 197, 25);
+    border: 5px solid rgb(183, 192, 22);
+
+    /*justify-content + align items, nos permite ubicar todos los elemtnos en los 9 lados diferentes de un rectangulo*/
+    justify-content: center;
+    justify-content: end;
+    justify-content: start;
+
+    align-items: center;
+    align-items: end;
+    align-items: start;
+
+    /*Basicamente estos 3 no sirven*/
+
+    display: flex;
+}
+
+#div2{
+    width: 400px;
+    height: 200px;
+    background-color: rgb(37, 58, 102);
+    border: 5px solid rgb(143, 14, 199);
+
+    /*
+    text-align: end;*/
+}

@@ -1,0 +1,701 @@
+:root {
+  --fondo: rgba(255, 255, 255, 0.14);
+
+  --color-texto-principal: rgb(255, 230, 4);
+  --color-texto-secundario: rgb(255, 255, 255);
+
+  --color-btn-texto: rgb(0, 0, 0);
+  --color-btn-fondo-hover: rgb(0, 0, 0);
+  --color-btn-texto-hover: rgb(255, 255, 255);
+  --color-btn-fondo: rgba(255, 230, 4, 0.80);
+
+  --fondo-tabla-hd: #4645453a;
+  --color-tabla-tachado: ;
+  --color-texto-tabla-td: rgb(0, 0, 0);
+  --color-tabla-fondo: rgba(255, 255, 255, 0.3);
+  --color-tabla-texto-tachado-anticipadas: rgba(255, 230, 4, 0.3);
+  --color-tabla-texto-tachado-p: rgba(0, 0, 0, 0.3);
+
+  --fondo-footer: #b6ababbc;
+}
+
+* {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  font-family: "GFS Neohellenic", sans-serif;
+  font-size: 25px
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url("../Img/background/background6.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+main {
+  margin: auto;
+}
+
+/*Selecciones Generales*/
+
+.section {
+  width: 1300px;
+  height: auto;
+  margin: auto;
+  padding-top: 160px;
+  display: block;
+}
+
+.titulos {
+  margin-bottom: 30px;
+  padding: 30px 30px;
+  color: var(--color-texto-principal);
+  font-size: 30px;
+  border-radius: 60px;
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+  display: flex;
+}
+
+/*SECTION Banner*/
+
+#tituloBanner {
+  justify-content: center;
+}
+
+/***Logo*/
+#contenedorHeader {
+  box-sizing: border-box;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  z-index: 100;
+}
+
+#img-container1 img {
+  width: auto;
+  height: 90px;
+  padding-left: 20px;
+  display: flex;
+}
+
+/*Navegador*/
+.navMenu {
+  height: 50px;
+  border-radius: 40px;
+  display: flex;
+}
+
+#ulMenu {
+  align-items: center;
+  display: flex;
+}
+
+.liItem {
+  padding: 0 20px;
+  display: flex;
+}
+
+.btnNav {
+  width: 100px;
+  padding: 5px 15px;
+  border-radius: 30px;
+  color: var(--color-btn-texto);
+  background-color: var(--color-btn-fondo);
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+
+}
+
+.btnNav:hover {
+  color: var(--color-btn-texto-hover);
+  background-color: rgb(0, 0, 0);
+  ;
+}
+
+/*Banner*/
+#contenedorBanner {
+  color: var(--color-texto-secundario);
+  justify-content: center;
+  text-align: center;
+  display: block;
+
+}
+
+#pBanner {
+  padding: 30px 30px;
+  border-radius: 30px;
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  display: inline-block;
+}
+
+#pBanner em {
+  padding: 30px;
+  font-size: 25px;
+  color: var(--color-texto-principal);
+  justify-content: center;
+  display: block;
+}
+
+#btnRegistrarse {
+  width: 200px;
+  margin: 12px auto;
+  padding: 8px 15px;
+  border-radius: 12px;
+  color: var(--color-btn-texto);
+  background-color: var(--color-btn-fondo);
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+}
+
+#btnRegistrarse:hover {
+  color: var(--color-btn-texto-hover);
+  background-color: var(--color-btn-fondo-hover);
+}
+
+#img-container4 {
+  height: 500px;
+  padding-top: 50px;
+  justify-content: center;
+  display: flex;
+}
+
+/* SECCION FECHAS */
+
+#sectionFechas {
+  color: var(--color-texto-principal);
+}
+
+#contenedorFechas {
+  padding: 30px;
+  border-radius: 60px;
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.divFechas:nth-child(3) {
+  margin: auto;
+}
+
+.divFechas {
+  width: 500px;
+  height: 300px;
+  margin: 40px 0;
+  border-radius: 40px;
+  background-image: url("../Img/fechas/roosevelt2.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  display: inline-block;
+}
+
+.divDias {
+  width: 100px;
+  margin: auto;
+  padding: 30px 65px;
+  color: var(--color-texto-secundario);
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  display: block;
+}
+
+.divDias h2 {
+  padding: 5px;
+}
+
+.btnVerArtistas {
+  width: 200px;
+  margin: auto;
+  padding: 8px 15px;
+  border-radius: 5px;
+  background-color: var(--color-btn-fondo);
+  transition: background-color 0.3s ease;
+  color: var(--color-btn-texto);
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.btnVerArtistas:hover {
+  color: var(--color-btn-texto-hover);
+  background-color: var(--color-btn-fondo-hover);
+}
+
+/* SECCION Galeria */
+#sectionGaleria {
+  color: var(--color-texto-principal);
+  justify-content: center;
+}
+
+#contenedorGrid {
+  padding: 30px 30px;
+  border-radius: 60px;
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 200px);
+  grid-auto-flow: row;
+  grid-auto-rows: 200px;
+  gap: 30px;
+  display: grid;
+}
+
+.grid-item {
+  max-width: 100%;
+  border-radius: 30px;
+}
+
+.grid-item:first-child {
+  grid-column: 1/span 1;
+  grid-row: 1/span 3;
+  background-image: url("../Img/galeria/emiliano.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(2) {
+  background-image: url("../Img/galeria/ntvg2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(3) {
+  background-image: url("../Img/galeria/ntvg3.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(6) {
+  background-image: url("../Img/galeria/ntvg.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(5) {
+  grid-column: 2/span 2;
+  grid-row: 2/span 2;
+  background-image: url("../Img/galeria/no-te-va-gustar.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(4) {
+  grid-column: 4/span 1;
+  grid-row: 2/span 2;
+  background-image: url("../Img/galeria/ntvg6.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+
+.grid-item:nth-child(12) {
+  grid-column: 4/span 1;
+  grid-row: 4/span 3;
+  background-image: url("../Img/galeria/lavela2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(7) {
+  background-image: url("../Img/galeria/lavela1.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(9) {
+  grid-column: 2/span 2;
+  grid-row: 4/span 2;
+  background-image: url("../Img/galeria/lavela5.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(8) {
+  background-image: url("../Img/galeria/lavela3.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(11) {
+  background-image: url("../Img/galeria/lavela4.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(10) {
+  grid-column: 2/span 2;
+  grid-row: 6/span 1;
+  background-image: url("../Img/galeria/lavela6.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.grid-item:nth-child(13) {
+  grid-column: 1/span 4;
+  grid-row: 7/span 2;
+  background-image: url("../Img/galeria/predio.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+/* SECCION Artistas */
+
+#sectionArtistas {
+  color: var(--color-texto-principal);
+  justify-content: start;
+}
+
+#pArtistas {
+  margin: 20px 0px;
+  padding: 30px;
+  border-radius: 30px;
+  color: var(--color-texto-secundario);
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+}
+
+#contenedorArtistas {
+  height: auto;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#contenedorArtistas h2 {
+  width: auto;
+  margin: auto;
+  padding: 20px 100px;
+  border-radius: 30px;
+}
+
+.Viernes,
+.Sabado,
+.Domingo {
+  height: auto;
+  margin: 20px 0;
+  border-radius: 30px;
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+  justify-content: start;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.img-container img {
+  width: auto;
+  height: 190px;
+  border-radius: 40px;
+  display: block;
+}
+
+.artista {
+  width: auto;
+  margin: 30px 30px;
+  align-content: start;
+}
+
+.h2Artista {
+  font-size: 28px;
+  color: var(--color-texto-secundario);
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+}
+
+.h3Artista {
+  color: var(--color-texto-principal)
+}
+
+.pArtistas {
+  width: 300px;
+  color: var(--color-texto-secundario);
+}
+
+/* SECCION Sponsors */
+#sectionSponsor{
+  padding-top: 30px;
+}
+
+#contenedorSponsor {
+  padding-top: 30px;
+  justify-content: start;
+}
+
+#sponsors {
+  width: auto;
+  height: auto;
+  border-radius: 40px;
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.img-container2 img {
+  width: auto;
+  height: 60px;
+  margin: 20px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+/* SECCION Formulario */
+
+#contenedorFormulario {
+  height: auto;
+  border-radius: 60px;
+  background-color: var(--fondo);
+  backdrop-filter: blur(10px);
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.contenedorTable {
+  padding: 30px;
+  width: 500px;
+  margin: 10px;
+  padding: 40px;
+  border-collapse: collapse;
+  justify-content: center;
+}
+
+
+.tituloTusEntradas {
+  margin-bottom: 30px;
+  color: var(--color-texto-principal);
+  font-size: 30px;
+  display: flex;
+}
+
+/** tabla Estilos*/
+
+#table {
+  height: 600px;
+  width: 500px;
+  border-collapse: collapse;
+  justify-content: center;
+}
+
+th,
+tr,
+td {
+  padding: 10px 30px 30px 30px;
+  background-color: var(--fondo);
+  text-align: center;
+  align-content: end;
+}
+
+th {
+  padding: 20px;
+  background-color: var(--fondo-tabla-hd);
+  color: var(--color-texto-principal);
+}
+
+td p {
+  padding: 10px 0;
+  border: none;
+  border-bottom: 2px solid white;
+  color: var(--color-texto-tabla-td);
+}
+
+td strong {
+  padding: 10px;
+  border-bottom: 2px solid white;
+  color: var(--color-texto-tabla-td);
+  display: block;
+}
+
+#table tr:hover {
+  background-color: var(--color-tabla-fondo);
+  backdrop-filter: blur;
+}
+
+#table tr:first-child,
+#table th:first-child {
+  border-radius: 30px 0 0 0;
+}
+
+#table tr:last-child,
+#table th:last-child {
+  border-radius: 0 30px 0 0;
+}
+
+#table tr:last-child,
+th:first-child {
+  border-radius: 0 0 0 30px;
+}
+
+#table tr:last-child td:last-child {
+  border-radius: 0 0 30px 0;
+}
+
+#table tr:last-child td:first-child {
+  border-radius: 0 0 0 30px;
+}
+
+.pTachado {
+  color: var(--color-tabla-texto-tachado-p);
+  text-decoration: line-through;
+}
+
+.pTachadoAnticipadas {
+  color: var(--color-tabla-texto-tachado-anticipadas);
+  text-decoration: line-through;
+}
+
+
+/** FIN tabla Estilos*/
+
+#form {
+  margin-bottom: 30px;
+}
+
+.fieldsetForm {
+  width: 500px;
+  height: auto;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--fondo);
+  align-content: space-evenly;
+
+}
+
+.contenedorLegendItem {
+  padding: 5px 30px;
+  display: block;
+}
+
+.legendItem {
+  padding: 5px 0;
+  color: var(--color-texto-principal);
+}
+
+.divFormulario {
+  padding: 5px 0;
+  justify-content: space-between;
+  display: flex;
+}
+
+.tiposEntrada {
+  justify-content: space-around;
+}
+
+.formItem {
+  width: 250px;
+  padding: 6px;
+  color: black;
+  border: none;
+  border-bottom: 2px solid white;
+  background: transparent;
+  text-align: center;
+}
+
+.miniTitulo {
+  align-items: center;
+  display: flex;
+}
+
+.submit {
+  padding: 35px;
+  justify-content: center;
+  display: flex;
+}
+
+#btnSubmit {
+  border-bottom: none;
+  border-radius: 30px;
+  color: var(--color-btn-texto);
+  background-color: var(--color-btn-fondo);
+  transition: background-color 0.3s ease;
+}
+
+#btnSubmit:hover {
+  color: var(--color-btn-texto-hover);
+  background-color: var(--color-btn-fondo-hover);
+}
+
+/* SECCION Footer */
+
+#sectionFooter {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  background-color: var(--fondo-footer);
+  display: block;
+}
+
+#contenedorFooter {
+  width: 1300px;
+  margin: auto;
+  height: auto;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+#img-container3 {
+  border-radius: 30px;
+  align-items: center;
+  display: flex;
+}
+
+#img-container3 img {
+  width: auto;
+  height: 50px;
+  margin-right: 15px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+.footerLogos {
+  height: auto;
+  width: auto;
+  margin: auto 0;
+  justify-content: space-between;
+  display: flex;
+}
+
+.footerLogos a:hover {
+  filter: opacity(0.5);
+}
+
+.footerLogos a {
+  align-items: center;
+  display: flex;
+}
+
+.footerLogos a img {
+  width: auto;
+  height: 50px;
+  margin: auto 20px;
+  border-radius: 30px;
+}

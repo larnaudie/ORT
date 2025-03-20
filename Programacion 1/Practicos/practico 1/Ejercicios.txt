@@ -1,0 +1,81 @@
+1- ⭐ Leer el nombre y apellido de una persona. Mostrarlo con el formato "apellido,
+ nombre" primero el apellido, una coma, luego el nombre. Prestar atención que se deben
+  concatenar cadenas de texto variables y además se debe incluir un espacio en blanco
+   luego de la coma.
+
+2- ⭐Ingresar dos valores y calcular la suma de ambos valores. Para operar
+ aritméticamente con los dos valores debemos asegurarnos que sean valores numéricos.
+
+3- ⭐Ingresar tres valores y calcular la suma de los tres valores.
+
+4- ⭐Ingresar dos valores y mostrar la suma de esos valores en un párrafo y
+ en otro párrafo el resultado de la multiplicación de esos dos valores. 
+Se recomienda capturar los dos valores una única vez y luego operar con
+ ellos en una única función.
+
+5- ⭐Ingresar el lado de un cuadrado y calcular y mostrar su área.
+El área de un cuadrado es el cuadrado de la longitud del lado.
+
+6- ⭐Ingresar un valor en pesos uruguayos y el valor de tipo de cambio
+ de la fecha y calcular el equivalente en dólares.
+
+7- ⭐Ingresar dos valores y calcular y mostrar el resto de dividir el
+ primero entre el segundo.
+
+8- ⭐Ingresar tres valores y calcular la suma de los primeros dos menos
+ el tercero.
+
+9- ⭐Ingresar tres valores y calcular el primero elevado al cuadrado menos
+ la suma de los otras dos.
+
+10- ⭐Ingresar un importe y un porcentaje de recarga y calcular el importe final.
+
+11- ⭐Ingresar un importe (sub-total), agregarle el IVA (22%) y calcular y
+ mostrar el importe final.
+
+12- ⭐Solicitar ingresos de peso y altura para calcular índice de masa corporal
+ Se asume que el peso se ingresó en kilogramos y la altura en metros.
+
+El índice de masa corporal (IMC) es una medida de asociación entre la masa y la
+ talla de un individuo ideada por el estadístico belga Adolphe Quetelet, por lo que
+  también se conoce como indice de Quetelet. Se calcula según la expresión matemática:
+
+donde la masa se expresa en kilogramos y el cuadrado de la estatura en metros cuadrados.
+
+13- ⭐Crear un botón y un párrafo. Se solicita llevar la cuenta de la cantidad de
+ veces que el botón fue presionado en el párrafo.
+La cuenta comenzará en cero y se incrementará en uno con cada presión del botón.
+
+No se pide generar ningún campo de texto de ingreso de datos.
+
+14- ⭐Crear un botón y un párrafo de texto. Al presionar el botón incrementar
+ un contador de tres en tres. Mostrar el valor actual del contador en el párrafo 
+ cada vez que se presione el botón.
+
+15- ⭐⭐Crear un campo de texto y un botón para que cada vez que se ingrese un 
+número en el campo de texto se acumule el total en una variable.
+Al presionar otro botón mostrar el resultado final acumulado.
+
+16- ⭐⭐Para un equipo de fútbol el cálculo de los puntos obtenidos en el 
+campeonato se asigna de la siguiente manera:
+
+Tres puntos por cada partido ganado.
+Un punto por cada partido empatado.
+Ningún punto por partido perdido.
+
+Solicitar el ingreso de partidos ganados, empatados y perdidos y calcular el
+ total de puntos obtenidos por ese equipo. Tener en cuenta que si bien un dato
+  se va a solicitar, no es relevante para los cálculos.
+
+17- ⭐⭐⭐Utilizando la ley de Dolbear ingresar los chirridos por minuto de un
+ grillo y calcular la temperatura actual.
+
+El resultado obtenido estará en Fahrenheit por lo que una vez obtenido el resultado
+ se deberá mostrar pero además convertir a grados Celsius para también mostrarlo.
+También se puede hacer el cálculo directamente en celsius
+
+N60 es el número de chirridos por minuto. Se sugiere hacer el cálculo en Fahrenheit
+ y convertirlo a Celsius para luego hacer el cálculo directamente en Celsius y ver
+  si coinciden. 
+  
+La coincidencia no será exacta, pero sí debe ser muy cercana. 

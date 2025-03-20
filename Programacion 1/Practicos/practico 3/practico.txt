@@ -1,0 +1,88 @@
+⭐Imprimir todos los números enteros del 1 al 1.000 (un número por línea).
+
+
+⭐Imprimir todos los números enteros del -100 al 10.
+
+
+⭐Imprimir todos los números enteros del 40 al 10.
+
+
+⭐Imprimir todos los números enteros del 20 al -30.
+
+
+⭐Imprimir todos los números múltiplos de 5 que hay entre 1 y 450 (inclusive).
+
+
+⭐Imprimir todos los números múltiplos de 4 que hay entre -33 y 230.
+
+
+
+⭐ Ingresar un número entre 2 y 50 y dibujar en pantalla una línea compuesta por guiones. La línea tendrá tantos guiones como el número ingresado.
+
+
+⭐Ingresar dos números y al presionar un botón mostrar todos los números entre esos dos números (inclusive).
+Contemplar el caso que los números se ingresen invertidos (primero el mayor y después el menor).
+
+
+⭐Pedir dos números y utilizando solamente sumas y estructuras repetitivas, implementar el producto de esos dos números.
+
+
+ ⭐⭐Pedir dos números y mostrar el producto de los números comprendidos entre ellos (inclusive). Sólo se realizarán pruebas donde el primer número sea menor al segundo, no es necesario controlarlo.
+
+
+⭐Ingresar tres números y al presionar un botón mostrar todos los números múItiplos del tercero que están entre los dos primeros números, contemplar el caso que los dos primeros números se ingresen invertidos (primero el mayor y después el menor).
+
+
+⭐⭐Ingresar un número y calcular su factorial.
+
+
+
+El factorial de un entero positivo n, el factorial de n o n factorial se define en principio como el producto de todos los números enteros positivos desde 1 (es decir, los números naturales) hasta n.
+
+
+⭐⭐Un colegio nos solicitó una aplicación para apoyo de un curso de geometría. Nuestro objetivo será dibujar rectángulos. Para eso pediremos el alto y ancho y dibujaremos el rectángulo de esas dimensiones. utilizando un carácter apropiado (por ejemplo círculos, asteriscos, numerales, la letra x)
+
+Un escenario posible sería el siguiente: nos ingresan los valores ancho = 5, alto = 4.
+El rectángulo resultante será:
+00000
+00000
+00000
+00000
+
+⭐⭐Pedir un número y mostrar la cantidad de dígitos que tiene.
+Para saber la cantidad de dígitos deberemos dividir el número sucesivamente entre diez hasta que el resultado sea menor a 1
+
+
+⭐⭐Pedir un número y dividirlo entre 20 hasta que el resultado sea menor a 100, mostrar el resultado. Se debe validar que el número ingresado sea mayor a 2000, en caso contrario avisar al usuario y volver a solicitar el número.
+
+⭐⭐Pedir dos números y mostrar el primer número incluido entre ellos que sea múltiplo de 4 y 6 a la vez.
+
+
+⭐⭐Utilizando solamente restas y estructuras repetitivas, obtener el cociente y resto de la división entera entre un dividendo y un divisor.
+
+
+⭐⭐Solicitar un número al usuario e imprimir en un párrafo todos los números mayores a 30 y menores a 200 que sean múltiplos del número ingresado por el usuario y pares simultáneamente.
+
+
+⭐⭐⭐Crear un calendario de un mes. Se ingresa el mes del año, el día de la semana en que comienza ese mes y en base a esos ingresos se debe armar una tabla con formato de calendario de mes.
+
+
+⭐⭐⭐El algoritmo de Euclides es un método antiguo y eficaz para calcular el máximo común divisor (MCD).
+Fue originalmente descrito por Euclides en su obra Elementos.
+Al dividir a entre b (números enteros), se obtiene un cociente q y un residuo r.
+
+Es posible demostrar que el máximo común divisor de a y b es el mismo que el de b y r (Sea c el máximo común divisor de y b, como a=bq+r y c divide a a y  a b divide también a r. Si existiera otro número mayor que c que divide a b y a r, también dividiría a a , por lo que c no sería el mcd de a y b, lo que contradice la hipótesis).
+
+Éste es el fundamento principal del algoritmo.
+También es importante tener en cuenta que el máximo común divisor de cualquier número a y O es precisamente a.
+
+Para fines prácticos, la notación mcd(a, b) significa máximo común divisor de a y b.
+Según lo antes mencionado, para calcular el máximo común divisor de 2366 y 273 Se puede proseguir de la siguiente manera:
+
+
+
+Como la sucesión de residuos va disminuyendo, al final un residuo tiene que ser cero y es en ese momento cuando el algoritmo termina. El máximo común divisor es precisamente rn+1
+
+
+
+

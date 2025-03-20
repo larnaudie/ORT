@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/codigo.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <div id="contenedor">
+        <header>
+            <img id="logo" src="https://p1.develotion.com/cart.jpg" alt="logo">
+            <ul id="navPrincipal">
+                <li id="btnSeccionAgregar" class="btnSeccion admin">
+                    <a>Agregar</a>
+                </li>
+                <li id="btnSeccionListar" class="btnSeccion user">
+                    <a>Listar</a>
+                </li>
+                <li id="btnSeccionBuscar" class="btnSeccion admin user">
+                    <a>Buscar</a>
+                </li>
+            </ul>
+        </header>
+
+        <main>
+
+            <div id="seccionAgregar" class="seccion">
+                <label for="txtNombre">Nombre:</label>
+                <input type="text" id="txtNombre"><br>
+                <label for="txtAnio">Anio:</label>
+                <input type="text" id="txtAnio"><br>
+
+                <select id="slcGenero">
+                    <option value="Comedia">Comedia</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Ciencia Ficcion">Ciencia Ficcio</option>
+                </select><br>
+
+                <label for="txtVotantes">Votantes:</label>
+                <input type="text" id="txtVotantes"><br>
+                <label for="txtVotos">Votos:</label>
+                <input type="text" id="txtVotos"><br>
+                <input type="button" value="Agregar" id="btnAgregar">
+                <p id="pAvisos"></p>
+            </div>
+
+            <div id="seccionListar" class="seccion">
+                <input type="button" value="Listar" id="btnListar">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Promedio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblPeliculas"></tbody>
+                </table>
+            </div>
+
+            <div id="seccionBuscar" class="seccion">
+                <label for="txtBusqueda">Busqueda:</label>
+                <input type="text" id="txtBusqueda"><br>
+                <input type="button" value="Buscar" id="btnBuscar">
+                <p id="pResultado"></p>
+            </div>
+
+        </main><!-- FIN CONTENIDO -->
+        <footer>
+            <a href="https://www.ort.edu.uy">Footer</a>
+        </footer><!-- FIN PIE -->
+    </div><!-- FIN CONTENEDOR -->
+</body>
+
+</html>

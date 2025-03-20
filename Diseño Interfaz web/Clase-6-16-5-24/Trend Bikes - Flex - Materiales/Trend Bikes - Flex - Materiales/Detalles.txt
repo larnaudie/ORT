@@ -1,0 +1,17 @@
+Trend bikes
+
+Contenedor
+Ancho maximo 1280px
+
+Colores
+Naranja - #F2BB9B
+Naranja hover - #c69172
+Gris - #efefef
+Blanco
+Negro
+
+
+
+Font
+Segoe UI
+Koulen

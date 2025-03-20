@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <title>Astro Tech - Tienda de tecnologia</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="img/logo.svg">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="description" content="Astro Tech es una de venta de articulos tecnologicos. ">
+
+    <!--Primero el móvil, no tender a hacer zoom, sino levantar a escala natural siempre y cuando haya
+       sido pensado como un sitio responsive, y anular el comportamiento de ajustar a los límites del dispositivo
+       el contenido, cuando este sobresalga-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <!--Bootstrap CSS-->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!--CSS Propio-->
+    <link href="css/estilos.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row justify-content-center justify-content-md-between align-items-center">
+                <figure class="col-1 text-center">
+                    <img src="img/logo.svg" alt="Logo Astro">
+                </figure>
+                <nav class="col-md-10 col-lg-6">
+                    <ul class="list-unstyled row justify-content-center justify-content-md-end text-center">
+                        <li class="col-md-2 col-lg-3">
+                            <a href="#productos">Productos</a>
+                        </li>
+                        <li class="col-md-2 col-lg-3">
+                            <a href="#innovacion">Innovacion</a>
+                        </li>
+                        <li class="col-md-2 col-lg-3">
+                            <a href="#beneficios">Beneficios</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="container">
+            <h1>Tecnología de otro planeta</h1>
+            <a href="#productos" class="btn btn-primary">Ver productos</a>
+            <a href="#innovacion" class="btn btn-outline-primary">Conoce más</a>
+        </div>
+    </section>
+
+    <section id="productos" class="container-fluid">
+        <div class="row">
+            <article class="col-md-6 col-lg-4">
+                <div>
+                    <h2>Galaxy Z Fold4</h2>
+                    <p>Nuestro foldable más resistente hasta el momento</p>
+                </div>
+                <img src="img/producto-1.png" alt="Galaxy fold" class="img-fluid">
+                <a href="#" class="btn btn-primary">Concer más</a>
+            </article>
+            <article class="col-md-6 col-lg-4">
+                <div>
+                    <h2>Iphone 15</h2>
+                    <p>Nueva cámara, nuevo diseño, emocionante</p>
+                </div>
+                <img src="img/producto-2.png" alt="Dos versiones del iphone 15" class="img-fluid">
+                <a href="#" class="btn btn-primary">Concer más</a>
+            </article>
+            <article class="col-lg-4 d-md-none d-lg-flex">
+                <div>
+                    <h2>Huawei P50 Pro</h2>
+                    <p>La excelencia supera las expectativas</p>
+                </div>
+                <img src="img/producto-3.png" alt="Huawei P50 Pro" class="img-fluid">
+                <a href="#" class="btn btn-primary">Concer más</a>
+            </article>
+        </div>
+    </section>
+
+    <section id="innovacion" class="container-fluid">
+        <div class="row align-items-md-center">
+            <article class="col-md-6 col-lg-4" id="textos">
+                <h2>Innovación</h2>
+                <h3>Antes que nadie, siempre</h3>
+                <p>Nos adelantamos a las tendencias, por eso nuestros productos son los primeros en
+                    llegar al mercado</p>
+                <h3>Variedad, de verdad</h3>
+                <p>Contamos con una amplia gama de productos, para que siempre encuentres lo que buscas</p>
+            </article>
+            <figure class="col-md-6 col-lg-8 p-0">
+                <img src="img/innovacion.jpeg" alt="Innovación" class="img-fluid">
+            </figure>
+        </div>
+    </section>
+
+    <section id="beneficios">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Unite a nosotros</h2>
+                    <p>
+                        Recibí novedades, promociones y descuentos exclusivos para miembros de Astro Tech
+                    </p>
+                </div>
+                <form action="action.php" class="col-md-8 row align-items-lg-end">
+                    <div class="col-6 col-lg-4">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" name="nombre" id="nombre" required>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="col-lg-4">
+                        <input type="submit" value="Ser parte" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row text-center align-items-center justify-content-center justify-content-md-between">
+                <figure class="col-md-1">
+                    <img src="img/logo.svg" alt="Logo Astro Tech">
+                </figure>
+                <p class="col-md-6 text-md-end">
+                    Astro Tech - Tienda de tecnología
+                    Todos los derechos reservados
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

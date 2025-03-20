@@ -1,0 +1,28 @@
+﻿Colores
+amarillo #ffde00;
+azul #137abf;
+blanco #fff;
+negro #000
+-------------------------------------------------------------
+
+Ancho del contenedor
+1200px
+-------------------------------------------------------------
+Altura del logo
+150px
+-------------------------------------------------------------
+Textos
+Roboto - fuente Google Fonts
+
+Títulos 
+Madimi One - fuente Google Fonts
+-------------------------------------------------------------
+H1
+Tamaño 60px
+Altura de la caja 120px
+
+H2
+Borde inferior sólido de 2px color #ccc
+
+Redondeado foto
+10px arriba
