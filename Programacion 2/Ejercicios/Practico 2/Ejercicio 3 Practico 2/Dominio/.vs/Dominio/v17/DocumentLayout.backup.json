@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\ORT\\A\u00F1o1SegundoSemestre\\Programacion 2\\Ejercicios\\Practico 2\\Ejercicio 3 Practico 2\\Dominio\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6E110C38-3754-465A-9A0D-5BEBD879EBFB}|..\\Consola\\Consola.csproj|c:\\users\\pablo\\onedrive\\escritorio\\archivos\\repos\\ort\\a\u00F1o1segundosemestre\\programacion 2\\ejercicios\\practico 2\\ejercicio 3 practico 2\\consola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E0B21415-2733-4999-9F18-0438AB4385DD}|Dominio.csproj|c:\\users\\pablo\\onedrive\\escritorio\\archivos\\repos\\ort\\a\u00F1o1segundosemestre\\programacion 2\\ejercicios\\practico 2\\ejercicio 3 practico 2\\dominio\\citamedica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E0B21415-2733-4999-9F18-0438AB4385DD}|Dominio.csproj|solutionrelative:citamedica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E110C38-3754-465A-9A0D-5BEBD879EBFB}|..\\Consola\\Consola.csproj|c:\\users\\pablo\\onedrive\\escritorio\\archivos\\repos\\ort\\a\u00F1o1segundosemestre\\programacion 2\\ejercicios\\practico 2\\ejercicio 3 practico 2\\consola\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E110C38-3754-465A-9A0D-5BEBD879EBFB}|..\\Consola\\Consola.csproj|c:\\users\\pablo\\onedrive\\escritorio\\archivos\\repos\\ort\\a\u00F1o1segundosemestre\\programacion 2\\ejercicios\\practico 2\\ejercicio 3 practico 2\\consola\\consola.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Consola",
+              "DocumentMoniker": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\ORT\\A\u00F1o1SegundoSemestre\\Programacion 2\\Ejercicios\\Practico 2\\Ejercicio 3 Practico 2\\Consola\\Consola.csproj",
+              "RelativeDocumentMoniker": "..\\Consola\\Consola.csproj",
+              "ToolTip": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\ORT\\A\u00F1o1SegundoSemestre\\Programacion 2\\Ejercicios\\Practico 2\\Ejercicio 3 Practico 2\\Consola\\Consola.csproj",
+              "RelativeToolTip": "..\\Consola\\Consola.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-14T23:45:37.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\ORT\\A\u00F1o1SegundoSemestre\\Programacion 2\\Ejercicios\\Practico 2\\Ejercicio 3 Practico 2\\Consola\\Utils.cs",
+              "RelativeDocumentMoniker": "..\\Consola\\Utils.cs",
+              "ToolTip": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\ORT\\A\u00F1o1SegundoSemestre\\Programacion 2\\Ejercicios\\Practico 2\\Ejercicio 3 Practico 2\\Consola\\Utils.cs",
+              "RelativeToolTip": "..\\Consola\\Utils.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAuwHkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T23:10:17.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\ORT\\A\u00F1o1SegundoSemestre\\Programacion 2\\Ejercicios\\Practico 2\\Ejercicio 3 Practico 2\\Consola\\Program.cs",
+              "RelativeDocumentMoniker": "..\\Consola\\Program.cs",
+              "ToolTip": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\ORT\\A\u00F1o1SegundoSemestre\\Programacion 2\\Ejercicios\\Practico 2\\Ejercicio 3 Practico 2\\Consola\\Program.cs",
+              "RelativeToolTip": "..\\Consola\\Program.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBMAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T22:48:22.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CitaMedica.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\ORT\\A\u00F1o1SegundoSemestre\\Programacion 2\\Ejercicios\\Practico 2\\Ejercicio 3 Practico 2\\Dominio\\CitaMedica.cs",
+              "RelativeDocumentMoniker": "CitaMedica.cs",
+              "ToolTip": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\ORT\\A\u00F1o1SegundoSemestre\\Programacion 2\\Ejercicios\\Practico 2\\Ejercicio 3 Practico 2\\Dominio\\CitaMedica.cs",
+              "RelativeToolTip": "CitaMedica.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAwwCIAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T22:48:05.576Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,570 @@
+*INGENIERÍA DE REQUERIMIENTOS*
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+1) *CONCEPTOS GENERALES*
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+*EL ORIGEN DE LOS REQUERIMIENTOS*
+
+-Los requerimientos son servicios y restricciones que el sistema debe cumplir. 
+
+-Los requerimientos se constituyen en base a las siguientes cuestiones: 
+	1) FUNCIONALIDADES,
+	2) RESTRICCIONES DE CALIDAD,
+	3) REGLAS DE NEGOCIO, 
+	4) RESTRICCIONES DE DOMINIO. 
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+*PROBLEMÁTICAS PRESENTES EN LOS REQUERIMIENTOS*
+
+-ALGUNOS DE LOS PROBLEMAS MÁS COMUNES PRESENTES A LA HORA DE ELABORAR LOS REQUERIMIENTOS: 
+	1) Ambiguedad y falta de claridad.
+	2) Requerimientos INCOMPLETOS o MUTABLES.
+	3) Conflictos entre requerimientos.
+	4) Dificultad para priorizar requerimientos.
+	5) Comunicación ineficaz.
+	6) Falta de validación y verificación. 
+
+¿QUÉ GENERAN LOS MALOS REQUERIMIENTOS? 
+
+-RETRABAJO que resulta en el 30% - 50% del coste total del desarrollo. 
+
+-ERRORES en los requerimientos desencadenan en aproximadamente el 70% - 80% del costo de retrabajo. 
+
+*LA PROBLEMÁTICA SEGÚN EL AUTOR BOEHM*
+
+-El 45% de los errores percibidos son causados por una mala o nula especificación de los requerimientos.
+
+-Cuanto antes se perciba un error, más barato y fácil será corregirlo. 
+ A medida que pase el tiempo, el coste de resolución de un error aumenta exponencialmente. 
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+*¿QUÉ ES LA INGENIERÍA DE REQUERIMIENTOS?*
+
+-Son procesos, técnicas y herramientas que poseen la finalidad de:
+	1) RELEVAR,
+	2) ANALIZAR,
+	3) MODELAR,
+	4) REGISTRAR,
+	5) VERIFICAR Y VALIDAR, 
+	6) GESTIONAR LOS REQUERIMIENTOS. 
+
+*DEFINICIONES PERTENECIENTES A LA INGENIERÍA DE REQUERIMIENTOS*
+
+-DEFINICIÓN DE REQUERIMIENTO SEGÚN LA "IEEE":
+1) Es una condición o capacidad de un sistema requerida por el usuario para dilucidar un problema o alcanzar un objetivo.
+   Es aquella condición o capacidad que debe poseer un determinado sistema para satisfacer un contratom, estándar, especificación 
+   u otro documento formalmente impuesto. 
+
+-DEFINICIÓN DE REQUISITO (ISO):
+1) Es la necesidad o expectativa establecida, generalmente implícita u obligatoria. 
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+*HABILIDADES BLANDAS*
+
+-¿QUÉ SON LAS HABILIDADES BLANDAS?
+
+-Las habilidades blandas son aquellas habilidades referidas a los rasgos de carácter y comportamientos que determinan
+cómo una persona interactúa con los demás. 
+
+-EJEMPLOS EVIDENTES DE HABILIDADES BLANDAS: 
+	1) FLEXIBILIDAD,
+	2) CREATIVIDAD (PENSAMIENTO DIVERGENTE), 
+	3) INNOVACIÓN,
+	4) CURIOSIDAD,
+	5) GANAS DE APRENDER,
+	6) TOMA DE DECISIONES,
+	7) CULTURA DIGITAL,
+	8) COMUNICACIÓN (INTERACCIÓN CON LOS DEMÁS). 
+
+-BENEFICIOS DE LAS HABILIDADES BLANDAS: 
+	Algunas organizaciones que enaltecen y apoyan el desarrollo de habilidades blandas se enfocan en: 
+	
+	1) Mejorar las relaciones existentes entre los compañeros de trabajo, lo que contribuye a dilucidar conflictos,
+	generar equipos más fuertes, instigar la colaboración y retener el talento. 
+	
+	2) Mejorar significativa del servicio provisto al cliente y las relaciones existentes con los clientes, lo que se traduce
+	en una mayor satisfacción del cliente y mayores ventas. 
+	
+	3) Intercambiar conocimientos entre equipos, aumentando la eficiencia de la empresa y permitiendo un proceso
+	de incorporación simplificado para aquellos nuevos integrantes de los equipos. 
+
+	4) Aumentar la productividad y la mejora de los resultados a nivel empresarial. 
+
+-HABILIDADES BLANDAS VITALES A LA HORA DE LLEVAR A CABO EL DESARROLLO DE SOFTWARE: 
+	1) COMUNICACIÓN: Verbal, no verbal, escrita, escucha activa. 
+	2) APRENDIZAJE PERMANENTE: Pensamiento crítico, adaptabilidad constante, analítica e investigación.
+	3) LIDERAZGO: Trabajo en equipo, colaboración, negociación y empatía. 
+	4) PLANEACIÓN ESTRATÉGICA: Gestión del tiempo, manejo del estrés. 
+	5) ÉTICA: Honestidad, respeto por el prójimo y el entorno. 
+
+-¿CÓMO PODEMOS INCENTIVAR EL DESARROLLO DE LAS HABILIDADES BLANDAS?
+ El desarrollo de habilidades blandas es un proceso constante que se manifiesta a lo largo dela vida de cada persona. 
+ Cosas a considerar para llevar a cabo su desarrollo: 
+	1) Buscar activamente la interacción con los demás, 
+	2) Buscar oportunidades para presentar ante otros,
+	3) Generar un plan para organizarse tanto personal como profesionalmente,
+	4) Participar en evaluaciones. 
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+*TIPOS DE REQUERIMIENTOS EXISTENTES*
+
+
+-1)REQUERIMIENTOS DEL PRODUCTO: Son aquellas NECESIDADES o RESTRICCIONES sobre el SOFTWARE a desarrollar. 
+   
+   Se encargan de establecer cuáles son las funcionalidades existentes en el software. 
+   Básicamente determinan lo que los usuarios deben poder hacer con el SOFTWARE.
+   
+   PUEDEN SER PARÁMETROS ESPECÍFICOS COMO: 
+	1) DESEMPEÑO (memoria, velocidad),
+	2) PORTABILIDAD (capacidad para moverse a una nueva plataforma),  
+  	3) USABILIDAD (facilidad de uso por el usuario final). 
+
+-2)REQUERIMIENTOS DEL PROCESO: Son las restricciones sobre el proceso de desarrollo de SOFTWARE, tales como...
+
+   1) Lenguaje de desarrollo o conjuntos de herramientas,
+   2) Modelo de proceso a seguir. 
+
+-Estos requerimientos pueden ser impuestos por: 
+	1) El cliente,
+	2) La organización de desarrollo,
+	3) Terceros (como es el caso de los organismos reguladores). 
+
+*REQUERIMIENTOS FUNCIONALES*
+
+-Estos requerimientos se encargan de determinar qué es lo que tiene que hacer el sistema. 
+
+-Se encargan de describir las funciones que debe ejecutar el SOFTWARE.
+
+-Generalmente pueden ser observados directamente, por lo que se pueden diseñar pruebas para verificar su cumplimiento. 
+
+-Por lo general es sencillo verificar un REQUERIMIENTO FUNCIONAL bien planteado. 
+
+-EJEMPLOS DE REQUERIMIENTOS FUNCIONALES: 
+	1) "El sistema deberá asignar un número único de rastreo a cada paquete". 
+
+	2) "El sistema deberá desplegar la fecha de compra de un producto con un formato DD-MM-AAAA". 
+
+*REQUERIMIENTOS NO FUNCIONALES*
+
+-Restringen la solución.
+
+-Estipulan los criterios que pueden ser empleados para juzgar la operación del sistema.
+
+-Los requisitos NO-FUNCIONALES puede que no sean fácilmente observables.
+
+-Generalmente su alcance es el sistema como un todo y no sus componentes individuales. 
+
+-EJEMPLO DE UN REQUERIMIENTO NO FUNCIONAL: 
+"Considerando 1000 usuarios concurrentes, se deberá guardar un reportet en la base de datos a través de red en menos de 8 segundos". 
+================================
+*CARACTERÍSTICAS DE LOS REQUERIMIENTOS*
+
+1) NO AMBIGUEDAD: Posee una única interpretación independientemente del lector.
+
+2) CORRECCIÓN: Se corresponde con el dominio del producto. 
+
+3) COMPLETOS: Reflejan TODAS las necesidades correspondientes, configura las entradas y salidas (INPUTS y OUTPUTS). 
+
+4) CONSISTENCIA: No se contradice con respecto a otros requerimientos. 
+
+5) VERIFICABILIDAD: Es posible determinar si el requisito está CUMPLIDO o NO mediante un proceso FINITO y SIN AMBIGUEDADES.
+
+6) FACTIBILIDAD: Se puede implementar dadas las capacidades y restricciones del sistema. 
+================================
+*PROCESO DE LA INGENIERÍA DE REQUERIMIENTOS*
+
+-PROCESO FASE 0. 
+
+-INTERESADOS (STAKEHOLDERS): 
+	-Son todas aquellas personas u organizaciones que poseen "INTERESES" en el sistema.
+ 	-Los nombrados STAKEHOLDERS, pueden ser: USUARIOS, CLIENTES, EMPRESAS, DESARROLLADORES, entre otros.
+
+-PROCESOS PARA IDENTIFICAR A LOS "STAKEHOLDERS": 
+	1) ¿Quiénes son los usuarios del sistema?,
+	2) ¿Quién paga el sistema?, 
+	3) ¿Quiénes se vana a ver afectados por los resultados del sistema?
+	4) ¿Quién va a mantener el sistema? 
+
+================================
+*DESARROLLO DE LOS REQUERIMIENTOS*
+
+-ELICITACIÓN O RELEVAMIENTO: 
+	1) ENTRADAS:  Información provista por los interados, documentación existente, sistemas actuales. 
+	2) TÉCNICAS Y HERRAMIENTAS PARA RECABAR DATOS: Entrevistas, observación, análisis de documentos, técnicas de creatividad grupal, 
+	ingeniería reversa, JAD (Joint-Application-Development).
+	3) SALIDAS: Listado de requerimientos.
+
+-ALGUNOS PROBLEMAS DEL RELEVAMIENTO:
+	1) Los interesados no tienen claro qué es lo que desean. 
+	2) Existen diferencias "LINGUÍSTICAS" entre los usuarios, los técnicos y entre los diversos USUARIOS.
+	3) Se presentan diversos intereses entre los distintos STAKEHOLDERS. 
+
+-¿EN QUÉ CONSISTE LA ELICITACIÓN O RELEVAMIENTO?
+ Son aquellas actividades que nos brindan la posibilidad de conocer, analizar y describir el problema al que nos enfrentamos.
+ Se identifican los STAKEHOLDERS, las fuentes de donde obtendremos los requerimientos, procesos, datos y recursos.
+ 
+-OBJETIVOS PRINCIPALES DEL RELEVAMIENTO:
+	1) Definir cuáles son los STAKEHOLDERS de nuestro proyecto,
+	2) Identificar los límites del SISTEMA,
+	3) Comprender el dominio de la aplicación,
+	4) Identificar las necesidad que el sistema debe satisfacer. 
+
+-TÉCNICAS PRESENTES EN LOS REQUERIMIENTOS A LA HORA DE LA ELICITACIÓN: 
+
+1)ENTREVISTAS: Consiste en realizar entrevistas a usuarios. 
+          
+        ¿QUÉ TIPOS DE ENTREVISTAS EXISTEN? 
+	1) Entrevistas con preguntas libres de contexto: 
+	   Citan el problema del usuario sin hacer mención a posibles soluciones. 
+	
+	2) Entrevistas con preguntas con contexto agregado:
+	   Intentan explorar las posibles soluciones.
+	   Implican una determinada preparación previa y consisten en guiar más al interesado
+	   en el proceso de la entrevista. 
+ 
+2) OBSERVACIÓN: Observar de manera directa la operativa de una persona, grupo u organización sin intervenir en su trabajo.
+		Podemos identificar elementos que no son mencionados directamente en una entrevista.
+		Revela prácticas implícitas. 
+
+3) ANÁLISIS DE DOCUMENTACIÓN: La estructura y contenido presente en los documentos nos puede brindar mucha información sobre el modus operandi
+   			      de una organización.
+
+-EJEMPLOS DE DOCUMENTACIÓN: Forma de una factura, una historia clínica, un expediente judicial. 
+
+4) TÉCNICAS DE CREATIVIDAD GRUPAL: ¿QUÉ TÉCNICAS DE CREATIVIDAD GRUPAL EXISTEN? 
+	
+   1) TORMENTA DE IDEAS: Es una técnica grupal que consiste en generar ideas originales en un ambiente distendido.
+      Esta técnica de creatividad grupal es de suma utilidad cuando se desea: 
+      A) Liberar la creatividad de los equipos,
+      B) Generar un número cuantioso de ideas, 
+      C) Involucrar a un número considerable de personas en el proceso de desarrollo. 
+
+  2) TÉCNICA DELPHI: Es una técnica grupal empleada primordialmente para obtener una opinión consensuada de un grupo de expertos.
+     Esta técnica es realizada a través de una serie de cuestionarios, que constan de una retroalimentación controlada. 
+     Es anónima. 
+     Se realiaz en rondas. 
+
+  3) DESARROLLO CONJUNTO DE LA APLICACIÓN (Joint-Application-Development)
+
+     Es una metodología que involucra la colaboración intensiva de usuarios finales y desarrolladores mediante sesiones de trabajo estructuradas.
+     
+     El objetivo primordial es grantizar que el sistema desarrollada cumpla con tanto las necesidades como las expectativas de los usuarios al obtener sus requisitos 
+     y retroalimentaciones de manera directa y contínua.      
+
+     Se basa en reuniones estructuradas y negociaciones. 
+================================
+*PROCESO - ANÁLISIS*	
+
+-ENTRADAS: Requerimientos relevados.
+
+-TÉCNICAS Y HERRAMIENTAS: Técnicas de priorización (Votación acumulada, Ranking, MosCow, Top Ten, Kano, Categorización por prioridad).
+		          Técnicas de modelado (MER, Diagrama de Estados, Diagrama de Flujos). 
+
+-SALIDAS: Requerimientos PRIORIZADOS y MODELADOS. 
+
+*¿EN QUÉ RADICA LA TÉCNICA DE VOTACIÓN ACUMULADA (100$ TEST)?* 
+
+-Es un método de priorización que consiste en asignar una cantidad limitada de dinero para ser distribuida entre diversos requerimientos, 
+determinando así cuáles son los requerimientos más esenciales.
+
+-Participan los distintos interesados, puesto que cada participante del tiene la capacidad de influir en el orden de prioridades. 
+
+-OBJETIVOS: Identificar prioridades, determinar cuáles son los requerimientos más importantes para el equipo.
+	    De esta manera constituimos una base clara que facilita las decisiones. 
+
+-¿CÓMO FUNCIONA ESTE MÉTODO DE PRIORIZACIÓN? 
+	1) Primero enumeramos todos los requerimientos de SOFTWARE que requieren ser priorizados.
+	2) Cada miembro del equipo recibe 100$ virtuales.
+	3) Cada participante distribuye los 100$ entre los requerimiento según su importancia.
+	4) Recopilación de votos, recoge las distribuciones de cada miembro.
+	5) Cálculo de prioridades, se suma el dinero asignado a cada requerimiento.
+	   Los requerimientos que recauden más dinero, terminan siendo más importantes. 
+	
+-BENEFICIOS DE ESTE MÉTODO DE PRIORIZACIÓN...
+	1) TRANSPARENCIA: Todos los miembros del equipo pueden ver cómo son priorizados los requerimientos.
+	2) CONSENSO: Fomenta la participación y el mutuo acuerdo por parte del equipo.
+	3) FLEXIBILIDAD: Se puede ajustar fácilmente según el tamaño del equipo y la cantidad de requerimientos presentes. 
+----------------------------------------------------
+*¿EN QUÉ RADICA EL MÉTODO DE PRIORIZACIÓN MoSCoW?*
+
+-Este método de priorización se encarga de clasificar los requerimientos en cuatro categorías según su importancia y necesidad.
+
+-CATEGORÍAS PRESENTES EN MOSCOW...
+	1) MUST HAVE (DEBE TENER): Son aquellos requerimientos esenciales y críticos para obtener el éxito del proyecto.
+				   Sin estos requerimientos presentes, el proyecto será un fracaso. 
+	
+	2) SHOULD HAVE (DEBERÍA TENER): Son aquellos requerimientos IMPORTANTEs, pero no ESENCIALES.
+					Son considerados de alta estima, pero no son imprescindibles para el éxito inmediato del proyecto. 
+
+	3) COULD HAVE (PODRÍA TENER):  Son aquellos requerimientos que su presencia es deseable en el sistema, pero no VITALES.
+				       Estos requerimientos pueden estar presentes en caso de que exista tiempo y recursos disponibles.
+	
+	4) WON'T HAVE (NO-TENDRÁ): Son aquellos requerimientos que no serán tomados en cuenta en esta instancia del proyecto. 
+				   Este tipo de requerimientos pueden estar presentes en versiones futuras del sistema. 
+
+-BENEFICIOS PRINCIPALES DEL MÉTODO DE PRIORIZACIÓN MOSCOW: 
+	1) CLARIDAD: Se encarga de definir claramente qué es esencial y qué es opcional.
+	2) ENFOQUE: Ayuda a concentrar los esfuerzos en lo que es más importante.
+	3) FLEXIBILIDAD: Facilita la gestión de cambios y ajustes en los requerimientos. 
+----------------------------------------------------
+*MÉTODO DE PRIORIZACIÓN RANKING O TOP TEN*
+
+-¿En qué consiste este método? 
+
+-Es un método de priorización encargado de clasificar los requerimientos de SOFTWARE en una lista ordenada según su relevancia.
+
+-Posee un enfoque directo, identifica y enfoca los requerimientos más críticos para el éxito del proyecto.
+
+-OBJETIVOS PRIMORDIALES DE ESTE MÉTODO DE PRIORIZACIÓN: 
+	1) DETERMINAR LAS PRIORIDADES: Establecer un orden límpido de importancia entre los requerimientos.
+	2) FACILITAR LA PLANIFICACIÓN: Disponer una guía concreta para el desarrollo y la implementación.
+
+-¿CÓMO FUNCIONA ESTE MÉTODO? 
+	1) LISTADO DE REQUERIMIENTOS: Enumerar todos los requerimientos recabados y presentes en el proyecto.
+	
+	2) EVALUACIÓN Y CLASIFICACIÓN: Evaluar cada requerimiento en función de criterios tales como valor de negocio, urgencia, costo y riesgo.
+				       Clasificar los requerimientos desde el más importante al menos relevante. 
+	
+	3) CREACIÓN DEL RANKING: Dar a luz una lista ordenada, destacando los diez requerimientos más importantes.
+	
+	4) REVISIÓN Y CONSENSO: Debatir y acordar el ranking mediante el EQUIPO y los STAKEHOLDERS.
+
+-BENEFICIOS DE ESTE MÉTODO DE PRIORIZACIÓN...
+	1) SIMPLICIDAD: Es un proceso diáfano de entender y directo.
+	2) CLARIDAD: Otorga una visión CLARA de las prioridades.
+	3) ENFOQUE: Ayuda a canalizar los esfuerzos en los requerimientos más críticos. 
+================================
+*PROCESO - ESPECIFIACIÓN*
+
+-ENTRADAS: Requerimientos priorizados y modelados. 
+
+-TÉCNICAS Y HERRAMIENTAS: Bocetos de interfaz de usuario (WIREFRAMES o MOCKUPS), storyboard, prototipos, casos de uso, documentos ESRE. 
+
+-SALIDAS: Requerimientos especificados. 
+
+-¿EN QUÉ CONSISTE LA ESPECIFICACIÓN?
+	1) Estructura la información percibida de la elicitación (la información obtenida del relevamiento).
+	2) Se generan uno o más documentos que resultan siendo entendibles tanto para los USUARIOS como para los DESARROLLADORES.
+	3) Los documentos generados en esta instancia deben respetar determinado estándar. 
+
+----------------------------------------------------
+*TÉCNICA DE ESPECIFICACIÓN WIREFRAMES*
+
+-Los conocidos BOSQUEJOS DE INTERFAZ DE USUARIO o WIREFRAMES, son representaciones visuales básicas y rudimentarias 
+de lo que sería posteriormente una UI (USER-INTERFACE). 
+
+-¿QUÉ REPRESENTAN?: La estructura y futura funcionalidad de la UI (USER-INTERFACE). 
+----------------------------------------------------
+*TÉCNICA DE ESPECIFICACIÓN STORYBOARDS*
+
+-El objetivo de esta técnica de especificación, es conseguir una temprana RETROALIMENTACIÓN de parte de los usuarios sobre los conceptos
+propuestos para el sistema.
+
+-Esta técnica es basada en la utilización de herramientas de bajo costo tales como: Transparencias, fichas autoadhesivas, dibujos, entre otros.
+----------------------------------------------------
+*TÉCNICA DE ESPECIFICACIÓN PROTOTIPOS*
+
+-Un PROTOTIPO es una implementación parcial del sistema para que tanto USUARIOS como DESARROLLADORES 
+aprendan más sobre el PROBLEMA o SOLUCIÓN. 
+
+-Se encarga de relevar y validar requerimientos, no busca generar  una funcionalidad.
+
+-TIPOS DE PROTOTIPOS...
+	1) PROTOTIPO EVOLUTIVO: Es un prototipo al que se le agrega funcionalidad y se convierte en SISTEMA (o parte del mismo). 
+	2) PROTOTIPO DESECHABLE: Es aquel prototipo cuyo objetivo consiste en solo relevar y validar. 
+				 Es desechado previo a la implementación. 
+----------------------------------------------------
+*TÉCNICA DE ESPECIFICACIÓN CASO DE USO*
+
+-Un caso de uso se encarga de describir una forma PARTICULAR de EMPLEAR el SISTEMA.
+
+-Es una secuencia de transacciones ofrecidas por el SISTEMA y generadas por un actor,
+ que presentan un resultado medible para el actor.
+
+-¿QUÉ ES UN ACTOR?: Todo lo que interactúa con el sistema, es considerado un ACTOR (ya sea humano o máquina).
+	            El actor representa los ROLES que los usuarios pueden asumir. 
+
+-Un caso de uso puede tener múltiples actores. 
+
+-Un actor puede interactuar con múltiples casos de uso, un caso de uso no está limitado a un solo actor. 
+
+-LOS CASOS DE USO SE PUEDEN ESCRIBIR: 
+	1) Formal o informalmente,
+	2) En forma textual o diagramática. 
+
+-El conjunto de los casos de uso determina la completa funcionalidad del sistema. 
+----------------------------------------------------
+*TÉCNICA DE ESPECIFICACIÓN ESRE (DOCUMENTACIÓN-DE-ESPECIFICACIÓN-DE-REQUERIMIENTOS)*
+
+-Es un documento que presenta una descripción COMPLETA de QUÉ va a realizar el sistema y CÓMO lo va a llevar a cabo. 
+
+-Este documento debe describir el comportamiento externo del SISTEMA incluyendo requerimientos FUNCIONALES y no FUNCIOANLES.
+================================
+*PROCESO - VALIDACIÓN Y VERIFICACIÓN*
+
+-ENTRADAS: Requerimientos especificados. 
+
+-TÉCNICAS Y HERRAMIENTAS: CHECKLISTS, JAD (JOINT-APPLICATION-DEVLOPMENT), grupos motivacionales, prototipación, encuestas.
+
+-SALIDAS: Requerimientos validados y verificados. 
+
+-VALIDACIÓN DE REQUERIMIENTOS, ¿EN QUÉ CONSISTE?
+ Versa sobre demostrar que los requerimientos reflejan el sistema que los CLIENTES y USUARIOS desean.
+ Intenta soslayar que los errores en el DOCUMENTO-DE-ESPECIFICACIÓN-DE-REQUERIMIENTOS se propaguen a las siguientes
+ instancias de desarrollo del proyecto. 
+
+-¿QUÉ SE VALIDA? 
+  Son validados los requerimientos FUNCIONALES, de EFICIENTE, de INGENIERÍA HUMANA, entre otros...
+
+  Contra las necesidades del usuario (documentos generales, modelo de casos de uso del negocio). 
+
+  Desde el punto de vista de sus características (no deben presentar ambiguedad, corrección, completos
+  consistencia, verificabilidad y factibilidad). 
+----------------------------------------------------
+*TÉCNICAS Y HERREAMIENTAS CHCECKLIST*
+
+-Constituye una HERRAMIENTA DE CONTROL, es una lista ESTRUCTURADA de ÍTEMS a VERIFICAR o VALIDAR. 
+
+-Es un MÉTODO SISTEMÁTICO, asegura que TODOS los aspectos CRÍTICOS que componen los REQUERIMIENTOS sean REVISADOS.
+
+-OBJETIVOS PRINCIPALES DE LA CHECKLIST:
+	1) VALIDAR LOS REQUERIMIENTOS: Confirmar que los requerimientos satisfacen tanto expectativas como necesidades de los STAKEHOLDERS.
+	2) VERIFICAR LOS REQUERIMIENTOS: Asegurar que los requerimientos son CLAROS, COMPLETOS, CONSISTENTES y FACTIBLES. 
+
+-¿CÓMO SON EMPLEADAS LAS CHECKLIST?
+	1)INSTANCIA DE DISEÑO DE LA CHECKLIST: 
+		A) IDENTIFICACIÓN DE CRITERIOS: Definir los aspectos considerados claves al momento de verificar y validar. 
+		B) ESTRUCTURACIÓN: Elaborar una lista detallada de ítems basados en los criterios previamente definidos. 
+
+	2) REVISIÓN DE REQUERIMIENTOS: 
+		A) APLICACIÓN SISTEMÁTICA: Revosar cada requerimiento empleando la CHECKLIST.
+		B) MARCADO DE ÍTEMS: Señalar cada ítem que compone la checklist como "CUMPLIDO" o "NO CUMPLIDO". 
+
+	3) DOCUMENTACIÓN DE RESULTADOS:
+		A) REGISTRO DE HALLAZGOS: Documentar cualquier problema, inconsitencia o área de posible mejora.
+		B) COMENTARIOS Y NOTAS: Agregar detalles adicionales y observaciones interesantes.
+
+	4) ACCIÓN CORRECTIVA: 
+		A) AJUSTE DE REQUERIMIENTOS: Llevar a cabo modificaciones necesariadas basadas en los resultados de la CHECKLIST.
+	        B) COMUNICACIÓN: Notifiacr a los STAKEHOLDERS sobre los cambios efectuados y presentar sus respectivos motivos. 
+
+-BENEFICIOS PRINCIPALES DEL EMPLEO DE LA CHECKLIST: 
+	1) CONSISTENCIA: Garantiza que todos los aspectos críticos sean revisados uniformemente. 
+	2) EFICIENCIA: Facilita una revisión rápida y ordenada. 
+	3) CALIDAD: Mejora la calidad de los requerimientos mediante revisiones sistemáticas. 
+
+
+-ALGUNOS EJEMPLOS DE PREGUNTAS QUE PUEDEN ESTAR PRESENTES EN UNA CHECKLIST: 
+	¿El requerimiento es claro y entendible?
+	¿El requerimiento es medible y verificable?
+ ----------------------------------------------------
+*TÉCNICAS Y HERRAMIENTAS GRUPOS MOTIVACIONALES*
+
+-Los grupos motivacionales están constituidos por GRUPOS DE STAKEHOLDERS.
+ Estos GRUPOS MOTIVACIONALES los componen usuarios, desarrolladores, gerentes y todos los interesados.
+ Estas personas que integran el grupo trabajan mediante un ENFOQUE COLABORATIVO.
+ Los GRUPOS MOTIVACIONALES facilitan la discusión y el consenso respecto a los requerimientos de SOFTWARE. 
+
+-OBJETIVOS PRINCIPALES DE LOS GRUPOS MOTIVACIONALES...
+	1) VALIDAR REQUERIMIENTOS: Asegurar que los requerimientos se adecúen a las necesidades y expectativas de los STAKEHOLDERS.
+	2) VERIFICAR REQUERIMIENTOS: Garantizar que los requerimientos sean CLAROS, COMPLETOS y TÉCNICAMENTE FACTIBLES. 
+
+-¿CÓMO SE EMPLEAN LOS GRUPOS MOTIVACIONALES? 
+	1) FORMACIÓN DEL GRUPO: 
+		A) SELECCION DE MIEMBROS - Inclusión de representantes de todas las partes interesadas en el producto (usuarios finales, desarrolladores, gerentes...)
+ 		B) DIVERSIDAD DE PERSPECTIVA - Garantizar una variedad de opiniones y conocimientos entre los integrantes. 
+
+	2) PREPARACIÓN DE LA REUNIÓN:
+		A) AGENDA CLARA: Definir los objetivos y temas a tratar en las reuniones. 
+		B) MATERIALES DE APOYO: Otorgar documentos trascendentales, tales como la LISTA DE REQUERIMIENTOS. 
+	
+	3) DISCUSIÓN COLABORATIVA: 
+		A) REVISIÓN DE REQUERIMIENTOS - Someter a revisión cada requerimiento presente en detalle.
+		B) FEEDBACK Y DEBATE - Recoger opiniones, sugerencias y preocupaciones ded todos los miembros del grupo.
+		C) CONSENSO - Buscar acuerdos sobre la validez y transparencia de los requerimientos presentados. 
+	
+	4) DOCUMENTACIÓN DE RESULTADOS:
+		A) REGISTRO DE DECISIONES - Documentar las conclusiones y acuerdos logrados.
+		B) ACCIONES DE SEGUIMIENTO - Identificar acciones requeridas para lidiar con cualquier problema o mejora identificada.
+	
+	5) REVISIÓN Y AJUSTE: 
+		A) REVISIÓN DE REQUERIMIENTOS: Modificar los requerimientos en función de la retroalimentación recibida.
+		B) COMUNCIACIÓN: Notificar a todos los STAKEHOLDERS los cambios realizados y su justificación. 
+
+-BENEFICIOS PRINCIPALES DEL EMPLEO DE GRUPOS MOTIVACIONALES: 
+	1) COLABORACIÓN: Fomenta unambiente de trabajo colaborativo y participativo. 
+	2) PERSPECTIVAS DIVERSAS: Garantiza que se consideren diferentes puntos de vista y conocimientos.
+	3) MEJORA DE CALIDAD: Incrementa notablemente la calidad y relevancia de los requerimientos. 
+----------------------------------------------------
+*TÉCNICAS Y HERRAMIENTAS ENCUESTAS PARA VALIDACIÓN Y VERIFICACIÓN DE REQUERIMIENTOS DE SOFTWARE*
+
+-¿EN QUÉ CONSISTEN LAS ENCUESTAS?: Son una herramienta de recolección de datos que nos permite obtener opiniones, retroalimentación por parte de USUARIOS e INTERESADOS 
+mediante una serie de preguntas específicas. 
+
+-OBJETIVOS: 
+	1) VALIDACIÓN DE REQUERIMIENTOS: Garantizar que los requerimientos capturados son acorden a las necesidades y expectavias de los usuarios.
+	2) VERIFICACIÓN DE REQUERIMIENTOS: Confirmar que los requerimientos son CLAROS, COMPLETOS y FACTIBLES.
+
+-¿CÓMO EMPLEAMOS LAS ENCUESTAS? 
+	1) DISEÑO DE LA ENCUESTA: 
+	 	A) IDENTIFICACIÓN DE OBJETIVOS: Definir cuál es la información que nos resulta esencial recabar. 
+		B) DESARROLLO DE PREGUNTAS: Crear preguntas claras y concisas, tanto abiertas como cerradas. 
+
+	2) SELECCIÓN DE PARTICIPANTES:
+		A) USUARIOS Y STAKEHOLDERS: Involucrar a todo aquél que empleará o se verá afectado por el SOFTWARE.
+		B) DIVERSIDAD DE PERSPECTIVAS: Asegurar una muestra representativa de cada tipo usuario que empleará el SOFTWARE.
+	
+	3) DISTRIBUCIÓN DE LA ENCUESTA:
+		A) MÉTODOS DE DISTRIBUCIÓN: emplear medios tales como el correo electrónico, plataformas en línea, o reuniones.
+		B) FACILIDAD DE ACCESO: Garantizar que la encuesta sea fácil de completar.
+
+	4) RECOLECCIÓN Y ANÁLISIS DE DATOS:
+		A) COMPILACIÓN DE RESPUESTAS: Recabar todas las respuestas de manera organizada.
+		B) ANÁLISIS DE RESULTADOS: Identificar patrones, tendencias y áreas de posible mejora. 
+
+	5) ACCIÓN BASADA EN RESULTADOS:
+		A) REVISIÓN DE REQUERIMIENTOS: Ajustar los requerimientos en función de la RETROALIMETNACIÓN percibida. 
+		B) COMUNICACIÓN DE CAMBIOS: Notificar a todos los interesados sobre las modificaciones y aportar las justificaciones que las respalden. 
+
+-BENEFICIOS PRIMORDIALES DEL EMPLEO DE ENCUESTAS EN LA INSTANCIA DE VALIDACIÓN Y VERIFICACIÓN DE LOS REQUERIMIENTOS DEL SOFTWARE...
+	1) PERSEPCTIVA DEL USUARIO: Garantizar que las necesidades reales de los usuarios sean reflejadas en los requerimientos.
+	2) MEJORA CONTÍNUA: Otorga una abse para ajustes y mejoras constantes.
+	3) REDUCCIÓN DE RIESGOS: Minimiza el riesgo de desarrollar posteriormente funcionalidades innececsarias e incorrectas. 
+================================
+*GESTIÓN DE LOS REQUERIMIENTOS*
+
+-CONTROL DE CAMBIOS: 
+	1) Análisis de impacto.
+	2) Circuito de control de cambios. 
+	3) Actualización de los elementos del proyecto afectados por los cambios realizados.
+	4) Medición de la volatilidad de los requerimientos.
+
+-CONTROL DE VERSIONES:
+	1) Definición de un esquema de VERSIONADO.
+	2) Registrar el desarrollo de los requerimientos.
+
+-TRAZABILIDAD DE REQUERIMIENTOS:
+	1) Definición delas dependencias de los requerimientos con respecto a otros elementos constituyentes del SOFTWARE.
+	2) Definición y seguimiento del estado en el que se encuentran los REQUERIMIENTOS.
+
+
+
+
+ELICITACIÓN
+ANÁLISIS
+ESPECIFICACIÓN
+VALIDACIÓN 
+
+
+
+RESUMEN DE LOS PASOS PARA EL DESARROLLO DE REQUERIMIENTOS: ELICITACIÓN -> ANÁLISIS -> ESPECIFICACIÓN -> VALIDACIÓN Y VERIFICACIÓN
+
+
+
+
+
+
+							     
+  
+	
+
+
+
+
+
+

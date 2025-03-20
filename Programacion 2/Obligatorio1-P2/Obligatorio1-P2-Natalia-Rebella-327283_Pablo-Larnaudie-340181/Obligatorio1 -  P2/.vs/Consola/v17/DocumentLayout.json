@@ -1,0 +1,94 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\P2-Obligatorio1\\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\\Obligatorio1 -  P2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D00A1185-90BB-4E7E-8280-449549DCF89A}|Consola\\Consola.csproj|c:\\users\\pablo\\onedrive\\escritorio\\archivos\\repos\\p2-obligatorio1\\obligatorio1-p2-natalia-rebella-327283_pablo-larnaudie-340181\\obligatorio1 -  p2\\consola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D00A1185-90BB-4E7E-8280-449549DCF89A}|Consola\\Consola.csproj|solutionrelative:consola\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC4013D-EFD7-4705-8F08-0743E2919DAF}|Dominio\\Dominio.csproj|c:\\users\\pablo\\onedrive\\escritorio\\archivos\\repos\\p2-obligatorio1\\obligatorio1-p2-natalia-rebella-327283_pablo-larnaudie-340181\\obligatorio1 -  p2\\dominio\\sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC4013D-EFD7-4705-8F08-0743E2919DAF}|Dominio\\Dominio.csproj|solutionrelative:dominio\\sistema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\P2-Obligatorio1\\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\\Obligatorio1 -  P2\\Consola\\Program.cs",
+              "RelativeDocumentMoniker": "Consola\\Program.cs",
+              "ToolTip": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\P2-Obligatorio1\\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\\Obligatorio1 -  P2\\Consola\\Program.cs",
+              "RelativeToolTip": "Consola\\Program.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAswOsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T00:12:08.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Sistema.cs",
+              "DocumentMoniker": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\P2-Obligatorio1\\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\\Obligatorio1 -  P2\\Dominio\\Sistema.cs",
+              "RelativeDocumentMoniker": "Dominio\\Sistema.cs",
+              "ToolTip": "C:\\Users\\pablo\\OneDrive\\Escritorio\\Archivos\\Repos\\P2-Obligatorio1\\Obligatorio1-P2-Natalia-Rebella-327283_Pablo-Larnaudie-340181\\Obligatorio1 -  P2\\Dominio\\Sistema.cs",
+              "RelativeToolTip": "Dominio\\Sistema.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMBAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T00:07:27.64Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 637,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 50,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

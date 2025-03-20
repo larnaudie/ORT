@@ -1,0 +1,15 @@
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\obj\Debug\net8.0\Ejercicio 8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\obj\Debug\net8.0\Ejercicio 8.AssemblyInfoInputs.cache
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\obj\Debug\net8.0\Ejercicio 8.AssemblyInfo.cs
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\obj\Debug\net8.0\Ejercicio 8.csproj.CoreCompileInputs.cache
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\obj\Debug\net8.0\Ejercicio 8.sourcelink.json
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\bin\Debug\net8.0\Ejercicio 8.exe
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\bin\Debug\net8.0\Ejercicio 8.deps.json
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\bin\Debug\net8.0\Ejercicio 8.runtimeconfig.json
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\bin\Debug\net8.0\Ejercicio 8.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\bin\Debug\net8.0\Ejercicio 8.pdb
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\obj\Debug\net8.0\Ejercicio 8.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\obj\Debug\net8.0\refint\Ejercicio 8.dll
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\obj\Debug\net8.0\Ejercicio 8.pdb
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\obj\Debug\net8.0\Ejercicio 8.genruntimeconfig.cache
+C:\Users\pablo\OneDrive\Escritorio\Archivos\Repos\ORT\Año1SegundoSemestre\Programacion 2\Ejercicios\Practico 1\Ejercicio 8\Ejercicio 8\Ejercicio 8\obj\Debug\net8.0\ref\Ejercicio 8.dll
