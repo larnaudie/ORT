@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+      #map {
+        height: 1600;
+        width: 1500;
+      }
+    </style>
+  </head>
+  <!-- SECTOR DE APLICACION -->
+
+  <body>
+    <ion-app>
+      <!--  Sector del routeo -->
+      <ion-router id="ruteo">
+        <ion-route url="/" component="page-home"></ion-route>
+        <ion-route url="/login" component="page-login"></ion-route>
+        <ion-route url="/registrarUsuario" component="page-registrarUsuario"></ion-route>
+        <ion-route url="/registrarActividad" component="page-registrarActividad"></ion-route>
+        <ion-route url="/listadoActividades" component="page-listadoActividades"></ion-route>
+        <ion-route url="/informeTiempo" component="page-informeTiempo"></ion-route>
+        <ion-route url="/mapa" component="page-mapa"></ion-route>
+      </ion-router>
+      <ion-nav></ion-nav>
+
+      <!--  Sector del menú -->
+      <ion-menu content-id="main-content" id="menu">
+        <ion-header>
+          <ion-toolbar color="warning">
+            <ion-title>🚀 ¡Impulsá Tu Progreso!</ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding">
+          <ion-item href="/" onclick="cerrarMenu()" id="btnMenuHome"> <ion-label>Home</ion-label> </ion-item>
+          <ion-item id="btnMenuRegistrarUsuario" onclick="cerrarMenu()" href="/registrarUsuario"><ion-label>¡Inscríbete Ya!</ion-label></ion-item>
+          <ion-item id="btnMenuLogin" onclick="cerrarMenu()" href="/login"><ion-label>Login</ion-label></ion-item>
+          <ion-item id="btnMenuRegistrarActividad" onclick="cerrarMenu()" href="/registrarActividad"><ion-label>Registrar Actividad</ion-label></ion-item>
+          <ion-item id="btnMenuListadoActividades" onclick="cerrarMenu()" href="/listadoActividades"><ion-label>Listado De Actividades</ion-label></ion-item>
+          <ion-item id="btnMenuInformeTiempo" onclick="cerrarMenu()" href="/informeTiempo"><ion-label>Informe Del Tiempo</ion-label></ion-item>
+          <ion-item id="btnMenuMapa" onclick="cerrarMenu()" href="/mapa"><ion-label>Mostrar Mapa </ion-label></ion-item>
+          <!-- SECTOR LOGOUT (PARTE 3) -->
+          <ion-item id="btnMenuLogout" onclick="cerrarMenu()" href="/home"><ion-label>Logout</ion-label></ion-item>
+        </ion-content>
+      </ion-menu>
+
+      <div class="ion-page" id="main-content"></div>
+
+      <!-- Sector de pagina HOME (vinculado PARTE 3) -->
+      <page-home class="ion-page" id="pantalla-home">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title class="lblBienvenida">
+              <img src="IMG/LOGO.png" alt="Logo" style="height: 80px; vertical-align: middle" />
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding" style="--background: #3a3a3a; text-align: center">
+          <img src="IMG/banner.png" alt="Fondo Principal" />
+        </ion-content>
+      </page-home>
+
+      <!-- Sector de pagina REGISTRAR USUARIO (PARTE 1)-->
+      <page-registrarUsuario class="ion-page" id="pantalla-registrarUsuario">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>
+              <img src="IMG/LOGO.png" alt="Logo" style="height: 80px; vertical-align: middle" />
+              <span style="margin-left: 350px; color: #ff5733; font-size: 24px; font-weight: bold">💪 Tu Ruta al Éxito 🏋️</span>
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding" style="--background: #3a3a3a; text-align: center">
+          <ion-item>
+            <ion-label>
+              <h1>Registrar Usuario</h1>
+            </ion-label>
+          </ion-item>
+
+          <!-- Ingreso dato Nombre -->
+          <ion-item>
+            <ion-input label="Nombre:" placeholder="Ingresa su nombre" id="txtRegistrarNombre"></ion-input>
+          </ion-item>
+
+          <!-- Ingreso dato password -->
+          <ion-item>
+            <ion-input label="Password:" type="password" placeholder="Ingrese una contraseña" id="txtRegistrarPassword"></ion-input>
+          </ion-item>
+
+          <!-- Ingreso dato país con select -->
+          <ion-item>
+            <ion-select label="País:" placeholder="Seleccione país de origen" id="slcPais"></ion-select>
+          </ion-item>
+
+          <!-- Botón -->
+          <ion-button color="warning" shape="round" style="color: black" id="btnRegistrarUsuario">Ingresar Datos</ion-button>
+        </ion-content>
+      </page-registrarUsuario>
+
+      <!-- Sector de pagina LOGIN (PARTE 2)-->
+      <page-login class="ion-page" id="pantalla-login">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>
+              <img src="IMG/LOGO.png" alt="Logo" style="height: 80px; vertical-align: middle" />
+              <span style="margin-left: 350px; color: #ff5733; font-size: 24px; font-weight: bold">💪 Tu Ruta al Éxito 🏋️</span>
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding" style="--background: #3a3a3a; text-align: center">
+          <ion-item>
+            <ion-label>
+              <h1>Que bueno volver a verte por aqui!💪</h1>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-input label="Usuario:" placeholder="Ingrese su usuario" id="txtLoginUsuario"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input label="Password:" type="password" placeholder="Ingrese su contraseña" id="txtLoginPassword"></ion-input>
+          </ion-item>
+
+          <ion-button color="warning" shape="round" style="color: black" id="btnLogin">Login</ion-button>
+        </ion-content>
+      </page-login>
+
+      <!-- Sector de pagina REGISTRAR EJERCICIO (PARTE 4)-->
+      <page-registrarActividad class="ion-page" id="pantalla-registrarActividad">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>
+              <img src="IMG/LOGO.png" alt="Logo" style="height: 80px; vertical-align: middle" />
+              <span style="margin-left: 350px; color: #ff5733; font-size: 24px; font-weight: bold">💪 Tu Ruta al Éxito 🏋️</span>
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding" style="--background: #3a3a3a; text-align: center">
+          <ion-item>
+            <ion-label>
+              <h1>
+                No se trata de hacerlo perfecto, sino de hacerlo constante. <br />
+                <strong>¡Registra tu esfuerzo!</strong>
+              </h1>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-select label="Actividad:" placeholder="Seleccione la actividad realizada" id="registrarIdActividad"></ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Usuario </ion-label>
+            <ion-input type="text" id="registrarIdUsuario" readonly></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input label="Tiempo:" type="number" placeholder="Duración de la actividad en minutos" id="registrarTiempoMinutos"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input label="Fecha:" type="date" id="registrarFecha"></ion-input>
+          </ion-item>
+
+          <ion-button color="warning" shape="round" style="color: black" id="btnRegistrarActividad">Guardar Progreso</ion-button>
+        </ion-content>
+      </page-registrarActividad>
+
+      <!-- Sector de pagina LISTADO DE EJERCICIOS (PARTE 5)-->
+      <page-listadoActividades class="ion-page" id="pantalla-listadoActividades">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>
+              <img src="IMG/LOGO.png" alt="Logo" style="height: 80px; vertical-align: middle" />
+              <span style="margin-left: 350px; color: #ff5733; font-size: 24px; font-weight: bold">💪 Tu Ruta al Éxito 🏋️</span>
+            </ion-title>
+          </ion-toolbar>
+          <!-- Selector de filtro por fecha -->
+          <ion-item>
+            <ion-select label="Filtrar por:" placeholder="Seleccione un filtro" id="filtroFecha">
+              <ion-select-option value="semana">Última semana</ion-select-option>
+              <ion-select-option value="mes">Último mes</ion-select-option>
+              <ion-select-option value="todo">Todo el histórico</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-header>
+
+        <ion-content class="ion-padding" id="contenedorListado" style="--background: #3a3a3a; text-align: center"> </ion-content>
+      </page-listadoActividades>
+
+      <!-- Sector de pagina INFORME DE TIEMPO (PARTE 7)-->
+      <page-informeTiempo class="ion-page" id="pantalla-informeTiempo">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>
+              <img src="IMG/LOGO.png" alt="Logo" style="height: 80px; vertical-align: middle" />
+              <span style="margin-left: 350px; color: #ff5733; font-size: 24px; font-weight: bold">💪 Tu Ruta al Éxito 🏋️</span>
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding" style="--background: #3a3a3a; text-align: center">
+          <ion-button color="warning" shape="round" style="color: black" id="btnMenuInformeTiempo">Obtener Informe de Tiempo</ion-button>
+        </ion-content>
+      </page-informeTiempo>
+
+      <!-- SECTOR DE PÁGINAS (Mapa de usuarios por país) -->
+
+      <page-mapa class="ion-page" id="pantalla-mapa">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>
+              <img src="IMG/LOGO.png" alt="Logo" style="height: 80px; vertical-align: middle" />
+              <span style="margin-left: 350px; color: #ff5733; font-size: 24px; font-weight: bold">💪 Tu Ruta al Éxito 🏋️</span>
+            </ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding" style="--background: #3a3a3a; text-align: center">
+          <div id="map" style="height: 1500px; width: 1500pxt"></div>
+        </ion-content>
+      </page-mapa>
+    </ion-app>
+    <script src="js/index.js"></script>
+  </body>
+</html>

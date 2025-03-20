@@ -1,0 +1,13 @@
+ // usuario= pepe
+ // clave= 1234
+
+MENU
+
+	Registrar usuario (usuario, contraseña, pais)
+	Login (usuario, contraseña)
+	Registrar actividad (USUARIO, actividad, minutos, fecha)
+	Listado (icono, actividad, minutos, fecha) DE MIS EJERCICIOS
+	informe de minutos totales
+	Informe de minutos del día
+	Mapa 
+	Logout
