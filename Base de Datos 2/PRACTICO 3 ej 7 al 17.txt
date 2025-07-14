@@ -1,0 +1,132 @@
+/* PRACTICO 3 ej 7 al 17
+7. Mostrar los nombres de los proveedores (Supplier) que venden productos que no superen las 10
+unidades en las  rdenes en las que figuran.
+*/
+select s.CompanyName 
+from Suppliers s,Products p, OrderDetails od
+where s.supplierID = p.SupplierID and od.ProductID = p.ProductID and
+	od.Quantity < 10
+
+/*
+8. Mostrar la descripci n de las categorias de productos que est n en ordenes que no tienen
+descuentos (discount=0).
+*/
+select distinct  c.CategoryName, CAST(c.Description as nVarchar(MAX)) as Descripcion
+from Categories c, OrderDetails od, Products p
+where c.CategoryID=p.CategoryID   and od.ProductID = p.ProductID and od.Discount = 0
+
+/*
+9. Mostrar numero de orden, nombre de la compa  a cliente, contacto del cliente, c digo de
+producto, nombre de producto fecha de la orden, cantidad, precio unitario y
+precio total para todas las ordenes solicitadas en julio de 1996.
+*/
+select o.OrderID, c.CompanyName,c.ContactName, p.ProductID, p.ProductName, o.OrderDate,
+od.quantity,od.UnitPrice, (od.quantity * od.UnitPrice * (1-od.Discount)) 'Precio Total'
+from  Customers c, Products p, Orders o, OrderDetails od 
+where o.CustomerID = c.CustomerID and o.OrderID = od.OrderID and od.ProductID = p.ProductID and
+		Month(o.OrderDate) = 7 and Year(o.OrderDate) = 1996
+
+/*
+10. Mostar los nombres de los proveedores que proveen productos que est n en
+ordenes del a o 1998 con destino USA.
+*/
+select distinct s.CompanyName
+from Suppliers s, Products p, Orders o
+where s.SupplierID = p.SupplierID   and  year(o.OrderDate) = 1998 and o.ShipCountry = 'USA'
+
+/*
+11. Mostrar los datos de las regiones a las que pertenecen los empleados que hicieron ordenes con
+destino a Rio de Janeiro.
+*/
+
+-- MAL EXPRESADA LA LETRA del EJERCICIO
+
+/*
+12. Mostrar todos los datos de los productos que se ordenaron a un precio
+diferente al establecido para cada uno.
+*/
+select p.*,od.UnitPrice
+from Products p, OrderDetails od
+where p.ProductID = od.ProductID and
+	od.UnitPrice <> p.UnitPrice
+
+/*
+13. Mostrar el importe total de las ordenes del a o 1996.
+*/
+select SUM(od.unitprice * (1-od.Discount) * od.Quantity) 'Total Ordenes'
+from OrderDetails od, Orders o
+where od.OrderID = o.OrderID  and year(o.OrderDate) = 1996
+
+/*
+14. Mostrar la cantidad promedio de las ordenes del a o 1997.
+*/
+select AVG(od.Quantity) 'CantPomedioOrdenes'
+from OrderDetails od, Orders o
+where od.OrderID = o.OrderID  and year(o.OrderDate) = 1997
+
+/*
+15. Mostrar el mayor importe unitario, el menor importe unitario, la mayor cantidad y la menor
+cantidad de las ordenes de los a os 1996 y 1997.
+*/
+Select Max(od.UnitPrice) 'MayorImporte', MIN(od.UnitPrice) 'MenorImporte',max(od.Quantity) 'MaxQTY', Min(od.Quantity) 'MinQty'
+from OrderDetails od, Orders o
+where od.OrderID = o.OrderID  and year(o.OrderDate) IN (1996, 1997)
+
+set dateformat dmy
+Select Max(od.UnitPrice) 'MayorImporte', MIN(od.UnitPrice) 'MenorImporte',max(od.Quantity) 'MaxQTY', Min(od.Quantity) 'MinQty'
+from OrderDetails od, Orders o
+where od.OrderID = o.OrderID  and o.OrderDate >= '01/01/1996' and  o.OrderDate <='31/12/1997'
+/*
+16. Mostrar la menor fecha de env o de todas las ordenes de 1998 con destino a
+B lgica (Belgium).
+*/
+select min(o.ShippedDate)
+from Orders o
+where Year(o.OrderDate) = 1998  and o.ShipCountry = 'Belgium'
+/*
+17. Mostrar la cantidad de pa ses diferentes a los que se le env an ordenes.
+*/
+select Count(distinct o.Shipcountry)
+from Orders o
+
+
+
+
+-- ***********************************
+-- Ejercicios con  Group By  (18-21) *
+-- ***********************************
+/*
+18. Mostrar para cada cliente su nombre, la cantidad de ordenes procesadas y el importe total de las
+mismas en el a o 1996 (ordenar los resultados de mayor importe a menor importe)
+*/
+select c.CustomerID,c.CompanyName,count(o.OrderID) 'CantidadOrdenes',
+		SUM(od.unitprice * (1-od.Discount) * od.Quantity) 'ImporteTotalOrdenes'
+from Orders o, Customers c, OrderDetails od
+where o.CustomerID = c.CustomerID and o.OrderID = od.OrderID and
+		year(o.OrderDate)= 1996
+Group by c.CustomerID,c.CompanyName
+Order by ImporteTotalOrdenes Desc
+
+/*
+19. Mostrar los datos de los productos y el mayor descuento aplicado a cada uno de ellos.
+*/
+select p.ProductID,p.ProductName, MAX(od.Discount) as DescuentoMayor
+from Orders o, OrderDetails od, Products p
+where o.OrderID = od.OrderID and od.ProductID = p.ProductID
+group by p.ProductID,p.ProductName
+/*
+20. Mostrar la cantidad enviada por d a para el mes de noviembre de 1996.
+*/
+select day(o.Orderdate) as DIA,'11' as Mes,'1996' as A o,SUM(od.Quantity) as CantEnviadaPorDia
+from  Orders o, OrderDetails od
+where  o.OrderID = od.OrderID
+		and Month(o.orderdate) = 11 and Year(o.orderdate) = 1996
+group by day(o.Orderdate)
+
+/*
+21. Mostrar los nombres de los productos y la cantidad de ordenes en las que cada uno aparece.
+*/
+select p.ProductName, count(od.OrderID) as CantidadOrdenes
+from  OrderDetails od, Products p
+where  od.ProductID = p.ProductID
+group by p.ProductName

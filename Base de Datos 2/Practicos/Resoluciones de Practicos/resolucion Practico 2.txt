@@ -1,0 +1,71 @@
+use Northwind
+go
+/*
+PRACTICO 2 
+
+1. Insert un registro en cada una de las siguientes tablas:
+a. Shippers
+b. Employees
+c. Products
+d. Customers
+*/
+select * from Shippers
+INSERT INTO Shippers VALUES ('CocaVerde S.A.','999 22 33')
+INSERT INTO Shippers (CompanyName,Phone) VALUES ('CocaRoja S.A.','999 22 44')
+INSERT INTO Shippers VALUES ('999 22 33','CocaVerde S.A.')
+INSERT INTO Shippers (Phone,CompanyName) VALUES ('999 22 33','CocaVerde S.A.')
+--INSERT INTO Shippers SELECT at1, at2  from OTROS_SHIPPERS
+/*
+2. Crear un script que permita dar de alta por lo menos 3 registros
+a la misma vez en dichas tablas.
+*/
+INSERT INTO Shippers VALUES ('CocaBlanca S.A.','999 22 55'),
+							('CocaAzul S.A.','999 22 66'),
+							('CocaNegra S.A.','999 22 77')
+select * from Shippers
+/*
+3. Insertar un registro en la tabla Orders que contenga por lo menos
+los siguientes campos:
+a. OrderDate
+b. CustomerID
+c. EmployeeID
+d. ShipperID
+*/
+set DATEFORMAT DMY
+select * from Customers
+select * from Employees
+select * from Orders order by OrderID desc
+select * from Orders where CustomerID = '%TON%'  and EmployeeID = 3
+insert into Orders (OrderDate,CustomerID,EmployeeID,ShipVia)
+	values ('10/02/2023','ANTON',5,10 )
+print @@identity
+select * from Orders where CustomerID LIKE '%TON%'
+select * from Orders where OrderID  = @@identity
+/*
+4. Relacionado a la orden anterior, cargar 5 l neas de detalle.
+
+5. A partir de los datos que tienen las tablas OrdersTemp y OrderTempDetails cargar las tablas
+Orders y OrderDetails respectivamente.
+
+6. Crear un nuevo Shipper, luego ingrese una Orden que utilice dicho Shipper.
+
+7. Crear una tabla ShippersTemp y luego cargar en ella todos los registros
+que tiene la tabla Shippers.
+*/
+CREATE TABLE ShippersTemp (ShipperID2  int  ,
+							CampanyName2 nvarchar(40) not null,
+							Phone2 nvarchar(24) null,
+							CONSTRAINT PK_Shiper PRIMARY KEY (ShipperID2) )
+select * from Shippers
+select * from ShippersTemp
+INSERT INTO ShippersTemp SELECT * FROM Shippers
+
+/*
+
+8. Insertar un registro en la tabla Categories y
+luego ingresar un registro en la tabla Products que
+utilice la categor a antes creada
+*/
+select Max(CategoryID) from Categories
+INSERT INTO Products VALUES('Pan Catalan',8,
+(SELECT MAX(CategoryID) FROM Categories),'kilos',5,50,5,2,0)

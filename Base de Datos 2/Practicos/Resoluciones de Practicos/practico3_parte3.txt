@@ -1,0 +1,132 @@
+/* 32. Obtener los datos de los clientes de  USA  que en el 1997 hayan tenido en alg n mes una
+orden de cantidad superior a 100 y que tambi n hayan tenido alg n mes con una inferior a
+20. */
+
+SELECT *
+FROM Customers
+WHERE Country='USA' and
+      CustomerID IN (SELECT customerid
+                     FROM orders,OrderDetails
+					 WHERE orders.orderid=orderdetails.orderid and
+					       year(OrderDate)=1997 and OrderDetails.Quantity > 100) and
+	  CustomerID IN (SELECT customerid
+                     FROM orders,OrderDetails
+					 WHERE orders.orderid=orderdetails.orderid and
+					       year(OrderDate)=1997 and OrderDetails.Quantity < 20) 		   	               
+
+
+/* 33. Mostrar los datos de los clientes que tengan mas de 2 ordenes y que la cantidad total de
+productos del a o 1997 supere los 50 */
+
+SELECT *
+FROM customers
+WHERE customerid IN (SELECT customerid
+                     FROM orders,orderdetails
+					 WHERE orders.orderid=OrderDetails.orderid and
+					       year(orderdate)=1997
+                     GROUP BY customerid
+					 HAVING count(orders.orderid) > 2 and
+					        SUM(quantity) > 50)
+
+/* 34. Implementar una consulta que retorne los datos de los empleados, la cantidad de
+ordenes que prepar  en 1996 y el valor unitario m ximo de ese per odo, para todos los
+empleados que hayan preparado al menos 20 ordenes en el per odo indicado. */
+
+SELECT employees.employeeid,
+       employees.LastName,
+       count(orders.orderid) as cant,
+       MAX(unitprice) as maximo
+FROM orders,orderdetails,employees
+WHERE orders.orderid=orderdetails.orderid and
+      employees.employeeid=orders.employeeid and
+      YEAR(orderdate)=1996
+GROUP BY employees.employeeid,employees.LastName
+HAVING count(orders.orderid) >=20
+
+
+/* 35. Mostrar los datos de los empleados que no han preparado ordenes en el segundo semestre del
+1997, registraron alguna orden en el 1996 y solo han preparado ordenes a empresas de France. */
+
+SELECT employeeid,LastName
+FROM employees
+WHERE employeeid IN (SELECT employeeid
+                     FROM orders
+                     WHERE ShipCountry='France') AND
+      employeeid NOT IN (SELECT employeeid
+                         FROM orders
+                         WHERE ShipCountry <> 'France') AND
+      employeeid NOT IN (SELECT employeeid
+                         FROM orders
+                         WHERE orderdate >= '01/07/1997' and
+                               orderdate <= '31/12/1997') AND
+      employeeid IN (SELECT employeeid
+                     FROM orders
+                     WHERE orderdate >= '01/01/1996' and
+                           orderdate <= '31/12/1996')
+
+/* 37. Utilizando la funci n EXISTS mostrar c digo de cliente y nombre de empresa para todos los
+clientes que ordenaron el producto 40 */
+
+SELECT customerid,companyname
+FROM customers
+WHERE EXISTS (SELECT *
+              FROM orders,OrderDetails
+			  WHERE orders.orderid=OrderDetails.orderid and
+			        ProductID=40 and
+					orders.CustomerID=customers.CustomerID)
+
+
+/*38. Utilizando ANY listar los nombres de productos para los que exista alguna orden con cantidad igual a 10 */
+
+SELECT ProductName
+FROM Products
+WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity = 10)
+                      
+
+
+/*39. Mostrar los nombres de los Shipper que enviaron todas las ordenes del cliente
+SEVES*/
+
+SELECT shippers.CompanyName
+FROM shippers
+WHERE shipperid = ALL (SELECT shipvia
+                       FROM orders
+                       WHERE customerid='SEVES')
+
+/* Inserto el cliente PEPSI para probar sustituyendo SEVES x PEPSI*/ 
+INSERT INTO CUSTOMERS values('PEPSI','Pepsi Cola Manufacturing','Jhon Smith','Logistic Director','Minessota 2345 54ST','Minessota','West','33100','USA','306789123','3067883245')
+INSERT INTO orders VALUES('PEPSI',1,'18/01/1997','18/01/1997','18/01/1997',1,550.40,'Peter White','2340ST 44 DR','Miami','East','33166','USA')
+INSERT INTO OrderDetails VALUES(@@IDENTITY,1,38.75,200,0.15)
+
+
+/* 40. Mostrar los datos de los clientes que hicieron ordenes de mas de 10 productos diferentes y que no han realizado ordenes de mas de 20 productos en el a o
+1997 */
+
+SELECT DISTINCT CompanyName
+FROM customers
+WHERE customerid IN (SELECT customerid
+                     FROM orders,orderdetails
+                     WHERE orders.orderid=orderdetails.orderid
+                     GROUP BY customerid
+                     HAVING count(distinct(productid)) > 10) AND
+      customerid NOT IN (SELECT customerid
+                         FROM orders,orderdetails
+                         WHERE orders.orderid=orderdetails.orderid and
+                               year(orderdate)=1997
+                         GROUP BY customerid
+                         HAVING count(distinct(productid)) > 20)
+						 
+/* 45. Utilizando ALL listar los nombres de los productos que tengan todas las ordenes con cantidad igual a 10 */
+
+SELECT ProductName
+FROM Products
+WHERE ProductID = ALL (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);
+
+
+/* 46. utilizando EXISTS listar los proveedores que provean productos de precio igual a 22 */
+
+SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName 
+              FROM Products 
+              WHERE SupplierId = Suppliers.supplierId AND Price = 22);

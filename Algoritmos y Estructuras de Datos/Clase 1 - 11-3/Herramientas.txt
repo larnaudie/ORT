@@ -1,0 +1,5 @@
+JDK
+https://www.oracle.com/java/technologies/downloads/#jdk21-windows
+
+NETBEANS
+https://netbeans.apache.org/front/main/download
