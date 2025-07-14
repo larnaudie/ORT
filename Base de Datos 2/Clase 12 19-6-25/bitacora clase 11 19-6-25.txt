@@ -1,0 +1,81 @@
+//  EJEMPLOS de CUENTA de Registros y de ARRAY 
+
+// Ejemplos ANALOGOS con SQLServer y MongoDB
+db.people.drop()
+// INSERT 
+db.people.insertOne({user_id:'bcd001',age:45,status:'A'})
+
+db.people.insertMany([{user_id:'bcd001',age:45,status:'A'},
+                      {user_id:'klm001',age:30,status:'B'}] )
+db.people.insert({user_id:'efg001',age:20,status:'A'})
+// READ 
+db.people.find()
+db.people.find( {status:'A'}, 
+                {user_id:1, status:1,_id:0 } )     // Proyeccion (si esta en 1 se muestra, si esta en 0 no se muestra)
+
+// UPDATE
+db.people.updateOne({age:45},{$set:{age:60}})
+db.people.updateOne({user_id:'bcd001'},{$set:{user_id:'bcd002'}} )
+
+// actualiza mas de un campo de un documento
+db.people.updateOne({age:60},{$set:{age:58, status:'D',user_id:'bcd003'}})
+db.people.find()
+db.people.updateMany({age:{$gt:45}},{$set:{status:'C'}})
+
+// incrementa el valor de un campo, ejemplo la edad
+db.people.updateMany({status:'D'},{$inc:{age:3}})
+
+// agregarle un nuevo campo a un documento especidfico,  a los mayores de 60  ponerle campo JubilacionMinima 17500
+db.people.updateMany({age:{$gte:60}},{$set:{jubilacionMinima:17500}})
+db.people.find({},{user_id:1, age:1, status:1,jubilacionMinima:1,_id:0 } )  
+
+db.people.find().count(); // cuenta cuantos registros devuelve el db.people.find
+db.people.find()
+db.people.find({status:'C'}).count()
+
+// DELETE
+db.people.deleteOne({age:{$gte:60}})  // elimina el promer documento que encuentre con edad >= 60
+
+
+// COPIAR COLECCIONES   (Usarel Metodo AGGREGATE)   en la misma Base de Datos
+// db.coleGREGATEn.copyTo("nuevacoleccion") // copia todos los documentos de una colección a otra. [OBSOLETO]
+db.people.aggregate([{$out: "peopleBck1"}])
+show collections
+db.peopleBck1.find()
+
+
+// DELETE  ALL  eliminamos toda la Coleccion
+db.people.deleteMany({})
+db.people.find()   //  vacia
+// Restauro los datos desde la copia realizada
+db.peopleBck1.aggregate([{$out: "people"}])
+
+
+//======================================================================================================
+// Ejemplo  Agregar items a un Array,  veamos en la Coleccion Ciudades , en el documento de Montevideo 
+//          el array de los monumentos  
+//======================================================================================================
+db.ciudades.drop
+db.ciudades.insert({ciudad:'Montevideo',habitantes:2575000,monumentos:['Obelisco']})
+db.ciudades.find()
+// ahora agregamos mas monumentos,  a) agregamos solo uno,  b) agregamos varios simultaneamente
+// a)
+db.ciudades.update({ciudad:'Montevideo'},{$push:{monumentos:'La Carreta'}})
+db.ciudades.update({ciudad:'Montevideo'},{$push:{monumentos:'Confucio'}})
+db.ciudades.find()
+
+// Saco un elemento del array
+//Podemos usar el operador $pop si estamos interesados en eliminar el primer o el último elemento de un array.
+//Para ello, le pasamos el -1 o 1 al operador $pop para quitar un elemento del array del primero o del último.
+db.ciudades.update({ciudad:'Montevideo'},{$pop:{monumentos: -1}})  // elimina el Primero del Array
+db.ciudades.update({ciudad:'Montevideo'},{$pop:{monumentos:1}})  // elimina el Ultimo del Array
+db.ciudades.update({ciudad:'Montevideo'},{$pull:{monumentos:'La Carreta'}})
+db.ciudades.find()
+
+// b)  agregamos varios simultaneamente
+db.ciudades.update({ciudad:'Montevideo'},{$push:{monumentos:{$each:['Obelisco','La Carreta','Confucio','Puerta Ciudadela']}}})
+db.ciudades.find()
+
+//  si tuviesemos valores repetidos y queremos removerlos a todos hay que usar $pullAll:[]
+db.ciudades.update({ciudad:'Montevideo'},{$pullAll:{monumentos:['La Carreta']}})
+db.ciudades.find()

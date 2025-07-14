@@ -1,0 +1,347 @@
+/* BITACORA CLASE 14 Grupo N3C 26/06/2025
+  =========================================
+
+-- Repaso de Parcial 2   De 2do. Sem. 2024
+
+Utilizando la base de datos NorthWind vista en clase para lo cual se adjunta su estructura,
+realizar los siguientes ejercicios: 
+
+. (cada ejercicio vale 6 puntos) 
+ 
+
+ 1.	VISTA 
+
+Crear una vista que, para cada cliente, muestre su nombre, el promedio de fletes de sus órdenes 
+y una nueva columna llamada Riesgo que tenga el valor 'Bajo'
+si el promedio es menor a USD 10, 'Medio' 
+si el promedio está entre USD 10 y 50 y 'Alto' si el promedio es mayor a USD 50 
+ 
+
+2.	PROCEDIMIENTO ALMACENADO 
+
+Hacer un procedimiento que retorne en dos parámetros de salida el nombre del país (ShipCountry)  
+al que se le envió la orden de fecha más antigua y nombre de la empresa de envíos  
+(Shippers.CompanyName) que cobró el flete más caro, 
+en ambos casos, de existir más de un registro con igual dato, retornar uno solo de ellos. 
+
+ 3.	FUNCION 
+
+Crear una función llamada “ValorarProducto” que permita valorar el stock de un producto recibido 
+como parámetro, para ello se deberá considerar, a los efectos del cálculo de la valoración,
+el precio promedio de las órdenes para el producto indicado 
+y el precio unitario vigente en el producto, 
+para dicho cálculo se tomará el menor de ellos (Precio Promedio o el Precio Unitario Vigente) 
+
+ 
+
+ 
+
+4.	TRIGGER 
+
+Se asume que la tabla Categories tiene un campo llamado Balance del tipo money 
+donde se llevará el acumulado de los totales a pagar 
+por la venta de productos de dicha categoría, 
+escriba un trigger que permita automatizar dicho registro 
+solo en los casos en que la operación es un INSERT. 
+
+ 
+
+5.	TRIGGER 
+
+Realizar las restricciones para evitar que se realicen inserciones en la tabla "Orders"
+en la cual el campo "RequiredDate” sea al menos de 30 días posterior al "OrderDate"
+para la empresa de envío cuyo código es 1 (ShipVia = 1). 
+
+*/
+ 
+ ---  RESOLUCIONES
+
+  Use NORTHWIND
+ set dateformat dmy
+ go
+ /*
+ 1.	VISTA 
+
+Crear una vista que, para cada cliente, muestre su nombre, el promedio de fletes de sus órdenes 
+y una nueva columna llamada Riesgo que tenga el valor 'Bajo'
+si el promedio es menor a USD 10, 'Medio' 
+si el promedio está entre USD 10 y 50 y 'Alto' si el promedio es mayor a USD 50 
+ */
+ go
+ Create VIEW vw_N3c_p2e1 (nombre,FletePromedio, Riesgo)
+ AS
+ --  cuerpo de la vista
+	SELECT c.companyname,avg(o.freight),
+			Case 
+				when  avg(o.freight) < 10    Then 'Bajo'
+				when avg(o.freight)  > 50    Then 'Alto'
+				else 'Medio'
+			end 
+	FROM   Customers c  JOIN Orders o ON c.customerID = o.customerID
+	group by c.companyname
+Go
+
+-- invocamos la vista
+select * from vw_N3c_p2e1
+go
+-- Variante de vista sobre vista para cambiar el Lenguaje de las columnas de la proyeccion
+Alter VIEW vw_N3c_p2e1_b (NameCustomer,AverageFreight,Risk)
+as 
+	select nombre, FletePromedio , case  when Riesgo = 'Alto' then 'High'
+										 when Riesgo = 'Bajo' then 'Low'
+										 else 'Medium'
+									end
+	from vw_N3c_p2e1
+Go
+select * from vw_N3c_p2e1
+select * from vw_N3c_p2e1_b
+
+/*
+
+2.	PROCEDIMIENTO ALMACENADO 
+
+Hacer un procedimiento que retorne en dos parámetros de salida el nombre del país
+(ShipCountry)  al que se le envió la orden de fecha más antigua  
+y nombre de la empresa de envíos  (Shippers.CompanyName) que cobró el flete
+más caro, en ambos casos, de existir más de un registro con igual dato, 
+retornar uno solo de ellos. 
+ Para el Año dado (parametro de Entrada)
+
+Hacer la Invocacion correcta del Procedimiento
+*/
+
+go 
+--la orden de fecha más antigua: 
+--empresa de envíos que cobró el flete más caro
+-- rETORNAR: nOMBRE DEL pAIS :		@NOMPAISfecAntigua NVARCHAR(20)
+--           Nombre de la Empresa:  @NomEmpresaFleteCaro nvarchar(40)
+
+
+ALTER PROCEDURE sp_n3C_p2e2 @Anio int,
+							@NOMPAISfecAntigua NVARCHAR(20) OUTPUT,
+							@NomEmpresaFleteCaro nvarchar(40) OUTPUT
+--PARAMETROS
+as
+begin
+	-- cOMANDOS 
+	SELECT  top 1  @NOMPAISfecAntigua = o.ShipCountry,
+	             @NomEmpresaFleteCaro = 
+						( 	SELECT  tOP 1 s.CompanyName
+							FROM Orders o1 JOIN Shippers s On S.ShipperID = o1.ShipVia
+							gROUP bY s.CompanyName
+							oRDER bY MAX(o1.freight) desc
+						) 
+	FROM Orders o
+	where  Year(o.orderDate) = @Anio
+	order by o.ShippedDate asc
+	--set @Anio = 2025
+end
+go
+
+--Ayuda de analisis
+/* empresa de envíos que cobró el flete más caro
+	SELECT  tOP 1 s.CompanyName
+	FROM Orders o JOIN Shippers s On S.ShipperID = o.ShipVia
+	gROUP bY s.CompanyName
+	oRDER bY MAX(o.freight) desc
+
+Msg 141, Level 15, State 1, Procedure sp_n3C_p2e2, Line 9 [Batch Start Line 118]
+A SELECT statement that assigns a value to a variable must not be combined 
+with data-retrieval operations
+
+*/
+--INvocamos el Procedimiento
+--Script
+declare @AA int, 
+		@NPAISfecAnt NVARCHAR(20),
+		@NomEmpFleteCaro NVARCHAR(40)
+SEt @AA = 1997
+set @NPAISfecAnt = null
+set @NomEmpFleteCaro = null
+-- llamamos al SP
+EXEC sp_n3C_p2e2 @AA,@NPAISfecAnt OUTPUT,@NomEmpFleteCaro OUTPUT
+Print ' Datos devueltos '+Convert(nchar(4),@AA)+ ': ¨Pais:'+ @NPAISfecAnt + ' Flete+Caro: '+@NomEmpFleteCaro
+--
+-- volvemos 21:07
+
+/*
+3.	FUNCION 
+
+Crear una función llamada “ValorarProducto” que permita valorar el stock 
+de un producto recibido como parámetro, para ello se deberá considerar,
+a los efectos del cálculo de la valoración, el precio promedio de las órdenes
+para el producto indicado y el precio unitario vigente en el producto, 
+para dicho cálculo se tomará el menor de ellos 
+(Precio Promedio o el Precio Unitario Vigente) 
+
+ */
+
+go
+CREATE FUNCTION fn_N3C_P2e3 (@prod int)
+RETURNS money 
+AS 
+BEGIN
+DECLARE @ValorStock money
+-- sTOCKpRODUCTO
+-- pRECIOuNITARIODELPRODuCTO
+--el precio promedio de las órdenes:  (SUB2)
+DECLARE @pREpromOrdenes MONEY
+SET @pREpromOrdenes = (
+						select AVG(od.Unitprice)
+						FROM Orderdetails od
+						where od.ProductID = @prod
+						)--(SUB2)
+
+SET @ValorStock = (
+					SELECT  p.UnitsInStock *
+							case  
+								when p.unitprice <= @pREpromOrdenes Then p.unitprice
+								when p.unitprice > @pREpromOrdenes  then @pREpromOrdenes
+								else 0.00
+							end
+					FROM Products p
+					where p.ProductID = @prod
+					)--(SUB1)
+RETURN (@ValorStock)
+END
+GO
+
+--
+
+
+--sub2:
+(
+select AVG(od.Unitprice)
+FROM Orderdetails od
+where od.ProductID = @prod
+)
+--sub1:
+(
+SELECT  p.UnitsInStock * case  
+							when p.unitprice <= @pREpromOrdenes Then p.unitprice
+							when p.unitprice > @pREpromOrdenes  then @pREpromOrdenes
+							else 0.00
+						 end
+FROM Products p
+where p.ProductID = @prod
+
+)
+
+--el precio promedio de las órdenes
+--para el producto indicado y el precio unitario vigente en el producto
+--Verificacion de Testing  : 105,30
+DECLARE @pREpromOrdenes MONEY
+SET @pREpromOrdenes = (
+						select AVG(od.Unitprice)
+						FROM Orderdetails od
+						where od.ProductID = 3
+						)
+SELECT p.productID, p.UnitsInStock, p.unitprice,@pREpromOrdenes, 
+p.UnitsInStock * case  
+							when p.unitprice <= @pREpromOrdenes Then p.unitprice
+							when p.unitprice > @pREpromOrdenes  then @pREpromOrdenes
+							else 0.00
+						 end
+FROM Products p
+where p.ProductID = 3
+-- Script de Invocacion de la Funcion
+go
+print 'Valoracion Stock Prod: 3 :'+ Convert(nvarchar(15), dbo.fn_N3C_P2e3 (3) )
+
+-- Ajuste de la Funcion para q	ue al recibir el Parametro Producto = 0 devuelva 
+-- la valoracion de Todos los Productos , si es <> 0 mostrar menseaje de error y
+-- devuelve una tabla vacia.
+
+go
+ALTER FUNCTION fn_N3C_P2e3_b (@prod int)
+RETURNS TABLE 
+AS 
+RETURN (SELECT  p.productID,p.UnitsInStock,p.unitprice, sub2.PU_prom,
+		p.UnitsInStock * 
+ 						(case  
+							when p.unitprice <= sub2.PU_prom Then p.unitprice
+							when p.unitprice > sub2.PU_prom  then sub2.PU_prom
+							else 0.00
+						end) as ValoracionStock
+		FROM Products p JOIN  (
+								select od.productID,AVG(od.Unitprice) as PU_prom
+								FROM Orderdetails od
+								GROUP By od.productID
+								)  as SUB2   ON p.productID = SUB2.ProductID
+		WHere @prod = case when @prod = 0 then 0
+						   when @prod <> 0 then p.ProductID
+					  end
+		)
+GO
+-- Script de Invocacion de la Funcion
+go
+select * from dbo.fn_N3C_P2e3_b(3)
+-- genial
+-- en 5 vuelvo
+--
+
+/*
+
+
+4.	TRIGGER 
+
+Se asume que la tabla Categories tiene un campo llamado Balance del tipo money 
+donde se llevará el acumulado de los totales a pagar 
+por la venta de productos de dicha categoría, 
+escriba un trigger que permita automatizar dicho registro 
+solo en los casos en que la operación es un INSERT. 
+*/
+-- TABLA: vENTAS-->  orderdetails
+after --MOMENTO:  AFTER // INSTEAD OF: 
+--EVENTO:  INSERT
+go
+create trigger tr_n3C_P2E4
+on ORDERDETAILS
+after  INSERT
+AS
+BEGIN
+	update c   SET c.balance = C.balance  + tab1.MontoVenta
+	   from CATEGORIES c  Join (Select p.CategoryID, 
+								Sum(od.UnitPrice *od.Quantity) as MontoVenta
+	                            from Orderdetails od 
+									join Products p on od.ProductID = p.ProductID
+									Join INSERTED i ON i.productID = p.ProductID
+							    Group By p.CategoryID
+								) as tab1
+			ON tab1.CategoryID = c.CategoryID
+END 
+GO
+
+/*
+5.	TRIGGER 
+
+Realizar las restricciones para evitar que se realicen inserciones 
+en la tabla "Orders"
+en la cual el campo "RequiredDate” sea al menos de 30 días posterior al "OrderDate"
+para la empresa de envío cuyo código es 1 (ShipVia = 1). 
+
+*/
+-- TABLA:
+--MOMENTO:  
+--EVENTO
+go
+create trigger TR_N3C_P2E5
+on Orders
+instead OF insert
+AS 
+begin
+	--  mETER LOS QUE VAN}
+	insert into ORDERS ( ORDERS.* -{oRDERid} CAMPOS TODOS MENOS EL AUTOINCREMENTAL {oRDERid}) 
+	   SELECT I.*{- I.ORDERID}   fROM INSERTED I
+	   where  I.sHIPVIA <> 1
+	-- aHORA ANALIZAR 
+	insert into ORDERS ( ORDERS.* -{oRDERid} CAMPOS TODOS MENOS EL AUTOINCREMENTAL {oRDERid}) 
+	   SELECT I.*{- I.ORDERID}   fROM INSERTED I
+	   where  I.sHIPVIA = 1 AND I.RequiredDate  >= dateadd(DAY,30,I.ORDERDATE)
+	-- LOS  QUE NO VAN SERIAN
+	/*
+	   SELECT I.*{- I.ORDERID}   fROM INSERTED I
+	   where  I.sHIPVIA = 1 AND I.RequiredDate  < dateadd(I.ORDERDATE,30,DAY)
+     */
+end
+GO
