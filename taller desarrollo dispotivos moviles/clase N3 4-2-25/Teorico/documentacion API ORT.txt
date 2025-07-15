@@ -1,4 +1,0 @@
-https://documenter.getpostman.com/view/1152693/2s93zH2efZ#41cfa780-6095-4710-bddb-0a12378f0891
-
-API:
-https://ort-tallermoviles.herokuapp.com/api
