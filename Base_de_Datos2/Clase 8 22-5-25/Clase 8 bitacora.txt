@@ -1,0 +1,405 @@
+/* BITACORA CLASE08 Grupo N3C Jueves 22/05/2025  */
+USE Northwind
+go
+set dateformat dmy
+/*
+Temas de Clase: a) Practico4 - Procedimientos y Funciones
+				b) Views y Transacciones
+*/
+SELECT ERROR_NUMBER() AS ErrorNumber,
+    ERROR_STATE() AS ErrorState,
+    ERROR_SEVERITY() AS ErrorSeverity,
+    ERROR_LINE() AS ErrorLine,
+	ERROR_PROCEDURE() AS ErrorProcedure,
+    ERROR_MESSAGE() AS ErrorMessage;
+
+	/* PRACTICO 4 - PROCEDIMIENTOS
+
+ 2. Realizar un procedimiento que le baje un x% (recibido como parámetro) el precio
+ unitario a los 10 productos menos pedidos de un año dado.
+
+ 3. Mediante un procedimiento que reciba un código de empleado y un rango de fechas,
+ cambiar los países de entrega de las órdenes para que coincida con el país del
+ empleado dado.
+
+ 4. Crear un procedimiento que reciba un rango de fechas y un número de la lista (10,
+ 20, 30, 40), el procedimiento debe mostrar los nombres de los clientes que tengan
+ más de n órdenes en el rango de fechas, siendo n uno de los 4 números recibidos
+ como parámetro, el procedimiento debe validar que los números sean uno de los 4
+ solicitados.
+
+ 5. Crear un procedimiento que para un producto dado, verifique si tiene cantidad en
+ stock, si la tiene verificar que no esté marcado  como discontinuado (discontinued=1),
+ de ser así desmarcarlo (discontinued=0).
+ */
+
+ --RESOLUCIONES
+ /*
+ 2. Realizar un procedimiento que le baje un x% (recibido como parámetro) el precio
+ unitario a los 10 productos menos pedidos de un año dado.
+ */
+ --Analisis:
+ -- le baje:  UPDATE  PRODUCTS  Where ProductID IN (subconsulta1{productID})
+ -- le baje un x% (recibido como parámetro) el precio unitario:  
+ --		a) UnitPrice = UnitPrice * (1- (x / 100))
+ --		b) UnitPrice = UnitPrice * (1-x )
+ --		El x% esta expresado como entero  o como decimal:  a) 10%  (10) b) 0,10  ???
+ --  a los 10 productos  :  SELECT TOP 10  
+ -- productos menos pedidos de un año dado:   concepto a aplicar: 
+			--  Opciones: 1) Contar los Pedidos que tuvo cada producto.  COUNT()
+			--			  2) Sumar Unidades Pedidas por cada Producto.   SUM()
+ --  Parametro a recibir en el Procedimiento: un año dado:  @anio int
+
+ --  productos menos pedidos:  OrderDetails  estan los datos de los productos pedidos
+ --   año dado:   Obtendremos desde:   Orders  {orderdate}
+ -- 
+-- ante la duda o la ignorancia, asiumimos todas las posibilidades:
+--  pediriamos un parametro:   Opcion nvarchar(12) {'NroPedidos', 'Unidades', .. }
+
+-- implementemos la consulta: 
+
+ --  a los 10 productos  :  SELECT TOP 10  
+ -- productos menos pedidos de un año dado
+
+--(subconsulta1{productID}) aplicando Opciones: 1)
+  (
+   SELECT TOP 10  od.productID
+   FROM  Orderdetails od JOIN Orders o ON od.orderid = o.OrderID 
+   WHERE  Year(o.orderdate) = @anio
+   GROUP By od.productID
+   Order By  COUNT(o.orderID) asc
+  )
+
+  -- implementemos la consulta:  (subconsulta1{productID}) aplicando Opciones: 2)
+    (
+   SELECT TOP 10  od.productID
+   FROM  Orderdetails od JOIN Orders o ON od.orderid = o.OrderID 
+   WHERE  Year(o.orderdate) = @anio
+   GROUP By od.productID
+   Order By   SUM(od.quantity) asc
+  )
+
+
+--  Comando Principal: UPDATE  PRODUCTS  Where ProductID IN (subconsulta1{productID})
+--(subconsulta1{productID}) aplicando Opciones: 1)
+declare @z decimal (10,2)
+SET @z = ??????????
+--
+--  pediriamos un parametro:   Opcion nvarchar(12) {'NroPedidos', 'Unidades', .. 
+IF @Opcion = 'NroPedidos'
+	BEGIN   --verdadero
+	UPDATE  PRODUCTS SET UnitPrice = UnitPrice * (1-@z)
+		Where ProductID IN   (
+								SELECT TOP 10  od.productID
+								FROM  Orderdetails od JOIN Orders o 
+									    ON od.orderid = o.OrderID 
+								WHERE  Year(o.orderdate) = @anio
+								GROUP By od.productID
+								Order By  COUNT(o.orderID) asc
+								)
+	END
+ELSE 
+	BEGIN  -- Falso   implicaria  que es la opcion: 'Unidades'
+	--(subconsulta1{productID}) aplicando Opciones: 2)
+	UPDATE  PRODUCTS SET UnitPrice = UnitPrice * (1-@z)
+		Where ProductID IN   (
+								SELECT TOP 10  od.productID
+								FROM  Orderdetails od JOIN Orders o 
+									    ON od.orderid = o.OrderID 
+								WHERE  Year(o.orderdate) = @anio
+								GROUP By od.productID
+								Order By   SUM(od.quantity) asc
+								)
+	END
+
+-- CONSTRUIMOS EL PROCEDIMEINTO
+go
+CREATE PROCEDURE P4_EJ2_N3C  @X Decimal (10,2),@Anio int, @Opcion nvarchar(12)
+AS
+BEGIN
+	declare @z decimal (10,2)
+	IF @X >= 1 and @X  < 101
+		begin
+			SET @z = @X /100  
+		end
+	else
+		Begin
+			SET @z = @X
+		end
+
+	-- ----------------------------------------------------------------------
+	--  pediriamos un parametro:   Opcion nvarchar(12) {'NroPedidos', 'Unidades', .. 
+
+	IF @Opcion = 'NroPedidos'
+		BEGIN   --verdadero
+		UPDATE  PRODUCTS SET UnitPrice = UnitPrice * (1-@z)
+			Where ProductID IN   (
+									SELECT TOP 10  od.productID
+									FROM  Orderdetails od JOIN Orders o 
+											ON od.orderid = o.OrderID 
+									WHERE  Year(o.orderdate) = @anio
+									GROUP By od.productID
+									Order By  COUNT(o.orderID) asc
+									)
+		END
+	ELSE 
+		BEGIN  -- Falso   implicaria  que es la opcion: 'Unidades'
+		--(subconsulta1{productID}) aplicando Opciones: 2)
+		UPDATE  PRODUCTS SET UnitPrice = UnitPrice * (1-@z)
+			Where ProductID IN   (
+									SELECT TOP 10  od.productID
+									FROM  Orderdetails od JOIN Orders o 
+											ON od.orderid = o.OrderID 
+									WHERE  Year(o.orderdate) = @anio
+									GROUP By od.productID
+									Order By   SUM(od.quantity) asc
+									)
+		END
+END
+GO
+
+-- script
+declare @AA  int, @opc nvarchar(12), @porc decimal(10,2)
+SET @AA = 1998
+set @opc = 'Unidades'  -- 'NroPedidos'
+set @porc= 10
+-- Invocar el Procedimiento
+EXEC P4_EJ2_N3C @porc,@AA,@opc
+
+--
+declare @AA  int, @opc nvarchar(12), @porc decimal(10,2)
+SET @AA = 1998
+set @opc = 'Unidades'  -- 'NroPedidos'
+set @porc= 10
+SELECT TOP 10  od.productID
+									FROM  Orderdetails od JOIN Orders o 
+											ON od.orderid = o.OrderID 
+									WHERE  Year(o.orderdate) = @AA
+									GROUP By od.productID
+									Order By   SUM(od.quantity) asc
+									
+
+/*
+ 4. Crear un procedimiento que reciba un rango de fechas y un número de la lista (10,
+ 20, 30, 40), el procedimiento debe mostrar los nombres de los clientes que tengan
+ más de n órdenes en el rango de fechas, siendo n uno de los 4 números recibidos
+ como parámetro, el procedimiento debe validar que los números sean uno de los 4
+ solicitados.
+ */
+ go
+ CREATE PROCEDURE P4_EJ4_N3C @f1 date, @f2 date, @nro int
+ AS 
+ BEGIN
+     IF @nro  NOT IN (10,20,30,40)
+		begin
+		select 'numero NO ES valido' + CONVERT (nvarchar(10) , @nro) as Mensaje
+		end
+	ELSE  -- es uno de la lista:  10,20,30,40
+		begin
+			SELECT c.CompanyName
+			FROM Customers c
+			WHERE c.customerID IN (sub1)
+		end
+ END
+ GO
+
+ --sub1:
+ (select o.CustomerId
+ From Orders o 
+ where o.orderdate between @f1 and @f2
+ group by o.CustomerId
+ Having Count(o.orderID) > @nro
+ )
+
+
+  go
+ CREATE PROCEDURE P4_EJ4_N3C @f1 date, @f2 date, @nro int
+ AS 
+ BEGIN
+     IF @nro  NOT IN (10,20,30,40)
+		begin
+		select 'numero NO ES valido' + CONVERT (nvarchar(10) , @nro) as Mensaje
+		end
+	ELSE  -- es uno de la lista:  10,20,30,40
+		begin
+			SELECT c.CompanyName
+			FROM Customers c
+			WHERE c.customerID IN  (select o.CustomerId
+									 From Orders o 
+									 where o.orderdate between @f1 and @f2
+									 group by o.CustomerId
+									 Having Count(o.orderID) > @nro
+									 )
+		end
+ END
+ GO
+
+ --otra forma:  con devoilucion de mensaje de Error o Funcionamiento OK
+   go
+ CREATE PROCEDURE P4_EJ4_N3C_2 @f1 date, @f2 date, @nro int, @msg nvarchar (100) OUTPUT
+ AS 
+ BEGIN
+     IF @nro  NOT IN (10,20,30,40)
+		begin
+		select @msg='numero NO ES valido' + CONVERT (nvarchar(10) , @nro)
+		--  set @msg = 'numero NO ES valido' + CONVERT (nvarchar(10) , @nro)
+		end
+	ELSE  -- es uno de la lista:  10,20,30,40
+		begin
+			set @msg = 'numero ES valido' + CONVERT (nvarchar(10) , @nro)
+			SELECT c.CompanyName , tab1.CantidadOrdenes
+			FROM Customers c
+				JOIN  (select o.CustomerId ,Count(o.orderID) as CantidadOrdenes
+									 From Orders o 
+									 where o.orderdate between @f1 and @f2
+									 group by o.CustomerId
+									 Having Count(o.orderID) > @nro
+									 )  as Tab1
+				ON c.CustomerID = Tab1.CustomerID
+		end
+ END
+ GO
+
+ -- Script de Ejecucion del Procedimiento
+
+EXEC  P4_EJ4_N3C '01/01/1996','01/07/1998',10
+--
+Go
+declare @mimsg nvarchar(100) 
+set @mimsg = 'No hay texto'
+EXEC  P4_EJ4_N3C_2 '01/01/1996','01/07/1998',15,@mimsg OUTPUT
+print @mimsg
+
+
+/* 
+ 5. Crear un procedimiento que para un producto dado, verifique si tiene cantidad en
+ stock, si la tiene verificar que no esté marcado  como discontinuado (discontinued=1),
+ de ser así desmarcarlo (discontinued=0).
+ */
+ go
+ CREATE PROCEDURE P4_EJ5_N3C @prod int, @msg nvarchar(100) OUTPUT
+ AS
+ BEGIN
+	declare @stk smallint, @discontinuado bit
+	set @stk = 0
+	select @stk=UnitsInStock , @discontinuado = Discontinued 
+	FROM Products where productID = @prod
+	IF @stk > 0 
+		Begin -- tiene Stock
+			if @discontinuado=1 -- ESTARIA  DISCONTINUADO
+				begin 
+					update Products  SET Discontinued  = 0 
+					       WHERE ProductID = @prod
+					set @msg = 'Producto con Stock y se Rehabilito (estaba discontunuado)'
+				end
+		    else
+				begin
+					set @msg = 'Producto con Stock y Activo'
+				end
+
+		End
+	ELSE
+		Begin  -- Carece de Stock
+		    set @msg = 'Producto SIN  Stock '
+		end
+ END
+ GO
+
+ --
+select * from Products where discontinued = 0
+
+declare @mensaje nvarchar(100)
+set @mensaje = '?????'
+exec P4_EJ5_N3C 9,@mensaje output
+PRINT @mensaje
+
+ /*
+  Funciones  escalares
+  
+ 1. Crear una función que reciba como parámetro un código de producto y retorne el
+ valor de inventario de dicho producto de acuerdo a su precio unitario y a su cantidad
+
+ 2. Crear una función que para un rango de fechas dado y un cliente, retorne el mayor
+ importe total de las órdenes para dicho cliente y rango de fechas.
+
+ 3. Dado un número de orden, realizar una función que retorne el precio total a pagar
+ por el cliente por dicha orden, el precio total debe incluir el precio del producto
+ (unitprice) por la cantidad (quantity) menos el descuento (discount) mas los costos
+ de envío (freight)
+
+ 4. Dado un rango de fechas, implementar una función que retorne el nombre del país al
+ cual se le envió la orden de menor precio.
+ 5. Dado un empleado, una vía de transporte y un producto, retornar la cantidad de
+ órdenes de dicho empleado, vía de transporte y producto
+
+
+
+  1. Crear una función que reciba como parámetro un código de producto y retorne el
+ valor de inventario de dicho producto de acuerdo a su precio unitario y a su cantidad
+ */
+ GO
+ create FUNCTION  FN_P4_EJ1_n3c (@Prod int)
+ RETURNS Decimal (12,2)
+ AS
+ BEGIN
+	Declare @valorInv Decimal (12,2)
+	SET @valorInv = (Select UnitsinStock *  UnitPrice from Products where productID= @Prod )
+	RETURN (@valorInv)
+ END
+ GO 
+
+ --Script de invocacion de  la Funcion es : 
+ Print dbo.FN_P4_EJ1_n3c(9) * 1.22
+
+ -- Funcion DE TABLA o de LINEAS
+ --  Muestre Los productos discontinuados  o habilitados segun el parametro que pasemos (sts) 
+  GO
+ create FUNCTION  FN_P4_Tabla (@sts bit)
+ RETURNS TABLE
+ AS 
+ RETURN ( select * from Products where discontinued = @sts )
+ GO
+
+ -- Invocamos la funcion
+ select * from dbo.FN_P4_Tabla(0)
+  select * from dbo.FN_P4_Tabla(1)
+
+
+-- y el nombre de la Categoria
+
+Select c.categoryname,f.*  
+from Categories c JOIN dbo.FN_P4_Tabla(0) as f
+				  ON c.CategoryID = f.CategoryID
+
+Select c.categoryname,f.*  
+from Categories c JOIN dbo.FN_P4_Tabla(0) as f
+				  ON c.CategoryID = f.CategoryID
+
+-- VIEWS   VISTAS  
+/*
+Crear una vista que permita mostrar para cada cliente su nombre, la cantidad de órdenes 
+procesadas y el importe total de las mismas.
+*/
+go
+CREATE  VIEW  VW_Vista1_N3C 
+AS (  SELECT c.companyname, Count(o.orderID) as cantidadOrdenes,
+             ROUND (Sum(od.quantity*od.Unitprice* (1-od.discount) ),2) as ImporteTotalOrdenes
+      FROM Customers c JOIN Orders o ON c.CustomerID  = o.CustomerID
+	       join OrderDetails od ON o.orderID = od.orderID
+	  Group By c.companyname
+)
+GO
+
+
+SELECT V.*  FROM VW_Vista1_N3C V
+
+go
+alter VIEW  VW_Vista1_N3C_2 (cLIENTE, CANTIDADORDENES, MONTOTOTAL)
+AS (  SELECT c.companyname, Count(o.orderID) as cOL1,
+             ROUND (Sum(od.quantity*od.Unitprice* (1-od.discount) ),2) AS COL2
+      FROM Customers c JOIN Orders o ON c.CustomerID  = o.CustomerID
+	       join OrderDetails od ON o.orderID = od.orderID
+	  Group By c.companyname
+)
+GO
+SELECT V.*  FROM VW_Vista1_N3C_2 V

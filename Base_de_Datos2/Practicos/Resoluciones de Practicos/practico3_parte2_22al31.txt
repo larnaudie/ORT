@@ -1,0 +1,130 @@
+/* PRACTICO3 PARTE2 EJ22 AL EJ27 (GroupBy/Having), EJ28 al EJ 31 SUBQUERIES */
+
+Use NORTHWIND
+go
+/*
+22. Mostrar los nombres de los productos cuya cantidad de  rdenes es mayor a 50
+*/
+select p.ProductName, Count(distinct od.OrderID) 'Cantidad Ordenes'
+from  Products p, OrderDetails od
+where p.ProductID = od.ProductID
+Group by p.ProductName
+Having Count(distinct od.OrderID) > 50
+
+select p.ProductName
+from  Products p, OrderDetails od
+where p.ProductID = od.ProductID
+Group by p.ProductName
+Having Count(distinct od.OrderID) > 50
+
+/*
+23. Mostrar los datos de los productos cuyo mayor descuento aplicado supera el 0.20
+*/
+select p.ProductName, Max(od.discount)
+from  Products p, OrderDetails od
+where p.ProductID = od.ProductID
+Group by p.ProductName  Having Max(od.discount) > 0.20
+
+/*
+24. Mostrar nombre de cliente y contacto para todos los clientes que hicieron m s de 8 pedidos en el
+a o 1998
+*/
+select  c.CompanyName,c.ContactName, count(o.orderID)
+from  Customers c, Orders o
+where c.CustomerID = o.CustomerID  
+	and year(o.OrderDate) = 1998
+Group by c.CompanyName,c.ContactName  HAVING count(o.orderID) > 8
+
+/*
+25. Mostrar nombre de cliente, contacto y pa s para todos los clientes que tienen un promedio de
+cantidad ordenada mayor a 30 en el segundo semestre de 1997
+*/
+set dateformat dmy
+select c.CompanyName,c.ContactName,c.Country,AVG(od.Quantity) AvgQtyOrd
+from Customers c,Orders o, OrderDetails od
+where c.CustomerID = o.CustomerID and o.OrderID = od.OrderID
+	and o.OrderDate between '01/07/1997' and '31/12/1997'
+Group by c.CompanyName,c.ContactName,c.Country
+	Having AVG(od.Quantity) > 30
+/*
+   <<<< SUBCONSULTAS >>>>
+
+26. Obtener todos los datos de los empleados que prepararon las  rdenes en la fecha m s reciente
+*/
+select e.FirstName,e.LastName,MAX(o.OrderDate)
+from Employees e, Orders o
+where e.EmployeeID = o.EmployeeID
+group by e.FirstName,e.LastName Having  MAX(o.OrderDate) = (select MAX(OrderDate) from Orders)
+
+select e.FirstName,e.LastName,o.OrderDate
+from Employees e, Orders o
+where e.EmployeeID = o.EmployeeID and o.OrderDate = (select MAX(OrderDate) from Orders)
+/*
+27. Mostrar los datos de las categor as que no est n en ninguna orden
+*/
+-- nueva Categoria
+insert into Categories values ('CategoriaNew','Nueva Categoria de Testing',null)
+select c.*
+from  Categories c
+Where c.CategoryID NOT IN (Select distinct p.CategoryID 
+							from Products p, OrderDetails od 
+							where  p.ProductID = od.ProductID  )
+
+/*
+28. Mostrar el nombre de las empresas que tienen  rdenes destino Brazil que tengan productos con
+un promedio de descuento superior al promedio de los descuentos de todas las  rdenes
+*/
+select c.CompanyName,AVG(od.Discount)
+from Customers c, Orders o, OrderDetails od
+where c.CustomerID = o.CustomerID and o.OrderID=od.OrderID 
+		and o.ShipCountry = 'Brazil' 
+ Group by c.CompanyName
+ Having AVG(od.Discount) >= (select AVG(od1.Discount) 'AvgDtos' from OrderDetails od1)
+
+/*
+29. Mostrar los nombres de todos los empleados, su cantidad de ordenes realizadas en los
+10 primeros d as de julio de 1997 y la fecha de la  ltima orden realizada en los primeros 10 d as de julio
+de 1997. En caso que el empleado no preparara ninguna orden en dicha fecha, igual deben mostrarse sus
+datos
+*/
+
+Select e.EmployeeID,e.FirstName,e.LastName, a.CantOrdenes, a.UltimaOrden
+from  Employees e LEFT JOIN  (select o.EmployeeID, Count(o.orderID) as CantOrdenes,Max(o.Orderdate) as UltimaOrden 
+							  from Orders o where o.OrderDate between '01/07/1997' and '10/07/1997'
+										Group by o.EmployeeID ) a
+ON  e.EmployeeID = a.EmployeeID
+
+/*
+30. Mostrar los datos de los clientes que tengan  rdenes con m s de 2 productos y que no tengan m s
+de 3  rdenes con menos de 7 productos
+*/
+select c.*
+from Customers c
+where c.CustomerID IN ( Select x.CustomerID From (
+								select o.CustomerID,o.OrderID,count(od.productID) as canProdxOrden
+								from OrderDetails od , Orders o
+								where od.OrderID = o.OrderID 
+								group by o.CustomerID,o.OrderID  having count(od.productID) > 2
+								) x
+				)
+and c.CustomerID IN ( Select y.CustomerID From 
+
+						( Select b.CustomerID, count(b.OrderID) as CantOrdenesMenos7prod
+							from (
+								select o.CustomerID,o.OrderID,count(od.productID) as canProdxOrden 
+								from OrderDetails od , Orders o
+								where od.OrderID = o.OrderID
+								group by o.CustomerID,o.OrderID  having count(od.productID) < 7  
+								) b
+							Group By b.CustomerID  Having count(b.OrderID) <= 3
+						) y
+					)
+/* 
+31. Mostrar los datos de los Shippers que nunca enviaron  rdenes a la regi n oeste (Western)
+pero que si enviaron  rdenes a la regi n este (Eastern)
+
+--       MAL LETRA Y DATOS
+
+31. ALTERNATIVO
+
+*/

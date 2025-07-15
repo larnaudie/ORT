@@ -1,0 +1,108 @@
+/* Ejerciico 1 */
+use northwind_mongo
+db.createCollection("ProductReviews")
+
+/* Ejercicio 2 */
+db.ProductReviews.insertOne({
+  "product_id": 1,
+  "comment": "¡Producto genial!",
+  "review_date": "2023-08-04"
+})
+
+db.ProductReviews.insertOne({
+  "product_id": 2,
+  "comment": "Me encanta este producto",
+  "review_date": "2023-08-03"
+})
+
+db.ProductReviews.insertOne({
+  "product_id": 1,
+  "comment": "El producto cumple con mis expectativas",
+  "review_date": "2023-08-02"
+})
+
+db.ProductReviews.insertOne({
+  "product_id": 2,
+  "comment": "El producto vino en mal estado",
+  "review_date": "2023-08-04"
+})
+
+/* Ejercicio 3 */
+db.ProductReviews.find({ "product_id": 1 })
+
+/* Ejercicio 4 */
+db.ProductReviews.find({})
+
+/* Ejercicio 5 */
+db.ProductReviews.find({ "comment": /genial/i })
+
+/* Ejercicio 6 */
+db.ProductReviews.find({ "review_date": "2023-08-04" })
+
+/* Ejercicio 7 */
+db.ProductReviews.aggregate([
+  {
+    $group: {
+      _id: "$product_id",
+      total_comments: { $sum: 1 }
+    }
+  }
+])
+
+/* Ejercicio 8 */
+db.ProductReviews.aggregate([
+  {
+    $group: {
+      _id: "$product_id",
+      avg_comment_length: { $avg: { $strLenCP: "$comment" } }
+    }
+  }
+])
+
+/* Ejercicio 9 */
+db.ProductReviews.aggregate([
+  {
+    $group: {
+      _id: "$product_id",
+      total_comments: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { total_comments: -1 }
+  },
+  {
+    $limit: 1
+  }
+])
+
+/* Ejercicio 10 */
+// Agregamos el campo category_id en la colección (no estaba incluido)
+db.ProductReviews.updateMany(
+  {},
+  { $set: { "category_id": null } }
+)
+
+// Agregamos datos de categoria a los productos
+db.ProductReviews.updateMany(
+  { "product_id": 1 },
+  { $set: { "category_id": 1 } }
+)
+
+
+db.ProductReviews.updateMany(
+  { "product_id": 2 },
+  { $set: { "category_id": 2 } }
+)
+
+// Consulto
+db.ProductReviews.aggregate([
+  {
+    $match: { "category_id": 1 }
+  },
+  {
+    $group: {
+      _id: "$product_id",
+      total_comments: { $sum: 1 }
+    }
+  }
+])

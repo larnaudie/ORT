@@ -1,0 +1,582 @@
+/* BITACORA CLASE06 Grupo N3C Jueves 24/04/2025  */
+USE Northwind
+go
+set dateformat dmy
+/*   Practico 3 Parte 3  (continuacion)
+
+35: Mostrar los datos de los empleados que no han preparado ordenes en el segundo semestre del 
+1997, registraron alguna orden en el 1996 y solo han preparado ordenes a empresas de France. 
+*/
+
+--los datos de los empleados:   SELECT e.*  From Employees e
+-- Condiciones (WHERE // HAVING): [no] {han preparado ordenes en el segundo semestre del 1997 }
+                                --   NOT IN  { SUB1: han preparado ordenes en el segundo semestre del 1997}
+
+--								: alguna orden en el 1996: (WHERE year(orders.ORDERDATE ) = 1996
+--								 : solo han preparado ordenes a empresas de France: solo han preparado ordenes a empresas de France
+--								(cUSTOMERS.cOUNTRY = 'France'
+--tABLAS:  eMPLOYEES, orders, cUSTOMERS
+SELECT e.*  
+From Employees e  JOIN Orders o ON e.EmployeeID = o.EmployeeID 
+     JOIN  Customers c ON c.Customeid = o.CustomerID 
+Where c.cOUNTRY = 'France'  
+    -- como filtros Directos
+	-- and o.Orderdate  BETWEEN '01/07/1997' and '31/12/1997'
+	--  OR  Year(o.Orderdate) = 1996
+	
+-- Por eso vamos por esta solucion
+
+   AND e.EmployeeID NOT IN (Sub1)  --{han preparado ordenes en el segundo semestre del 1997 }
+   AND e.EmployeeID IN (Sub2)
+
+-- SUB1
+(
+SELECT Distinct o1.EmployeeID 
+FROM Orders o1 
+WHERE o1.Orderdate  BETWEEN '01/07/1997' and '31/12/1997'  and o1.EmployeeID IS not null
+)
+-- SUB2
+(
+SELECT  o2.EmployeeID 
+FROM Orders o2
+WHERE  Year(o2.Orderdate) = 1996  and o2.EmployeeID IS not null
+)
+--Unimos las Sub1: SUB2 a la Consulta Principal
+SELECT  DIsTINCT e.*  
+From Employees e  JOIN Orders o ON e.EmployeeID = o.EmployeeID 
+     JOIN  Customers c ON c.Customerid = o.CustomerID 
+Where c.cOUNTRY = 'France'  
+   AND e.EmployeeID  IN (
+							SELECT Distinct o1.EmployeeID 
+							FROM Orders o1 
+							WHERE o1.Orderdate  BETWEEN '01/07/1997' and '31/12/1997'  and o1.EmployeeID IS not null
+							)  --{han preparado ordenes en el segundo semestre del 1997 }
+   AND e.EmployeeID IN (
+							SELECT Distinct o2.EmployeeID 
+							FROM Orders o2
+							WHERE  Year(o2.Orderdate) = 1996  and o2.EmployeeID IS not null
+							)
+--ERROR:   DIsTINCT
+/*
+Msg 421, Level 16, State 1, Line 46
+The image data type cannot be selected as DISTINCT because it is not comparable.
+Msg 421, Level 16, State 1, Line 46
+The ntext data type cannot be selected as DISTINCT because it is not comparable.
+*/
+/*
+36: Mostrar  los datos  de los clientes  que tengan  ordenes  con mas  de 3 renglones  y 
+que no tengan mas de 2 ordenes con menos de 5 renglones en el año 1996. 
+*/
+
+--Consulta Principal: los datos  de los clientes
+--Criterios de Filtrado:  a)(SUB1): que tengan  ordenes  con mas  de 3 renglones 
+--                     b) no tengan mas de 2 ordenes con menos de 5 renglones en el año 1996
+--						 [NOT] IN {(SUB2): algo en el año 1996}
+						 
+Tablas: Customers, Orders, Orderdetails
+
+-- a)(SUB1): que tengan  ordenes  con mas  de 3 renglones 
+(
+ SELECT  o.CustomerID,o.orderID, COUNT (od.ProductID) as CantidadRenglones
+ FROM Orders o JOIN OrderDetails od ON od.orderID = o.orderID
+ GROUP By o.CustomerID,o.orderID
+ HAVING COUNT (od.ProductID) > 3
+)
+--   b) no tengan mas de 2 ordenes con menos de 5 renglones en el año 1996
+--	[NOT] IN {(SUB2): algo en el año 1996}
+-- SUB2:
+(
+ SELECT  o2.CustomerID,o.orderID, COUNT (od2.ProductID) as CantidadRenglones
+				 --,Count (Distinct od2.OrderID) As CantidaOrdenes
+ FROM Orders o2 JOIN OrderDetails od2 ON od.orderID = o2.orderID
+ Where Year(o2.orderdate) = 1996
+ GROUP By o2.CustomerID,o2.orderID
+ HAVING COUNT (od2.ProductID) > 5 
+		AND o2.CustomerID NOT IN (SUB3)-- Count (Distinct od2.OrderID) > 2
+)
+
+--SUB3:
+(
+ SELECT  Tab1.CustomerID
+ FROM (
+		 SELECT  o2.CustomerID,o.orderID
+						 --,Count (Distinct od2.OrderID) As CantidaOrdenes
+		 FROM Orders o2 JOIN OrderDetails od2 ON od.orderID = o2.orderID
+		 Where Year(o2.orderdate) = 1996
+		 GROUP By o2.CustomerID,o2.orderID
+		 HAVING COUNT (od2.ProductID) > 5 
+	   ) AS Tab1
+GROUP BY  Tab1.CustomerID 
+having  COUNT(distinct Tab1.orderID) > 2
+)
+
+--  Integramos las SUB 1, 2 y 3 con la Consulta Principal
+
+-- SUB2:
+(
+ SELECT  o2.CustomerID,o.orderID, COUNT (od2.ProductID) as CantidadRenglones
+				 --,Count (Distinct od2.OrderID) As CantidaOrdenes
+ FROM Orders o2 JOIN OrderDetails od2 ON od.orderID = o2.orderID
+ Where Year(o2.orderdate) = 1996
+ GROUP By o2.CustomerID,o2.orderID
+ HAVING COUNT (od2.ProductID) > 5 
+		AND o2.CustomerID NOT IN (
+								 SELECT  Tab1.CustomerID
+								 FROM (
+										 SELECT  o2.CustomerID,o.orderID
+														 --,Count (Distinct od2.OrderID) As CantidaOrdenes
+										 FROM Orders o2 JOIN OrderDetails od2 ON od.orderID = o2.orderID
+										 Where Year(o2.orderdate) = 1996
+										 GROUP By o2.CustomerID,o2.orderID
+										 HAVING COUNT (od2.ProductID) > 5 
+									   ) AS Tab1
+								GROUP BY  Tab1.CustomerID 
+								having  COUNT(distinct Tab1.orderID) > 2
+								)
+)
+GO
+
+-- CONSULTA PRINCIPAL
+-- Where   c. UstomerID IN ( SUB1)  and  c. UstomerID IN ( SUB2)
+
+SELECT DISTINCT c.*,Sub1.CantidadRenglones 
+  FROM CUSTOMERS c 
+       JOIN (		
+			 SELECT  o.CustomerID,o.orderID, COUNT (od.ProductID) as CantidadRenglones
+			 FROM Orders o JOIN OrderDetails od ON od.orderID = o.orderID
+			 GROUP By o.CustomerID,o.orderID
+			 HAVING COUNT (od.ProductID) > 3
+			) As Sub1
+		ON c.CustomerID = Sub1.CustomerID
+		JOIN 
+			(
+				 SELECT  o2.CustomerID,o.orderID, COUNT (od2.ProductID) as CantidadRenglones
+								 --,Count (Distinct od2.OrderID) As CantidaOrdenes
+				 FROM Orders o2 JOIN OrderDetails od2 ON od.orderID = o2.orderID
+				 Where Year(o2.orderdate) = 1996  
+				      -- Referencia Externa:  AND o2.CustomerID = c.CustomerID
+				 GROUP By o2.CustomerID,o2.orderID
+				 HAVING COUNT (od2.ProductID) > 5 
+						AND o2.CustomerID NOT IN (
+												 SELECT  Tab1.CustomerID
+												 FROM (
+														 SELECT  o2.CustomerID,o.orderID
+																		 --,Count (Distinct od2.OrderID) As CantidaOrdenes
+														 FROM Orders o2 JOIN OrderDetails od2 ON od.orderID = o2.orderID
+														 Where Year(o2.orderdate) = 1996
+														 GROUP By o2.CustomerID,o2.orderID
+														 HAVING COUNT (od2.ProductID) > 5 
+													   ) AS Tab1
+												GROUP BY  Tab1.CustomerID 
+												having  COUNT(distinct Tab1.orderID) > 2
+												)
+				)  as SUB2
+			ON SUB2.CustomerID = c.CustomerID 
+
+/*
+37: Utilizando EXISTS  mostrar  código  de  cliente  y  nombre  de  empresa para todos los 
+clientes que ordenaron el producto 40 
+*/
+
+SELECT c.CustomerID, c.CompanyName
+From Customers c Join Orders o on c.customerID = o.Customerid
+ JOIN orderDetails od ON o.orderId = od.OrderID
+WHere od.ProductID = 40
+
+-- Aplicando EXITS:
+SELECT c.CustomerID, c.CompanyName
+From Customers c 
+WHere   EXISTS  ( Sub1) --  od.ProductID = 40  
+
+--Sub1:
+(Select o.*
+FROM Orders o  JOIN orderDetails od ON o.orderId = od.OrderID
+WHERE od.ProductID = 40  
+     AND   o.Customerid = c.customerID  --Refferencia Externa
+)
+--Integramos
+SELECT c.CustomerID, c.CompanyName
+From Customers c 
+WHere   EXISTS (Select o.*
+				FROM Orders o  JOIN orderDetails od ON o.orderId = od.OrderID
+				WHERE od.ProductID = 40  
+					 AND   o.Customerid = c.customerID  --Refferencia Externa
+				)
+
+
+/*
+38: Utilizando  ANY listar los nombres de productos
+para los que exista alguna orden con cantidad igual a 10.
+*/
+ SELECT p.ProductName
+ FROM Products p
+ WHERE  p.ProductID = ANY (SUB1)
+
+ --SUB1
+ (
+ select DISTINCT od.productID
+ from OrderDetails od 
+ where od.Quantity > 10
+ )
+
+ -- Integramos
+  SELECT p.ProductName
+ FROM Products p
+ WHERE  p.ProductID = ANY  (
+							 select DISTINCT od.productID
+							 from OrderDetails od 
+							 where od.Quantity > 10
+							 )
+
+
+
+/*
+39:Mostrar  los  nombres  de  los  Shipper  que  enviaron  todas  las  ordenes  del  cliente 
+SEVES 
+*/
+SELECT s.CompanyName  from Shippers s
+WHERE
+	s.ShipperID IN (
+					Select o.Shipvia from Orders o 
+					where o.customerID = 'SEVES'  --9
+					Group By o.Shipvia
+					)
+/*
+40: Mostrar los datos de los clientes que hicieron ordenes de mas de 10 productos diferentes  
+y  que no  han  realizado  ordenes  de  mas  de  20  productos  en  el  año 1997 
+*/
+-- Consulta Principal
+select c.* from Customers
+--Condiciones Filtros:  (sub1): ordenes de mas de 5 productos diferentes
+--				no  han  realizado  ordenes  de  mas  de  20  productos  en  el  año 1997 
+--			clientes	[NOT] IN (SUB2): realizado  ordenes  de  mas  de  20  productos  en  el  año 1997 
+--SUB1:
+(select DISTINCT o1.customerID 
+from  ORDERdETAILS od1  join Orders o1 ON Od1.OrderID = o1.OrderID
+Group By o1.customerID, o1.OrderID
+Having Count(od1.productID) > 5
+) 
+--clientes	[NOT] IN (SUB2): realizado  ordenes  de  mas  de  20  productos  en  el  año 1997
+--SUB2
+(
+SELECT  DISTINCT o2.customerID 
+FROM ORDERdETAILS od2  join Orders o2 ON Od2.OrderID = o2.OrderID
+WHERE YEAR(o2.orderdate)=1997
+Group By o2.customerID, o2.OrderID
+HAVING Count(od2.productID) > 20
+)
+
+-- Consulta Principal
+select c.* from Customers c
+Where c.CustomerId IN (select DISTINCT o1.customerID 
+						from  ORDERdETAILS od1  join Orders o1 ON Od1.OrderID = o1.OrderID
+						Group By o1.customerID, o1.OrderID
+						Having Count(od1.productID) > 5
+						)
+AND c.CustomerId NOT IN (
+						SELECT  DISTINCT o2.customerID 
+						FROM ORDERdETAILS od2  join Orders o2 ON Od2.OrderID = o2.OrderID
+						WHERE YEAR(o2.orderdate)=1997
+						Group By o2.customerID, o2.OrderID
+						HAVING Count(od2.productID) > 20
+						)
+
+-- ------------------------------------------------
+-- EJERCICIOS de PARCIALES ANTERIORES:
+-- ==================================
+
+/* 
+I) [10p] Escribir una consulta SQL que muestre: todos los datos de los clientes, el 
+TotalOrdenes y TotalUnidadesPedidas  para aquellos Clientes que han realizado  
+más de 5 ordenes de productos en la categoría 'Condiments', y además hayan 
+realizado al menos una orden en la categoría 'Condiments'en el Primer semestre 
+de 1998 y el Cliente haya colocado mas de 10 ordenes en 1997. 
+ 
+Muestre los resultados Ordenados por el Total de ordenes de cada cliente  de 
+mayor a menor. 
+*/
+--todos los datos de los clientes:  SELECT c.* from Customers c
+-- CONSULTA PRINCIPAL: 
+SELECT c.*, Tab1.TotalOrdenes, Tab1.TotalOrdenes 
+from Customers c  JOIN (SUB1) As Tab1  ON c.CustomerID = Tab1.CustomerID
+Where ???
+Order By Tab1.TotalOrdenes DESC
+
+-- el TotalOrdenes y TotalUnidadesPedidas :  (SUB1)[CustomerID] va ir en el FROM
+--  Como calcular: TotalOrdenes y TotalUnidadesPedidas
+		COUNT(OrderID) as TotalOrdenes,  
+		SUM(Quantity) as TotalUnidadesPedidas
+		GROUP BY  CustomerID
+
+--SUB1
+(
+SELECT o.CustomerID,	
+		COUNT(o.OrderID) as TotalOrdenes,  
+		SUM(od.Quantity) as TotalUnidadesPedidas
+FROM Orders o JOIN Orderdetails od ON o.orderID = od.OrderID
+		GROUP BY  o.CustomerID
+)
+--  Filtros: 
+--a) para aquellos Clientes que han realizado más de 5 ordenes de productos en la
+--   categoría 'Condiments'
+--b)  además hayan realizado al menos una orden en la categoría 'Condiments'en el 
+--    Primer semestre de 1998 
+--c) el Cliente haya colocado mas de 10 ordenes en 1997
+precedemos:
+--a) para aquellos Clientes que han realizado más de 5 ordenes de productos en la
+--   categoría 'Condiments'
+   ( SELECT DISTINCT o2.customerID
+		from Products p2  JOIN
+		     Categories cc2   ON p2.categoryID = cc2.CategoryID
+			 JOIN  OrderDetails od2 ON od2.ProductID = p2.ProductID
+			 JOIN Orders o2 ON o2.orderID = od2.OrderID
+		where cc2.CategoryName = 'Condiments'
+			 Group By o2.customerID
+			 Having   Count(distinct od2.OrderID) > 5
+   )
+   --b)  además hayan realizado al menos una orden en la categoría 'Condiments'en el 
+--    Primer semestre de 1998 
+   ( SELECT DISTINCT o3.customerID
+		from Products p3  JOIN
+		     Categories cc3   ON p3.categoryID = cc3.CategoryID
+			 JOIN  OrderDetails od3 ON od3.ProductID = p3.ProductID
+			 JOIN Orders o3 ON o.orderID = od3.OrderID
+		where cc3.CategoryName = 'Condiments'
+		      and o3.ORDERDATE BETWEEN '01/01/1998' AND '30/06/1998'
+)
+--c) el Cliente haya colocado mas de 10 ordenes en 1997
+( SELECT DISTINCT o4.customerID
+	FROM  oRDERS o4
+	WHERE YEAR(o4.orderdate)=1997
+			 Group By o4.customerID
+			 Having   Count(distinct o4.OrderID) > 10
+)
+--
+-- CONSULTA PRINCIPAL: 
+SELECT c.*, Tab1.TotalOrdenes, Tab1.TotalUnidadesPedidas
+from Customers c  JOIN (
+						SELECT o.CustomerID,	
+								COUNT(o.OrderID) as TotalOrdenes,  
+								SUM(od.Quantity) as TotalUnidadesPedidas
+						FROM Orders o JOIN Orderdetails od ON o.orderID = od.OrderID
+								GROUP BY  o.CustomerID
+						) As Tab1  ON c.CustomerID = Tab1.CustomerID
+	Where c.CustomerID IN  ( SELECT DISTINCT o2.customerID
+							from Products p2  JOIN
+								 Categories cc2   ON p2.categoryID = cc2.CategoryID
+								 JOIN  OrderDetails od2 ON od2.ProductID = p2.ProductID
+								 JOIN Orders o2 ON o2.orderID = od2.OrderID
+							where cc2.CategoryName = 'Condiments'
+								 Group By o2.customerID
+								 Having   Count(distinct od2.OrderID) > 5
+							)
+	AND c.CustomerID IN     ( SELECT DISTINCT o3.customerID
+							from Products p3  JOIN
+								 Categories cc3   ON p3.categoryID = cc3.CategoryID
+								 JOIN  OrderDetails od3 ON od3.ProductID = p3.ProductID
+								 JOIN Orders o3 ON o3.orderID = od3.OrderID
+							where cc3.CategoryName = 'Condiments'
+								  and o3.ORDERDATE BETWEEN '01/01/1998' AND '30/06/1998'
+							)
+	AND c.CustomerID IN  ( SELECT DISTINCT o4.customerID
+							FROM  oRDERS o4
+							WHERE YEAR(o4.orderdate)=1997
+									 Group By o4.customerID
+									 Having   Count(distinct o4.OrderID) > 10
+						)
+Order By Tab1.TotalOrdenes DESC
+
+--- Resolucion como Tablas:
+-- CONSULTA PRINCIPAL: 
+SELECT c.*, Tab1.TotalOrdenes, Tab1.TotalUnidadesPedidas
+from Customers c  JOIN (
+						SELECT o.CustomerID,	
+								COUNT(o.OrderID) as TotalOrdenes,  
+								SUM(od.Quantity) as TotalUnidadesPedidas
+						FROM Orders o JOIN Orderdetails od ON o.orderID = od.OrderID
+								GROUP BY  o.CustomerID
+						) As Tab1  ON c.CustomerID = Tab1.CustomerID
+			JOIN
+				  ( SELECT DISTINCT o2.customerID
+							from Products p2  JOIN
+								 Categories cc2   ON p2.categoryID = cc2.CategoryID
+								 JOIN  OrderDetails od2 ON od2.ProductID = p2.ProductID
+								 JOIN Orders o2 ON o2.orderID = od2.OrderID
+							where cc2.CategoryName = 'Condiments'
+								 Group By o2.customerID
+								 Having   Count(distinct od2.OrderID) > 5
+					) As Tab2
+				ON 	 c.CustomerID = Tab2.customerID
+			JOIN
+				( SELECT DISTINCT o3.customerID
+							from Products p3  JOIN
+								 Categories cc3   ON p3.categoryID = cc3.CategoryID
+								 JOIN  OrderDetails od3 ON od3.ProductID = p3.ProductID
+								 JOIN Orders o3 ON o3.orderID = od3.OrderID
+							where cc3.CategoryName = 'Condiments'
+								  and o3.ORDERDATE BETWEEN '01/01/1998' AND '30/06/1998'
+					) AS Tab3
+					ON 	 c.CustomerID = Tab3.customerID
+			JOIN
+					( SELECT DISTINCT o4.customerID
+							FROM  oRDERS o4
+							WHERE YEAR(o4.orderdate)=1997
+									 Group By o4.customerID
+									 Having   Count(distinct o4.OrderID) > 10
+						)  AS TAB4
+			ON c.CustomerID = Tab4.customerID
+
+Order By Tab1.TotalOrdenes DESC
+
+/*
+II) [10p] Escribir una Consulta que muestre el Código y Nombre de las 
+Categorías(CategoryName) de productos y devuelva además como datos de 
+salida: 
+1) ‘TOTALdeVENTAS’: obtenido aplicando la formula [quantity * UnitPrice * 
+(1-Discount) ]  de todos los productos para la Categoría indicada.  
+2) ‘TOTALdeUNIDADES’ como la cantidad total de unidades vendidas de 
+todos los productos dentro de esa categoría.  
+Solamente para aquellas categorías que cumplan alguna de las siguientes 
+restricciones:   
+a) El total de Ventas de la categoría Supere el Promedio general de Ventas  
+de todas las categorías para el año anterior al año en curso. 
+b) El total unidades vendidas para la categoría Supere el Promedio general de 
+Unidades vendidas de todas las categorías para el año anterior al año en 
+curso. 
+*/ 
+
+
+/* 
+III) [10p] Crear una CONSULTA que Retorne los 10 primeros registros con los 
+siguientes atributos: 
+(CustomerID, CompanyName, ContactName,Id del Empleado, Nombre del 
+empleado y CantidadOrdenes)  
+ Para los 10 Clientes que más pedidos (#) han realizado en el año en curso y que 
+tengan Pedidos realizados en todos los meses del año anterior. 
+*/
+
+*/ 
+
+
+--=====<<<<<<< SOLUCIONES >>>>>>> ==================================================
+
+/* 
+I) [10p] Escribir una consulta SQL que muestre: todos los datos de los clientes, el 
+TotalOrdenes y TotalUnidadesPedidas  para aquellos Clientes que han realizado  
+más de 5 ordenes de productos en la categoría 'Condiments', y además hayan 
+realizado al menos una orden en la categoría 'Condiments'en el Primer semestre 
+de 1998 y el Cliente haya colocado mas de 10 ordenes en 1997. 
+ 
+Muestre los resultados Ordenados por el Total de ordenes de cada cliente  de 
+mayor a menor. 
+*/
+
+-------------------------------------------------------------------------- 
+SELECT c.*, T.TotalOrdenes,T.TotalUnidades 
+FROM Customers c INNER JOIN 
+( 
+ SELECT o.CustomerID, COUNT(o.OrderID) AS TotalOrdenes, 
+   SUM(od.Quantity) AS TotalUnidades 
+ FROM  Orders o, OrderDetails od, Products p, Categories cc 
+ WHERE o.OrderID = od.OrderID 
+      AND od.ProductID = p.ProductID 
+   AND p.CategoryID = cc.CategoryID 
+   -- condiciones 
+      AND cc.CategoryName = 'Condiments' 
+   AND o.OrderDate BETWEEN '1998-01-01' AND '1998-06-01' 
+      AND EXISTS (SELECT * 
+                  FROM Orders o2 
+                  WHERE o2.CustomerID = o.CustomerID   --referencia externa 
+                        AND Year(o2.OrderDate) = 1997 
+      Group by o2.CustomerID 
+      HAVING Count(o2.OrderID) > 10 
+    ) 
+ GROUP BY o.CustomerID 
+ HAVING COUNT(o.OrderID) > 5 
+  )  T 
+  ON c.CustomerID = T.CustomerID 
+ORDER BY T.TotalOrdenes DESC 
+-------------------------------
+*/
+/*
+II) [10p] Escribir una Consulta que muestre el Código y Nombre de las 
+Categorías(CategoryName) de productos y devuelva además como datos de 
+salida: 
+1) ‘TOTALdeVENTAS’: obtenido aplicando la formula [quantity * UnitPrice * 
+(1-Discount) ]  de todos los productos para la Categoría indicada.  
+2) ‘TOTALdeUNIDADES’ como la cantidad total de unidades vendidas de 
+todos los productos dentro de esa categoría.  
+Solamente para aquellas categorías que cumplan alguna de las siguientes 
+restricciones:   
+a) El total de Ventas de la categoría Supere el Promedio general de Ventas  
+de todas las categorías para el año anterior al año en curso. 
+b) El total unidades vendidas para la categoría Supere el Promedio general de 
+Unidades vendidas de todas las categorías para el año anterior al año en 
+curso. 
+*/ 
+SELECT c.CategoryID,c.CategoryName 
+        SUM(od.UnitPrice * od.Quantity * (1-Discount)) as TotalVentas, 
+        SUM(od.Quantity) as TotalQuantity 
+    FROM 
+        Products p 
+        INNER JOIN OrderDetails od ON p.ProductID = od.ProductID 
+        INNER JOIN Categories c ON p.CategoryID = c.CategoryID 
+    WHERE 
+         c.CategoryID = @CategoryNom 
+    GROUP BY p.CategoryID, c.CategoryName 
+    HAVING SUM(od.UnitPrice * od.Quantity * (1-Discount)) > (--Sub1) 
+ --Sub1:Promedio general de Ventas de todas las categorias -- para el año anterior al año en curso 
+          
+        OR SUM(od.Quantity) > (--Sub2) 
+ --Sub2: Promedio general de Unidades vendidas de todas las categorias  --para el año anterior al año en curso.          
+ 
+ --Implemento las Subconsultas: 
+ --Sub1: Promedio general de Ventas de todas las categorías para el año anterior al        
+año en curso 
+ (select SUM(od.Quantity)  
+  from OrderDetails od1 INNER JOIN Orders o1  
+  ON o1.OrderID = od1.OrderID 
+  where year(o1.orderdate) = Year(getdate()) -1  ) 
+ --Sub2: Promedio general de Unidades vendidas de todas las categorías para el año 
+anterior al año en curso. 
+ (select AVG(od1.UnitPrice * od1.Quantity* (1-od1.Discount))  
+  from OrderDetails od1 INNER JOIN Orders o1  
+  ON o1.OrderID = od1.OrderID 
+  where year(o1.orderdate) = Year(getdate()) -1  ) 
+GO
+
+/*  --------------------------------------------------------------------------------
+III) [10p] Crear una CONSULTA que Retorne los 10 primeros registros con los 
+siguientes atributos: 
+(CustomerID, CompanyName, ContactName,Id del Empleado, Nombre del 
+empleado y CantidadOrdenes)  
+ Para los 10 Clientes que más pedidos (#) han realizado en el año en curso y que 
+tengan Pedidos realizados en todos los meses del año anterior. 
+*/
+SELECT TOP 10 c.CustomerID, c.CompanyName, c.ContactName,o2.employeeID, 
+     e.FirstName,e.Lastname,T1.TotalOrdenes 
+FROM Customers c , Employees e, Orders o2, 
+ ( -- lOS Clientes CON MAS PEDIDOS, y con pedidos ORDENADOS EN TODOS LOS MESES AÑO ANTERIOR 
+ SELECT o.CustomerID,COUNT(o.OrderID) as TotalOrdenes 
+ FROM ORDERS o 
+ WHERE o.CustomerID IN (select T.CustomerID   
+       From  
+     ( 
+     SELECT o1.CustomerID,month(o1.orderdate) as mes  
+     from Orders o1  
+     where year(o1.orderdate) = year(getdate())-1 
+     group by o1.CustomerID,month(o1.orderdate) 
+     having Count(o1.orderID) > 0  
+     ) T 
+       group by T.CustomerID 
+       having Count(*) = 12 
+      ) 
+ GROUP BY o.CustomerID  
+ ) T1 
+ WHERE T1.CustomerID = o2.CustomerID  
+ and c.CustomerID = T1.CustomerID 
+ and e.EmployeeID = o2.employeeID 
+ ORDER by T1.TotalOrdenes dESC 
+ 
+go
+---
