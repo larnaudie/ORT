@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "5c84791b-adb8-411b-9116-e3a73ac6a9b1",
+		"name": "ORT-TALLER D.D.Moviles-obligatorio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21645645"
+	},
+	"item": [
+		{
+			"name": "Registro",
+			"item": [
+				{
+					"name": "RegistrarUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\": \"TPabloLarnaudie\",\r\n    \"password\":\"TPabloLarnaudie\",\r\n    \"idPais\": 235\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/usuarios.php",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuarios.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerUsuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "apiKey",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "iduser",
+								"value": "{{iduser}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/usuario?idUsuario=2218.php",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuario"
+							],
+							"query": [
+								{
+									"key": "idUsuario",
+									"value": "2218.php"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerUsuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "apiKey",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "iduser",
+								"value": "{{iduser}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/usuarios.php",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuarios.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "LoginUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuario\":\"TPabloLarnaudie\",\r\n    \"password\":\"TPabloLarnaudie\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/login.php",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"login.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Paises",
+			"item": [
+				{
+					"name": "ObtenerPaises",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/paises.php",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"paises.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UsuarioPorPais",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "apiKey",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "idUser",
+								"value": "{{iduser}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/usuariosPorPais.php",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuariosPorPais.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registros",
+			"item": [
+				{
+					"name": "ObtenerRegistros",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "apiKey",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "idUser",
+								"value": "{{iduser}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/registros.php?idUsuario={{iduser}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"registros.php"
+							],
+							"query": [
+								{
+									"key": "idUsuario",
+									"value": "{{iduser}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AgregarRegistro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "apiKey",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "iduser",
+								"value": "{{iduser}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idActividad\": 2,\r\n    \"idUsuario\": 2218,\r\n    \"tiempo\": 180,\r\n    \"fecha\": \"2025-10-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/registros.php",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"registros.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarRegistro",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "apiKey",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "iduser",
+								"value": "{{iduser}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/registros.php?idRegistro=1410",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"registros.php"
+							],
+							"query": [
+								{
+									"key": "idRegistro",
+									"value": "1410"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actividades",
+			"item": [
+				{
+					"name": "ObtenerActividades",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "apiKey",
+								"value": "{{apiKey}}",
+								"type": "text"
+							},
+							{
+								"key": "iduser",
+								"value": "{{iduser}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/actividades.php",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"actividades.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
