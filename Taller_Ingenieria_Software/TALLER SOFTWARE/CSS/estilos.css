@@ -1,0 +1,633 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding-top: 0;
+  box-sizing: border-box;
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
+}
+
+/* Tipografía general */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #fdfdfd;
+  color: #222;
+}
+
+/* Navegación */
+header {
+  background-color: #1f1f1f;
+  color: white;
+  padding: 15px 0;
+  position: fixed;
+  /* Fija el header en la pantalla */
+  top: 0;
+  /* Lo pone pegado arriba */
+  left: 0;
+  /* Lo alinea a la izquierda */
+  width: 100%;
+  /* Que ocupe todo el ancho */
+  z-index: 1000;
+  /* Que esté por encima de otros elementos */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Opcional, para dar sombra y que se destaque */
+}
+
+.navegacion {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #e0b458;
+}
+
+/* Banner */
+.banner {
+  background: url('../IMG/banner.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 300px 20px;
+}
+
+.banner h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.banner p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.banner button {
+  background-color: #e0b458;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.banner button:hover {
+  background-color: #c69c3b;
+}
+
+/* Sobre Nosotros */
+.sobre-nosotros {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.sobre-nosotros h2,
+.sobre-nosotros h3 {
+  margin-bottom: 20px;
+}
+
+.sobre-nosotros p {
+  margin-bottom: 30px;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.galeria .imagen {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.galeria .imagen img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.galeria .imagen:hover img {
+  transform: scale(1.05);
+}
+
+/* Servicios */
+#servicios {
+  background-color: rgb(83, 78, 78);
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.servicio {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.imagen-servicio {
+  background-color: #ddd;
+  height: 150px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Promos */
+#promos {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.promos-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.promo-imagen {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.promo-imagen img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Staff */
+#staff {
+  background-color: rgb(83, 78, 78);
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+
+.barbero {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.foto-barbero {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  aspect-ratio: 4/5;
+  /* agrega proporción estándar vertical */
+}
+
+.foto-barbero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Contacto */
+#contacto {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.contacto-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.info-contacto {
+  max-width: 400px;
+  text-align: left;
+}
+
+.mapa-imagen {
+  background-color: #ccc;
+  width: 300px;
+  height: 200px;
+  border-radius: 6px;
+}
+
+/* Footer */
+footer {
+  background-color: #1f1f1f;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-contenido {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.iconos-redes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.icono {
+  background-color: #e0b458;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+/* estilos específicos para login y registro */
+
+/* Reset básico para formularios */
+.login-container,
+.register-container {
+  background-color: #fff;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 35px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* Títulos */
+.login-container h2.iniciar-sesion,
+.register-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Grupos de inputs */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+  font-size: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  border-color: #e0b458;
+  box-shadow: 0 0 8px rgba(224, 180, 88, 0.4);
+}
+
+/* Botones */
+.btn {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #e0b458;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #c69c3b;
+}
+
+/* Footer de formulario */
+.login-footer,
+.register-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+}
+
+.login-footer a,
+.register-footer a {
+  color: #e0b458;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.login-footer a:hover,
+.register-footer a:hover {
+  color: #c69c3b;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+
+  .login-container,
+  .register-container {
+    margin: 50px 15px;
+    padding: 25px 20px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#agregarBarbero form {
+  max-width: 600px;
+  /* o el ancho que quieras */
+  margin: 0 auto;
+  padding: 30px;
+  margin-top: 130px;
+  display: block;
+  /* bloque para que los inputs estén en columna */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#agregarBarbero {
+  height: auto;
+  /* que tome la altura según contenido */
+  min-height: 100vh;
+  /* opcional, para que no quede demasiado corto */
+  padding-top: 30px;
+  /* para que no quede pegado arriba */
+  box-sizing: border-box;
+}
+
+#agregarBarbero label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+#agregarBarbero input[type="text"],
+#agregarBarbero input[type="file"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 20px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+#reservasClientes {
+  max-width: 1000px;
+  margin: 120px auto 40px;
+  padding: 40px 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+#reservasClientes h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+#listaReservasAdmin {
+  overflow-x: auto;
+  /* para que no se rompa en pantallas chicas */
+}
+
+#listaReservasAdmin table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+#listaReservasAdmin th,
+#listaReservasAdmin td {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+#listaReservasAdmin thead {
+  background-color: #e0b458;
+  color: #fff;
+}
+
+#listaReservasAdmin tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#listaReservasAdmin tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+#reservarCita {
+  background-color: #f2f2f2;
+  padding: 30px;
+  max-width: 600px;
+  margin: 250px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+#reservarCita h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Formulario de reserva */
+#formReserva {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+#formReserva label {
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+#formReserva select,
+#formReserva input,
+#formReserva button {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#formReserva button {
+  background-color: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#formReserva button:hover {
+  background-color: #222;
+}
+
+#misDatos {
+  padding: 20px 20px;
+  max-width: 800px;
+  margin: 200px auto;
+  background-color: #fff6f0;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#misDatos h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #cc6600;
+}
+
+#misDatos table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+#misDatos th,
+#misDatos td {
+  border: 1px solid #e6b89c;
+  padding: 12px;
+  text-align: center;
+}
+
+#misDatos th {
+  background-color: #f4a261;
+  color: #fff;
+}
+
+#misDatos td {
+  background-color: #fdf3ec;
+}
+
+#misReservas {
+  padding: 30px 20px;
+  max-width: 900px;
+  margin: 200px auto;
+  background-color: #e6f7ff;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#misReservas h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #0077b6;
+}
+
+#misReservas table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+#misReservas th,
+#misReservas td {
+  border: 1px solid #b3dfff;
+  padding: 12px;
+  text-align: center;
+}
+
+#misReservas th {
+  background-color: #48cae4;
+  color: white;
+}
+
+#misReservas td {
+  background-color: #f0fbff;
+}
+
+#misReservas button {
+  padding: 6px 12px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#misReservas button:hover {
+  background-color: #cc0000;
+}
