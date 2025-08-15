@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Página orientada a reservas en una barbería" />
+  <meta name="author" content="Barbería" />
+  <link rel="shortcut icon" href="IMG/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="CSS/estilos.css" />
+  <script src="js/clases.js"></script>
+  <script src="js/sistema.js"></script>
+  <script src="js/codigo.js" defer></script>
+  <title>BARBERÍA</title>
+</head>
+
+<body>
+  <header>
+    <div class="navegacion">
+      <div class="logo"><img src="IMG/logo.jpg" alt="logo" /></div>
+      <nav>
+        <ul id="navPrincipal">
+          <li class="publico"><a href="#inicio">Inicio</a></li>
+          <li class="publico"><a href="#sobreNosotros">Sobre Nosotros</a></li>
+          <li class="publico"><a href="#servicios">Servicios</a></li>
+          <li class="publico"><a href="#promos">Promos Activas</a></li>
+          <li class="publico"><a href="#staff">Staff</a></li>
+          <li class="publico"><a href="#contactanos">Contactanos</a></li>
+
+          <li class="admin"><a id="btnAgregarBarbero" href="#agregarBarbero" class="btnSeccion admin">Agregar Barbero</a></li>
+          <li class="admin"><a id="btnAdministrarReservas" href="#reservasClientes" class="btnSeccion admin">Administrar
+              Reservas</a></li>
+
+          <li class="user"><a id="btnReservarCita" href="#reservarCita" class="btnSeccion user">Reservar Cita</a></li>
+          <li class="user"><a id="btnMisDatos" href="#misDatos" class="btnSeccion user">Mis Datos</a></li>
+          <li class="user"><a id="btnMisReservas" href="#misReservas" class="btnSeccion user">Mis Reservas</a></li>
+
+          <li><a id="logIn" href="#login">Log in</a></li>
+          <li class="privado"><a id="logOut" href="login.html">Sign out</a></li>
+
+
+
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenidoGeneral">
+    <!-- BANNER -->
+    <section class="banner" id="inicio">
+      <h1>Tu barbería de siempre, con estilo de hoy</h1>
+      <p>Acercate a vivir una experiencia de cuidado personal única</p>
+      <button onclick="mostrarSoloSeccion('seccionLogin')">RESERVA TU CITA</button>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="sobre-nosotros" id="sobreNosotros">
+      <h2 style="font-size: 50px">Sobre nosotros...</h2>
+      <p style="font-size: 20px">
+        En <strong>Estilo Clásico</strong>, la barbería no es solo un lugar para cortarte el pelo: es un ritual.
+        <br />
+        Desde nuestros comienzos, nos dedicamos a ofrecer un servicio personalizado, combinando la técnica tradicional
+        con lo mejor de las tendencias actuales. <br />
+        Nos apasiona ayudarte a encontrar tu estilo y cuidarlo.
+      </p>
+      <h3 style="font-size: 35px">Más que una barbería. Un lugar donde el estilo se respira..</h3>
+
+      <div class="galeria">
+        <div class="imagen"><img src="IMG/trabajo 1.jpg" alt="" /></div>
+        <div class="imagen"><img src="IMG/trabajo2.avif" alt="" /></div>
+        <div class="imagen"><img src="IMG/trabajo3.avif" alt="" /></div>
+        <div class="imagen"><img src="IMG/trabajo 4.avif" alt="" /></div>
+        <div class="imagen"><img src="IMG/trabajo5.jpg" alt="" /></div>
+        <div class="imagen"><img src="IMG/trabajo6.webp" alt="" /></div>
+        <div class="imagen"><img src="IMG/trabajo7.jpeg" alt="" /></div>
+        <div class="imagen"><img src="IMG/trabajo8.jfif" alt="" /></div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <h2 style="font-size: 50px">Descubrí qué tenemos para vos</h2>
+      <div class="servicios-grid" id="contenedorServicios">
+        <!-- Acá se cargarán los servicios dinámicamente -->
+      </div>
+    </section>
+
+    <!-- PROMOS -->
+    <section id="promos">
+      <h2 style="font-size: 50px">Promociones activas</h2>
+      <p>¡Aprovechá nuestras promos pensadas para ti!</p>
+      <div class="promos-grid">
+        <div class="promo-imagen">
+          <img src="IMG/promo1.png" alt="Promo 1" />
+        </div>
+        <div class="promo-imagen">
+          <img src="IMG/promo2.jpg" alt="Promo 2" />
+        </div>
+      </div>
+    </section>
+
+    <!-- STAFF -->
+    <section id="staff">
+      <h2 style="font-size: 50px">Nuestro Staff</h2>
+      <div class="staff-grid" id="contenedorBarberos">
+        <!-- Acá se cargarán los barberos dinámicamente -->
+      </div>
+    </section>
+
+    
+
+    <!-- CONTACTO -->
+    <section id="contactanos">
+      <h2 style="font-size: 50px">Contáctanos</h2>
+      <div class="contacto-contenido">
+        <div class="info-contacto">
+          <p><strong>📍 Dirección:</strong> Av. Rivera 1234, Montevideo</p>
+          <p><strong>📞 Teléfono / WhatsApp:</strong> +598 92 456 789</p>
+          <p><strong>📧 Correo:</strong> estiloclasicobarberia@gmail.com</p>
+          <p><strong>🕐 Horario:</strong> Lunes a Sábados: xx:xx a xx:xx hs</p>
+        </div>
+        <div class="mapa">
+          <div class="mapa-imagen"><img src="IMG/mapa.jfif" alt="" /></div>
+        </div>
+      </div>
+    </section>
+
+   <section id="misDatos" class="seccion" style="display:none">
+  <h2>Mis Datos</h2>
+  <!-- Usamos un div para el contenido dinámico en texto -->
+  <div id="infoUsuario"></div>
+</section>
+
+<section id="misReservas" class="seccion" style="display:none">
+  <h2>Mis Reservas</h2>
+  <div id="listaReservasUsuario">
+    <!-- Aquí se inyectan las reservas en forma de divs dinámicos -->
+  </div>
+</section>
+
+    <!-- Solo para admin -->
+    <section id="reservasClientes" class="seccion" style="display:none">
+      <h2>Administrar Reservas</h2>
+      <div id="listaReservasAdmin">
+        <table border="1">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre Usuario</th>
+              <th>Servicio</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Importe</th>
+              <th>Barbero</th>
+              <th>Telefono Contacto</th>
+            </tr>
+          </thead>
+          <!-- RELLENAR ID -->
+          <tbody id="tblMisReservas"></tbody>
+        </table><br><br>
+      </div>
+    </section>
+
+    <section id="agregarBarbero" class="seccion" style="display:none">
+      <h2>Agregar Barbero</h2>
+      <div id="agregarBarberos">
+        <form id="formAgregarBarbero" enctype="multipart/form-data">
+          <label for="nombreBarbero">Nombre:</label>
+          <input type="text" id="nombreBarbero" required><br><br>
+
+          <label for="apellidoBarbero">Apellido:</label>
+          <input type="text" id="apellidoBarbero" required><br><br>
+
+          <label for="especialidadBarbero">Especialidad:</label>
+          <input type="text" id="especialidadBarbero" required><br><br>
+
+          <label for="imagenBarbero">Foto:</label>
+          <input type="file" id="imagenBarbero" accept="image/*" required><br><br>
+
+          <button type="submit">Agregar Barbero</button>
+        </form>
+
+        <div id="listaBarberosAgregados">
+          <!-- Acá se mostrarán los barberos recién creados -->
+        </div>
+      </div>
+    </section>
+
+
+    <section id="reservarCita" class="seccion" style="display:none">
+      <h2>Reservar Cita</h2>
+      <form id="formReserva">
+        <label for="slcServicio">Servicio:</label>
+        <select id="slcServicio" required></select><br><br>
+
+        <label for="slcBarbero">Barbero:</label>
+        <select id="slcBarbero" required></select><br><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" required><br><br>
+
+        <label for="hora">Hora:</label>
+        <select id="hora" required></select><br><br>
+
+        <button type="submit">Reservar</button>
+      </form>
+    </section>
+
+
+    <section id="seccionLogin" class="seccion" style="display:none">
+  <div class="login-container">
+    <h2 class="iniciar-sesion">Iniciar Sesión</h2>
+
+    <form>
+      <div class="form-group">
+        <label for="username">Usuario</label>
+        <input type="text" id="username" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" required />
+      </div>
+
+      <div class="form-group">
+        <label for="slcTipoUsuario">Rol de Usuario</label>
+        <select id="slcTipoUsuario" required>
+          <option value="" disabled selected>-- Seleccione un rol --</option>
+          <option value="admin">Administrador</option>
+          <option value="user">Usuario</option>
+        </select>
+      </div>
+
+      <button type="button" class="btn" id="btnLogin">Entrar</button>
+    </form>
+
+    <div class="login-footer">
+      ¿No tenés cuenta? <a href="#" onclick="event.preventDefault(); mostrarSoloSeccion('seccionRegistro')">Registrate</a>
+    </div>
+
+    <div class="login-footer">
+      <h4>¿Querés seguir viendo nuestra página?</h4>
+      <button type="button" class="btn" onclick="mostrarSoloSeccion('inicio')">Volver</button>
+    </div>
+  </div>
+</section>
+
+
+<section id="seccionRegistro" class="seccion" style="display:none">
+  <div class="register-container">
+    <h2>Registrarse</h2>
+    <form>
+      <div class="form-group">
+        <label for="usernameRegister">Nombre de Usuario</label>
+        <input type="text" id="usernameRegister" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="passwordRegister" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Teléfono de Contacto</label>
+        <input type="tel" id="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <button type="button" id="btnRegistrar" class="btnnRegistrar">Registrarse</button>
+
+      <div class="register-footer">
+        ¿Ya tenés cuenta? <a href="#" onclick="event.preventDefault(); mostrarSoloSeccion('seccionLogin')">Iniciá sesión</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <div class="footer-contenido" id="footer">
+      <p>Footer</p>
+      <div class="iconos-redes">
+        <div class="icono"></div>
+        <div class="icono"></div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
